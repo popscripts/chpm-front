@@ -1,26 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
+@source "../app/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../pages/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../src/**/*.{js,ts,jsx,tsx,mdx}";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-deep-teal: #00384d;
+  --color-deep-teal-medium: #0E3444;
+  --color-deep-teal-dark: #17252C;
+  --color-champagne-gold: #D4AF37;
+  --color-champagne-gold-dark: #22241F;
+  --color-soft-charcoal: #1A1A1A;
+  --color-off-white: #F5F5F5;
+  --color-deep-teal-rgb: 0 56 77;
+  --color-champagne-gold-rgb: 212 175 55;
+  --color-soft-charcoal-rgb: 26 26 26;
+  --color-off-white-rgb: 245 245 245;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.font-playfair {
+  font-family: 'Playfair Display', serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--color-soft-charcoal);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-soft-charcoal);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-deep-teal);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-champagne-gold);
 }
