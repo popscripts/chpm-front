@@ -1,17 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
-@source "../app/**/*.{js,ts,jsx,tsx,mdx}";
-@source "../pages/**/*.{js,ts,jsx,tsx,mdx}";
-@source "../src/**/*.{js,ts,jsx,tsx,mdx}";
 
 :root {
   --color-deep-teal: #00384d;
-  --color-deep-teal-medium: #0E3444;
-  --color-deep-teal-dark: #17252C;
-  --color-champagne-gold: #D4AF37;
-  --color-champagne-gold-dark: #22241F;
-  --color-soft-charcoal: #1A1A1A;
-  --color-off-white: #F5F5F5;
+  --color-deep-teal-medium: #0e3444;
+  --color-deep-teal-dark: #17252c;
+  --color-champagne-gold: #d4af37;
+  --color-champagne-gold-dark: #22241f;
+  --color-soft-charcoal: #1a1a1a;
+  --color-off-white: #f5f5f5;
   --color-deep-teal-rgb: 0 56 77;
   --color-champagne-gold-rgb: 212 175 55;
   --color-soft-charcoal-rgb: 26 26 26;
@@ -19,15 +16,15 @@
 }
 
 .font-playfair {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
 }
 
 .font-montserrat {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: var(--color-soft-charcoal);
 }
 
