@@ -52,13 +52,13 @@ export default function HeroSection() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href={createPageUrl("Concerts")}
+              href={createPageUrl("koncerty")}
               className="inline-flex items-center justify-center px-8 py-4 bg-(--color-champagne-gold) text-(--color-soft-charcoal) font-montserrat font-semibold text-sm uppercase tracking-wider hover:bg-[rgb(var(--color-champagne-gold-rgb)/0.9)] transition-all duration-300"
             >
               Najbliższy koncert
             </Link>
             <Link
-              href={createPageUrl("Support")}
+              href={createPageUrl("wsparcie")}
               className="inline-flex items-center justify-center px-8 py-4 border border-[rgb(var(--color-off-white-rgb)/0.3)] text-(--color-off-white) font-montserrat font-semibold text-sm uppercase tracking-wider hover:bg-[rgb(var(--color-off-white-rgb)/0.1)] transition-all duration-300 backdrop-blur-sm"
             >
               Wesprzyj nas

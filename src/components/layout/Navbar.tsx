@@ -9,11 +9,11 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const navLinks = [
-  { name: "O nas", page: "About" },
-  { name: "Dyrygent", page: "Conductor" },
-  { name: "Koncerty", page: "Concerts" },
-  { name: "Twórczość", page: "Creativity" },
-  { name: "Wsparcie", page: "Support" },
+  { name: "O nas", page: "o-nas" },
+  { name: "Dyrygent", page: "dyrygent" },
+  { name: "Koncerty", page: "koncerty" },
+  { name: "Twórczość", page: "tworczosc" },
+  { name: "Wsparcie", page: "wsparcie" },
 ];
 
 export default function Navbar() {
@@ -41,7 +41,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <Link
-            href={createPageUrl("Home")}
+            href={createPageUrl("")}
             className="inline-flex items-center"
           >
             <Image
@@ -112,12 +112,6 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <Link
-                href={createPageUrl("Concerts")}
-                className="mt-8 px-8 py-4 bg-(--color-champagne-gold) text-(--color-soft-charcoal) font-montserrat font-semibold text-sm uppercase tracking-wider"
-              >
-                Kup bilet
-              </Link>
             </div>
           </motion.div>
         )}

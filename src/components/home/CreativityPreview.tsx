@@ -130,7 +130,7 @@ export default function CreativityPreview() {
         {/* CTA */}
         <div className="text-center">
           <Link
-            href={createPageUrl("Creativity")}
+            href={createPageUrl("tworczosc")}
             className="inline-flex items-center gap-3 text-(--color-champagne-gold) font-montserrat font-semibold text-sm uppercase tracking-wider hover:gap-5 transition-all duration-300 group"
           >
             Zobacz pełną twórczość

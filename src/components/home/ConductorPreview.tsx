@@ -46,7 +46,7 @@ export default function ConductorPreview() {
             </p>
 
             <Link
-              href={createPageUrl("Conductor")}
+              href={createPageUrl("dyrygent")}
               className="inline-flex items-center gap-3 text-(--color-champagne-gold) font-montserrat font-semibold text-sm uppercase tracking-wider hover:gap-5 transition-all duration-300 group"
             >
               Poznaj historię

@@ -11,17 +11,17 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-(--color-deep-teal) pt-20 pb-8 px-6 shadow-[0_-10px_60px_-15px_rgb(var(--color-deep-teal-rgb)/0.5)]">
+    <footer className="bg-(--color-deep-teal) pt-20 pb-8 px-6 shadow-[0_-10px_60px_-15px_rgb(var(--color-deep-teal-dark))]">
       <div className="max-w-6xl mx-auto">
         {/* Main Footer Content */}
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-1">
             <Link
-              href={createPageUrl("Home")}
+              href={createPageUrl("")}
               className="font-playfair text-3xl text-(--color-off-white) mb-4 block"
             >
-              Harmonia
+              Chór Politechniki Morskiej w Szczecinie
             </Link>
             <p className="text-[rgb(var(--color-off-white-rgb)/0.6)] font-montserrat text-sm leading-relaxed">
               Chór kameralny z tradycją sięgającą ponad 30 lat. Tworzymy muzykę,
@@ -36,11 +36,11 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                { name: "O nas", page: "About" },
-                { name: "Dyrygent", page: "Conductor" },
-                { name: "Koncerty", page: "Concerts" },
-                { name: "Twórczość", page: "Creativity" },
-                { name: "Wsparcie", page: "Support" },
+                { name: "O nas", page: "o-nas" },
+                { name: "Dyrygent", page: "dyrygent" },
+                { name: "Koncerty", page: "koncerty" },
+                { name: "Twórczość", page: "tworczosc" },
+                { name: "Wsparcie", page: "wsparcie" },
               ].map((link) => (
                 <li key={link.page}>
                   <Link
