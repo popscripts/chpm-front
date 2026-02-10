@@ -1,5 +1,13 @@
 
-export default function GlassCard({ children, className, ...props }) {
+import { ReactNode } from 'react';
+
+interface GlassCardProps {
+  children: ReactNode;
+  className?: string;
+  [key: string]: unknown;
+}
+
+export default function GlassCard({ children, className, ...props }: GlassCardProps) {
   return (
     <div 
       className={

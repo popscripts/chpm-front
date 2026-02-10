@@ -144,9 +144,9 @@ export default function Support() {
 
           <div className="space-y-10">
             {tierOrder.map((tier) => {
-              const tierPatrons = groupedPatrons[tier];
+              const tierPatrons = groupedPatrons[tier as keyof typeof groupedPatrons];
               if (tierPatrons.length === 0) return null;
-              const config = tierConfig[tier];
+              const config = tierConfig[tier as keyof typeof tierConfig];
               const Icon = config.icon;
               const useList = tier === 'bosman' || tier === 'marynarz' || tier === 'mat_podchorazy';
               const listEmphasis = tier === 'bosman';
