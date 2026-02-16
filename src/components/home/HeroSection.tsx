@@ -1,7 +1,6 @@
 "use client";
 
 import { createPageUrl } from "@/utils/helpers";
-import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 
@@ -32,12 +31,7 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-20 h-full flex flex-col items-center justify-center px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="max-w-4xl"
-        >
+        <div className="max-w-4xl animate-reveal fade-up">
           <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl text-(--color-off-white) mb-6 tracking-tight">
             Chór Politechniki Morskiej
             <span className="block text-(--color-champagne-gold)">
@@ -64,23 +58,16 @@ export default function HeroSection() {
               Wesprzyj nas
             </Link>
           </div>
-        </motion.div>
+        </div>
 
         {/* Scroll indicator */}
-        <motion.button
+        <button
           onClick={scrollToContent}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[rgb(var(--color-off-white-rgb)/0.6)] hover:text-(--color-champagne-gold) transition-colors cursor-pointer"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[rgb(var(--color-off-white-rgb)/0.6)] hover:text-(--color-champagne-gold) transition-colors cursor-pointer animate-reveal fade-up"
+          style={{ transitionDelay: "300ms" }}
         >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-          >
-            <ChevronDown size={32} />
-          </motion.div>
-        </motion.button>
+          <ChevronDown size={32} />
+        </button>
       </div>
 
       {/* Decorative elements */}

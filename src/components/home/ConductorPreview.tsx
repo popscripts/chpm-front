@@ -1,7 +1,4 @@
-"use client";
-
 import { createPageUrl } from "@/utils/helpers";
-import { motion } from "framer-motion";
 import { ArrowRight, Quote } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,13 +9,7 @@ export default function ConductorPreview() {
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="order-2 md:order-1"
-          >
+          <div className="order-2 md:order-1 animate-reveal fade-left">
             <span className="text-(--color-champagne-gold) font-montserrat text-sm uppercase tracking-[0.3em] mb-4 block">
               Dyrygent
             </span>
@@ -55,15 +46,12 @@ export default function ConductorPreview() {
                 className="group-hover:translate-x-1 transition-transform"
               />
             </Link>
-          </motion.div>
+          </div>
 
           {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="order-1 md:order-2 relative isolate"
+          <div
+            className="order-1 md:order-2 relative isolate animate-reveal fade-right"
+            style={{ transitionDelay: "120ms" }}
           >
             <div className="relative z-10 aspect-3/4 overflow-hidden shadow-[0_10px_80px_0px_var(--color-champagne-gold-dark)]">
               <Image
@@ -78,7 +66,7 @@ export default function ConductorPreview() {
             </div>
             {/* Decorative frame */}
             <div className="absolute -top-4 -left-4 w-full h-full border border-[rgb(var(--color-champagne-gold-rgb)/0.3)] z-0" />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

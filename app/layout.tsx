@@ -1,4 +1,5 @@
 import Footer from "@/components/layout/Footer";
+import FadeInProvider from "@/components/layout/FadeInProvider";
 import Navbar from "@/components/layout/Navbar";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -17,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        {children}
+        <FadeInProvider>{children}</FadeInProvider>
         <Footer />
       </body>
     </html>

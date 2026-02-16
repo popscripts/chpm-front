@@ -1,37 +1,71 @@
 "use client";
 
-import { placeholderPatrons } from '@/data/patrons';
-import { motion } from 'framer-motion';
-import { Award, Crown, ExternalLink, Heart, Star } from 'lucide-react';
+import { placeholderPatrons } from "@/data/patrons";
+import { motion } from "framer-motion";
+import { Award, Crown, ExternalLink, Heart, Star } from "lucide-react";
 
 const tierConfig = {
-  oficer: { icon: Crown, color: 'text-(--color-champagne-gold)', bg: 'bg-(--color-champagne-gold)/10', border: 'border-(--color-champagne-gold)/40', label: 'Oficer' },
-  mechanik: { icon: Award, color: 'text-(--color-off-white)/80', bg: 'bg-(--color-off-white)/8', border: 'border-(--color-off-white)/25', label: 'Mechanik' },
-  bosman: { icon: Star, color: 'text-(--color-off-white)', bg: 'bg-(--color-deep-teal)/20', border: 'border-(--color-deep-teal)/40', label: 'Bosman' },
-  marynarz: { icon: Heart, color: 'text-(--color-off-white)/70', bg: 'bg-(--color-deep-teal-medium)/20', border: 'border-(--color-deep-teal-medium)/40', label: 'Marynarz' },
-  mat_podchorazy: { icon: Heart, color: 'text-(--color-off-white)/60', bg: 'bg-(--color-deep-teal-dark)/30', border: 'border-(--color-deep-teal-dark)/50', label: 'Mat Podchorąży' }
+  oficer: {
+    icon: Crown,
+    color: "text-(--color-champagne-gold)",
+    bg: "bg-(--color-champagne-gold)/10",
+    border: "border-(--color-champagne-gold)/40",
+    label: "Oficer",
+  },
+  mechanik: {
+    icon: Award,
+    color: "text-(--color-off-white)/80",
+    bg: "bg-(--color-off-white)/8",
+    border: "border-(--color-off-white)/25",
+    label: "Mechanik",
+  },
+  bosman: {
+    icon: Star,
+    color: "text-(--color-off-white)",
+    bg: "bg-(--color-deep-teal)/20",
+    border: "border-(--color-deep-teal)/40",
+    label: "Bosman",
+  },
+  marynarz: {
+    icon: Heart,
+    color: "text-(--color-off-white)/70",
+    bg: "bg-(--color-deep-teal-medium)/20",
+    border: "border-(--color-deep-teal-medium)/40",
+    label: "Marynarz",
+  },
+  mat_podchorazy: {
+    icon: Heart,
+    color: "text-(--color-off-white)/60",
+    bg: "bg-(--color-deep-teal-dark)/30",
+    border: "border-(--color-deep-teal-dark)/50",
+    label: "Mat Podchorąży",
+  },
 };
 
-const tierOrder = ['oficer', 'mechanik', 'bosman', 'marynarz', 'mat_podchorazy'];
-
+const tierOrder = [
+  "oficer",
+  "mechanik",
+  "bosman",
+  "marynarz",
+  "mat_podchorazy",
+];
 
 export default function Support() {
   const patrons = placeholderPatrons;
 
   const groupedPatrons = {
-    oficer: patrons.filter(p => p.tier === 'oficer'),
-    mechanik: patrons.filter(p => p.tier === 'mechanik'),
-    bosman: patrons.filter(p => p.tier === 'bosman'),
-    marynarz: patrons.filter(p => p.tier === 'marynarz'),
-    mat_podchorazy: patrons.filter(p => p.tier === 'mat_podchorazy')
+    oficer: patrons.filter((p) => p.tier === "oficer"),
+    mechanik: patrons.filter((p) => p.tier === "mechanik"),
+    bosman: patrons.filter((p) => p.tier === "bosman"),
+    marynarz: patrons.filter((p) => p.tier === "marynarz"),
+    mat_podchorazy: patrons.filter((p) => p.tier === "mat_podchorazy"),
   };
 
   return (
     <div className="bg-(--color-soft-charcoal) min-h-screen">
       {/* Hero */}
       <section className="relative h-screen overflow-hidden bg-linear-to-b from-(--color-deep-teal) to-(--color-soft-charcoal)">
-        <div className="absolute inset-0">
-        </div>
+        <div className="absolute inset-0"></div>
 
         {/* Decorative circles */}
         <div className="absolute inset-0">
@@ -39,7 +73,7 @@ export default function Support() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-(--color-champagne-gold)/10 rounded-full" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-(--color-champagne-gold)/10 rounded-full" />
         </div>
-        
+
         <div className="relative z-10 h-full flex items-center justify-center px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -52,13 +86,15 @@ export default function Support() {
             </div>
 
             <h1 className="font-playfair text-5xl md:text-7xl text-(--color-off-white) mb-6">
-              Wesprzyj <span className="text-(--color-champagne-gold)">Harmonię</span>
+              Wesprzyj{" "}
+              <span className="text-(--color-champagne-gold)">Harmonię</span>
             </h1>
-            
+
             <p className="font-montserrat text-lg md:text-xl text-(--color-off-white)/70 leading-relaxed mb-10 max-w-2xl mx-auto">
-              Dzięki wsparciu naszych Patronów możemy rozwijać działalność artystyczną, 
-              nagrywać nowe płyty i występować na międzynarodowych scenach. Każda złotówka 
-              przybliża nas do kolejnych muzycznych marzeń.
+              Dzięki wsparciu naszych Patronów możemy rozwijać działalność
+              artystyczną, nagrywać nowe płyty i występować na międzynarodowych
+              scenach. Każda złotówka przybliża nas do kolejnych muzycznych
+              marzeń.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -87,7 +123,9 @@ export default function Support() {
             className="text-center mb-16"
           >
             <h2 className="font-playfair text-4xl md:text-5xl text-(--color-off-white) mb-6">
-              Dlaczego <span className="text-(--color-champagne-gold)">warto</span> nas wesprzeć?
+              Dlaczego{" "}
+              <span className="text-(--color-champagne-gold)">warto</span> nas
+              wesprzeć?
             </h2>
           </motion.div>
 
@@ -95,16 +133,19 @@ export default function Support() {
             {[
               {
                 title: "Nowe nagrania",
-                description: "Twoje wsparcie pozwala nam nagrywać kolejne albumy i realizować ambitne projekty muzyczne."
+                description:
+                  "Twoje wsparcie pozwala nam nagrywać kolejne albumy i realizować ambitne projekty muzyczne.",
               },
               {
                 title: "Międzynarodowe tournée",
-                description: "Dzięki Patronom możemy występować na prestiżowych festiwalach w całej Europie."
+                description:
+                  "Dzięki Patronom możemy występować na prestiżowych festiwalach w całej Europie.",
               },
               {
                 title: "Rozwój repertuaru",
-                description: "Wasze darowizny umożliwiają nam pracę z najlepszymi kompozytorami i aranżerami."
-              }
+                description:
+                  "Wasze darowizny umożliwiają nam pracę z najlepszymi kompozytorami i aranżerami.",
+              },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -114,8 +155,12 @@ export default function Support() {
                 transition={{ delay: index * 0.1 }}
                 className="p-8 border border-(--color-off-white)/10 hover:border-(--color-champagne-gold)/30 transition-colors"
               >
-                <h3 className="font-playfair text-2xl text-(--color-off-white) mb-4">{item.title}</h3>
-                <p className="text-(--color-off-white)/60 font-montserrat leading-relaxed">{item.description}</p>
+                <h3 className="font-playfair text-2xl text-(--color-off-white) mb-4">
+                  {item.title}
+                </h3>
+                <p className="text-(--color-off-white)/60 font-montserrat leading-relaxed">
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -144,12 +189,16 @@ export default function Support() {
 
           <div className="space-y-10">
             {tierOrder.map((tier) => {
-              const tierPatrons = groupedPatrons[tier as keyof typeof groupedPatrons];
+              const tierPatrons =
+                groupedPatrons[tier as keyof typeof groupedPatrons];
               if (tierPatrons.length === 0) return null;
               const config = tierConfig[tier as keyof typeof tierConfig];
               const Icon = config.icon;
-              const useList = tier === 'bosman' || tier === 'marynarz' || tier === 'mat_podchorazy';
-              const listEmphasis = tier === 'bosman';
+              const useList =
+                tier === "bosman" ||
+                tier === "marynarz" ||
+                tier === "mat_podchorazy";
+              const listEmphasis = tier === "bosman";
 
               return (
                 <motion.div
@@ -159,7 +208,9 @@ export default function Support() {
                   viewport={{ once: true }}
                 >
                   <div className="flex items-center gap-4 mb-6">
-                    <div className={`w-10 h-10 ${config.bg} flex items-center justify-center`}>
+                    <div
+                      className={`w-10 h-10 ${config.bg} flex items-center justify-center`}
+                    >
                       <Icon size={24} className={config.color} />
                     </div>
                     <h3 className={`font-playfair text-xl ${config.color}`}>
@@ -178,10 +229,14 @@ export default function Support() {
                           viewport={{ once: true }}
                           transition={{ delay: index * 0.02 }}
                           className={`text-(--color-off-white)/80 font-montserrat text-sm ${
-                            listEmphasis ? 'font-semibold text-(--color-off-white)' : ''
+                            listEmphasis
+                              ? "font-semibold text-(--color-off-white)"
+                              : ""
                           }`}
                         >
-                          <span className="text-(--color-champagne-gold)">•</span>{' '}
+                          <span className="text-(--color-champagne-gold)">
+                            •
+                          </span>{" "}
                           {patron.name}
                         </motion.div>
                       ))}
@@ -220,11 +275,14 @@ export default function Support() {
             viewport={{ once: true }}
           >
             <h2 className="font-playfair text-4xl md:text-5xl text-(--color-off-white) mb-6">
-              Dołącz do <span className="text-(--color-champagne-gold)">grona patronów</span>
+              Dołącz do{" "}
+              <span className="text-(--color-champagne-gold)">
+                grona patronów
+              </span>
             </h2>
             <p className="text-(--color-off-white)/70 font-montserrat leading-relaxed mb-10">
-              Każde wsparcie, niezależnie od wysokości, jest dla nas niezwykle cenne. 
-              Razem tworzymy muzykę, która porusza serca!
+              Każde wsparcie, niezależnie od wysokości, jest dla nas niezwykle
+              cenne. Razem tworzymy muzykę, która porusza serca!
             </p>
             <a
               href="https://patronite.pl"

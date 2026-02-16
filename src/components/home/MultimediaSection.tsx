@@ -1,7 +1,6 @@
 "use client";
 
 import { createPageUrl } from "@/utils/helpers";
-import { motion } from "framer-motion";
 import { ArrowRight, Play, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -58,30 +57,22 @@ export default function MultimediaSection() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16 animate-reveal fade-up">
           <span className="text-(--color-champagne-gold) font-montserrat text-sm uppercase tracking-[0.3em] mb-4 block">
             Multimedia
           </span>
           <h2 className="font-playfair text-4xl md:text-5xl text-(--color-off-white) leading-tight">
             Nasze wykonania
           </h2>
-        </motion.div>
+        </div>
 
         {/* Video Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {sampleVideos.map((video, index) => (
-            <motion.div
+            <div
               key={video.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group cursor-pointer"
+              className="group cursor-pointer animate-reveal fade-up"
+              style={{ transitionDelay: `${index * 90}ms` }}
               onClick={() => setActiveVideo(video)}
             >
               <div className="relative aspect-video overflow-hidden bg-(--color-soft-charcoal)">
@@ -108,12 +99,12 @@ export default function MultimediaSection() {
               <h3 className="font-playfair text-lg text-(--color-off-white) mt-4 group-hover:text-(--color-champagne-gold) transition-colors">
                 {video.title}
               </h3>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="text-center">
+        <div className="text-center animate-reveal fade-up">
           <Link
             href={createPageUrl("tworczosc")}
             className="inline-flex items-center gap-3 text-(--color-champagne-gold) font-montserrat font-semibold text-sm uppercase tracking-wider hover:gap-5 transition-all duration-300 group"
@@ -129,10 +120,7 @@ export default function MultimediaSection() {
 
       {/* Video Modal */}
       {activeVideo && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+        <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[rgb(var(--color-soft-charcoal-rgb)/0.95)]"
           onClick={() => setActiveVideo(null)}
         >
@@ -151,7 +139,7 @@ export default function MultimediaSection() {
               allowFullScreen
             />
           </div>
-        </motion.div>
+        </div>
       )}
     </section>
   );

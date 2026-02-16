@@ -1,7 +1,4 @@
-"use client";
-
 import { createPageUrl } from "@/utils/helpers";
-import { motion } from "framer-motion";
 import { ArrowRight, Headphones } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -35,12 +32,7 @@ export default function CreativityPreview() {
     <section className="bg-(--color-soft-charcoal) py-24 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16 animate-reveal fade-up">
           <span className="text-(--color-champagne-gold) font-montserrat text-sm uppercase tracking-[0.3em] mb-4 block">
             Twórczość
           </span>
@@ -50,18 +42,15 @@ export default function CreativityPreview() {
           <p className="text-[rgb(var(--color-off-white-rgb)/0.7)] font-montserrat max-w-2xl mx-auto">
             Słuchaj naszych albumów na ulubionych platformach streamingowych
           </p>
-        </motion.div>
+        </div>
 
         {/* Albums */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {albums.map((album, index) => (
-            <motion.div
+            <div
               key={album.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group"
+              className="group animate-reveal fade-up"
+              style={{ transitionDelay: `${index * 90}ms` }}
             >
               <div className="relative aspect-square overflow-hidden bg-(--color-deep-teal) mb-4">
                 <Image
@@ -91,17 +80,12 @@ export default function CreativityPreview() {
               <p className="text-[rgb(var(--color-off-white-rgb)/0.5)] font-montserrat text-sm">
                 {album.year}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Streaming links */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12"
-        >
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 animate-reveal fade-up">
           <span className="text-[rgb(var(--color-off-white-rgb)/0.5)] font-montserrat text-sm uppercase tracking-wider">
             Słuchaj na:
           </span>
@@ -125,7 +109,7 @@ export default function CreativityPreview() {
               YouTube Music
             </a>
           </div>
-        </motion.div>
+        </div>
 
         {/* CTA */}
         <div className="text-center">

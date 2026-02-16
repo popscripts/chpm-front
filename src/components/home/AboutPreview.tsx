@@ -1,7 +1,4 @@
-"use client";
-
 import { createPageUrl } from "@/utils/helpers";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,13 +9,7 @@ export default function AboutPreview() {
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative isolate"
-          >
+          <div className="relative isolate animate-reveal fade-left">
             <div className="relative z-10 aspect-4/5 overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=800&q=80"
@@ -30,14 +21,12 @@ export default function AboutPreview() {
             </div>
             {/* Decorative frame */}
             <div className="absolute -bottom-4 -right-4 w-full h-full border border-[rgb(var(--color-champagne-gold-rgb)/0.3)] z-0" />
-          </motion.div>
+          </div>
 
           {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+          <div
+            className="animate-reveal fade-right"
+            style={{ transitionDelay: "120ms" }}
           >
             <span className="text-(--color-champagne-gold) font-montserrat text-sm uppercase tracking-[0.3em] mb-4 block">
               O nas
@@ -71,7 +60,7 @@ export default function AboutPreview() {
                 className="group-hover:translate-x-1 transition-transform"
               />
             </Link>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

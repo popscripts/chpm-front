@@ -1,27 +1,35 @@
-import { motion } from "framer-motion";
 import { MapPin, Music, Users } from "lucide-react";
 import ListCard from "../ui/ListCard";
+import SectionHeader from "./SectionHeader";
 
 function WhatIsSpecial() {
-  return ( <section id="co-nas-wyroznia" className="scroll-mt-32 py-24 px-6 bg-(--color-soft-charcoal)">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-             <span className="text-(--color-champagne-gold) tracking-[0.2em] uppercase text-sm">
-                Nasze wyróżnienia
-            </span>
-            <h2 className="font-playfair text-4xl md:text-5xl text-(--color-off-white) mb-8">
-              Co nas <span className="text-(--color-champagne-gold)">wyróżnia</span>
-            </h2>
-          </motion.div>
+  return (
+    <section
+      id="co-nas-wyroznia"
+      className="scroll-mt-32 py-24 px-6 bg-(--color-soft-charcoal)"
+    >
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-16 animate-reveal fade-up">
+          <SectionHeader
+            eyebrow="Nasze wyróżnienia"
+            title={
+              <>
+                Co nas{" "}
+                <span className="text-(--color-champagne-gold)">wyróżnia</span>
+              </>
+            }
+          />
+        </div>
 
-          <div className="grid gap-8 md:grid-cols-3 items-stretch">
+        <div className="grid gap-8 md:grid-cols-3 items-stretch">
+          <div className="animate-reveal fade-up">
             <ListCard
-              icon={<MapPin size={32} className="text-[#D4AF37] mb-4" />}
+              icon={
+                <MapPin
+                  size={32}
+                  className="text-(--color-champagne-gold) mb-4"
+                />
+              }
               title="Tournée międzynarodowe"
               description="Zespół odwiedził już kilkadziesiąt krajów świata, zdobywając uznanie międzynarodowej publiczności"
               items={[
@@ -40,9 +48,16 @@ function WhatIsSpecial() {
                 "Rosja",
               ]}
             />
+          </div>
 
+          <div
+            className="animate-reveal fade-up"
+            style={{ transitionDelay: "90ms" }}
+          >
             <ListCard
-              icon={<Users size={32} className="text-[#D4AF37]" />}
+              icon={
+                <Users size={32} className="text-(--color-champagne-gold)" />
+              }
               title="Współpraca z gwiazdami"
               description="Grupa zapraszana jest do współpracy z wybitnymi artystami polskiej i zagranicznej sceny muzycznej"
               items={[
@@ -58,12 +73,19 @@ function WhatIsSpecial() {
                 "Andrzej Piaseczny",
                 "Justyna Steczkowska",
                 "Kayah",
-                "Jan Kanty Pawluśkiewicz"
+                "Jan Kanty Pawluśkiewicz",
               ]}
             />
+          </div>
 
+          <div
+            className="animate-reveal fade-up"
+            style={{ transitionDelay: "180ms" }}
+          >
             <ListCard
-              icon={<Music size={32} className="text-[#D4AF37]" />}
+              icon={
+                <Music size={32} className="text-(--color-champagne-gold)" />
+              }
               title="Prapremiery"
               description="Chór dokonał kilkunastu prapremierowych wykonań dzieł uznanych kompozytorów polskich, w tym:"
               items={[
@@ -77,9 +99,11 @@ function WhatIsSpecial() {
                 "Piotr Broda",
               ]}
             />
-            </div>
-            </div>
-      </section>  );
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default WhatIsSpecial;

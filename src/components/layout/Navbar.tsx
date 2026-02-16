@@ -40,10 +40,7 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between ">
           {/* Logo */}
-          <Link
-            href={createPageUrl("")}
-            className="inline-flex items-center"
-          >
+          <Link href={createPageUrl("")} className="inline-flex items-center">
             <Image
               src="/assets/logo/logo2-1-2.png"
               alt="Chór Politechniki Morskiej w Szczecinie"

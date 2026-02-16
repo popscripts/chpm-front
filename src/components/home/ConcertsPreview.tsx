@@ -1,7 +1,4 @@
-"use client";
-
 import { createPageUrl } from "@/utils/helpers";
-import { motion } from "framer-motion";
 import { ArrowRight, Clock, MapPin } from "lucide-react";
 import Link from "next/link";
 
@@ -46,12 +43,7 @@ export default function ConcertsPreview() {
     <section className="bg-[--color-soft-charcoal] py-24 px-6 shadow-[0_10px_60px_-15px_var(--color-deep-teal)]">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-16"
-        >
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 animate-reveal fade-up">
           <div>
             <span className="text-(--color-champagne-gold) font-montserrat text-sm uppercase tracking-[0.3em] mb-4 block">
               Koncerty
@@ -70,20 +62,17 @@ export default function ConcertsPreview() {
               className="group-hover:translate-x-1 transition-transform"
             />
           </Link>
-        </motion.div>
+        </div>
 
         {/* Concert List */}
         <div className="space-y-0">
           {upcomingConcerts.map((concert, index) => {
             const dateInfo = formatDate(concert.date);
             return (
-              <motion.div
+              <div
                 key={concert.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group border-t border-[rgb(var(--color-off-white-rgb)/0.1)] py-8 hover:bg-[rgb(var(--color-deep-teal-rgb)/0.2)] transition-colors duration-300 cursor-pointer px-4 -mx-4"
+                className="group border-t border-[rgb(var(--color-off-white-rgb)/0.1)] py-8 hover:bg-[rgb(var(--color-deep-teal-rgb)/0.2)] transition-colors duration-300 cursor-pointer px-4 -mx-4 animate-reveal fade-up"
+                style={{ transitionDelay: `${index * 90}ms` }}
               >
                 <div className="flex flex-col md:flex-row md:items-center gap-6">
                   {/* Date */}
@@ -122,7 +111,7 @@ export default function ConcertsPreview() {
                     className="text-[rgb(var(--color-off-white-rgb)/0.3)] group-hover:text-(--color-champagne-gold) group-hover:translate-x-2 transition-all duration-300"
                   />
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

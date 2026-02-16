@@ -1,7 +1,4 @@
-"use client";
-
 import { createPageUrl } from "@/utils/helpers";
-import { motion } from "framer-motion";
 import { ArrowRight, Heart } from "lucide-react";
 import Link from "next/link";
 
@@ -16,12 +13,7 @@ export default function SupportPreview() {
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
+        <div className="text-center animate-reveal fade-up">
           <div className="w-20 h-20 bg-[rgb(var(--color-champagne-gold-rgb)/0.1)] flex items-center justify-center mx-auto mb-8">
             <Heart size={40} className="text-(--color-champagne-gold)" />
           </div>
@@ -86,7 +78,7 @@ export default function SupportPreview() {
               <ArrowRight size={18} className="ml-2" />
             </Link>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

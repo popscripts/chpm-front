@@ -41,7 +41,7 @@ export default function SectionScrollHeader({
         }
 
         const mostVisible = visibleEntries.reduce((best, current) =>
-          current.intersectionRatio > best.intersectionRatio ? current : best
+          current.intersectionRatio > best.intersectionRatio ? current : best,
         );
 
         setActiveId(mostVisible.target.id);
@@ -49,7 +49,7 @@ export default function SectionScrollHeader({
       {
         rootMargin: "-40% 0px -50% 0px",
         threshold: [0, 0.2, 0.4, 0.6, 0.8, 1],
-      }
+      },
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -63,7 +63,7 @@ export default function SectionScrollHeader({
     }
 
     const activeLink = listRef.current.querySelector(
-      `[data-section-id="${activeId}"]`
+      `[data-section-id="${activeId}"]`,
     );
 
     if (activeLink instanceof HTMLElement) {

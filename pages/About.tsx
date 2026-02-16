@@ -1,16 +1,13 @@
-"use client";
-
-import Achievements from '@/components/about/Achievements';
-import Awards from '@/components/about/Awards';
-import Hero from '@/components/about/Hero';
-import Project from '@/components/about/Project';
-import Stats from '@/components/about/Stats';
-import Story from '@/components/about/Story';
-import WhatIsSpecial from '@/components/about/WhatIsSpecial';
+import Achievements from "@/components/about/Achievements";
+import Awards from "@/components/about/Awards";
+import Hero from "@/components/about/Hero";
+import Project from "@/components/about/Project";
+import Stats from "@/components/about/Stats";
+import Story from "@/components/about/Story";
+import WhatIsSpecial from "@/components/about/WhatIsSpecial";
 import SectionScrollHeader, {
   ScrollSectionLink,
-} from '@/components/layout/SectionScrollHeader';
-
+} from "@/components/layout/SectionScrollHeader";
 
 export default function About() {
   const sectionLinks: ScrollSectionLink[] = [
@@ -31,7 +28,6 @@ export default function About() {
       <WhatIsSpecial />
       <Achievements />
       <Project />
-      
     </div>
   );
 }
