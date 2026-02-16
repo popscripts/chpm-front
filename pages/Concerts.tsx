@@ -4,9 +4,9 @@ import { format } from 'date-fns';
 import { pl } from 'date-fns/locale';
 import { motion } from 'framer-motion';
 import { Clock, ExternalLink, MapPin } from 'lucide-react';
-import { useState } from 'react';
+import Image from 'next/image';
 
-const placeholderConcerts = [
+const concerts = [
   {
     id: 'c-2026-03-12-krakow',
     title: 'Wiosenna Gala Chóralna',
@@ -58,23 +58,22 @@ const placeholderConcerts = [
 ];
 
 export default function Concerts() {
-  const [activeTab, setActiveTab] = useState('upcoming');
-
-  const upcomingConcerts = placeholderConcerts.filter(c => !c.is_past);
-  const pastConcerts = placeholderConcerts.filter(c => c.is_past);
-  const displayConcerts = activeTab === 'upcoming' ? upcomingConcerts : pastConcerts;
 
   return (
     <div className="bg-(--color-soft-charcoal) min-h-screen">
       {/* Hero */}
-      <section className="relative h-[50vh] overflow-hidden bg-gradient-to-b from-(--color-deep-teal)/40 via-(--color-deep-teal)/20 to-(--color-soft-charcoal)">
+      <section className="relative h-[50vh] overflow-hidden bg-linear-to-b from-(--color-deep-teal)/40 via-(--color-deep-teal)/20 to-(--color-soft-charcoal)">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1501612780327-45045538702b?w=1920&q=80"
             alt="Koncert"
-            className="w-full h-full object-cover opacity-30"
+            fill
+            sizes="100vw"
+            className="object-cover opacity-30"
+            priority
+            unoptimized
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-(--color-deep-teal)/80 to-(--color-soft-charcoal)" />
+          <div className="absolute inset-0 bg-linear-to-b from-(--color-deep-teal)/80 to-(--color-soft-charcoal)" />
         </div>
         
         <div className="relative z-10 h-full flex items-center justify-center px-6">
@@ -94,46 +93,11 @@ export default function Concerts() {
         </div>
       </section>
 
-      {/* Tabs */}
-      <section className="py-12 px-6 bg-gradient-to-b from-(--color-deep-teal)/20 to-(--color-soft-charcoal) shadow-[0_10px_40px_-15px_rgba(0,56,77,0.3)]">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex justify-center gap-4">
-            <button
-              onClick={() => setActiveTab('upcoming')}
-              className={`px-8 py-3 font-montserrat text-sm uppercase tracking-wider transition-all ${
-                activeTab === 'upcoming'
-                  ? 'bg-(--color-champagne-gold) text-(--color-soft-charcoal)'
-                  : 'border border-(--color-off-white)/30 text-(--color-off-white) hover:bg-(--color-off-white)/5'
-              }`}
-            >
-              Nadchodzące ({upcomingConcerts.length})
-            </button>
-            <button
-              onClick={() => setActiveTab('past')}
-              className={`px-8 py-3 font-montserrat text-sm uppercase tracking-wider transition-all ${
-                activeTab === 'past'
-                  ? 'bg-(--color-champagne-gold) text-(--color-soft-charcoal)'
-                  : 'border border-(--color-off-white)/30 text-(--color-off-white) hover:bg-(--color-off-white)/5'
-              }`}
-            >
-              Archiwum ({pastConcerts.length})
-            </button>
-          </div>
-        </div>
-      </section>
 
       {/* Concert List */}
-      <section className="py-12 px-6">
-        <div className="max-w-6xl mx-auto">
-          {displayConcerts.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-(--color-off-white)/50 font-montserrat">
-                {activeTab === 'upcoming' ? 'Brak nadchodzących koncertów' : 'Brak archiwalnych koncertów'}
-              </p>
-            </div>
-          ) : (
+      <section className="py-16 px-6 max-w-6xl mx-auto">
             <div className="grid gap-6">
-              {displayConcerts.map((concert, index) => (
+              {concerts.map((concert, index) => (
                 <motion.div
                   key={concert.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -145,12 +109,15 @@ export default function Concerts() {
                   <div className="grid md:grid-cols-[300px_1fr] gap-6">
                     {/* Image */}
                     <div className="relative aspect-video md:aspect-auto overflow-hidden bg-(--color-deep-teal)">
-                      <img
-                        src={concert.image_url || `https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&q=80`}
+                      <Image
+                        src={concert.image_url || "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&q=80"}
                         alt={concert.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        fill
+                        sizes="(min-width: 768px) 300px, 100vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        unoptimized
                       />
-                      <div className="absolute inset-0 bg-gradient-to-r from-(--color-deep-teal)/60 to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-r from-(--color-deep-teal)/60 to-transparent" />
                       
                       {/* Date badge */}
                       <div className="absolute top-4 left-4 bg-(--color-champagne-gold) px-4 py-2">
@@ -206,9 +173,8 @@ export default function Concerts() {
                 </motion.div>
               ))}
             </div>
-          )}
+                    </section >
         </div>
-      </section>
-    </div>
+
   );
 }

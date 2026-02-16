@@ -2,19 +2,24 @@
 
 import { motion } from 'framer-motion';
 import { Award, Globe, GraduationCap, Music } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Conductor() {
   return (
     <div className="bg-(--color-soft-charcoal)">
       {/* Hero Section */}
-      <section className="relative h-screen overflow-hidden bg-gradient-to-b from-(--color-deep-teal)/40 via-(--color-deep-teal)/20 to-(--color-soft-charcoal)">
+      <section className="relative h-screen overflow-hidden bg-linear-to-b from-(--color-deep-teal)/40 via-(--color-deep-teal)/20 to-(--color-soft-charcoal)">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1920&q=80"
             alt="Anna Kowalska"
-            className="w-full h-full object-cover opacity-30"
+            fill
+            sizes="100vw"
+            className="object-cover opacity-30"
+            priority
+            unoptimized
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-(--color-deep-teal)/60 via-(--color-deep-teal)/80 to-(--color-soft-charcoal)" />
+          <div className="absolute inset-0 bg-linear-to-b from-(--color-deep-teal)/60 via-(--color-deep-teal)/80 to-(--color-soft-charcoal)" />
         </div>
         
         <div className="relative z-10 h-full flex items-center px-6">
@@ -43,11 +48,14 @@ export default function Conductor() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="relative"
               >
-                <div className="aspect-[3/4] overflow-hidden">
-                  <img
+                <div className="relative aspect-3/4 overflow-hidden">
+                  <Image
                     src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
                     alt="Anna Kowalska"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(min-width: 768px) 340px, 70vw"
+                    className="object-cover"
+                    unoptimized
                   />
                 </div>
                 <div className="absolute -bottom-6 -left-6 w-full h-full border border-(--color-champagne-gold)/30 -z-10" />
@@ -109,7 +117,7 @@ export default function Conductor() {
       </section>
 
       {/* Achievements */}
-      <section className="py-24 px-6 bg-gradient-to-b from-(--color-soft-charcoal) via-(--color-deep-teal)/20 to-(--color-soft-charcoal) shadow-[0_10px_60px_-15px_rgba(0,56,77,0.4)]">
+      <section className="py-24 px-6 bg-linear-to-b from-(--color-soft-charcoal) via-(--color-deep-teal)/20 to-(--color-soft-charcoal) shadow-[0_10px_60px_-15px_rgba(0,56,77,0.4)]">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

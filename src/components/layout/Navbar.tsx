@@ -34,11 +34,11 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-[rgb(var(--color-soft-charcoal-rgb)/0.95)] backdrop-blur-md py-4 shadow-[0_4px_30px_rgb(var(--color-soft-charcoal-rgb)/0.95)]"
-            : "bg-transparent py-6"
+            ? "bg-[rgb(var(--color-soft-charcoal-rgb)/0.9)] backdrop-blur-md border-b border-(--color-off-white)/10 py-4 shadow-[0_4px_30px_rgb(var(--color-soft-charcoal-rgb)/0.5)]"
+            : "bg-transparent py-6 border-b border-(--color-off-white)/0"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between ">
           {/* Logo */}
           <Link
             href={createPageUrl("")}
@@ -96,7 +96,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-(--color-soft-charcoal) pt-24"
+            className="fixed inset-0 z-45 bg-(--color-soft-charcoal) pt-24"
           >
             <div className="flex flex-col items-center gap-8 py-12">
               {navLinks.map((link) => (
@@ -108,6 +108,7 @@ export default function Navbar() {
                       ? "text-(--color-champagne-gold)"
                       : "text-(--color-off-white) hover:text-(--color-champagne-gold)"
                   }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
                 </Link>
