@@ -39,21 +39,21 @@ function Story() {
             style={{ transitionDelay: "120ms" }}
           >
             <Image
-              src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=600&q=80"
+              src="assets/images/about_hero1.jpg"
               alt="Chór podczas koncertu"
               width={600}
               height={800}
               sizes="(min-width: 768px) 280px, 45vw"
-              className="aspect-3/4 object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              className="aspect-3/4 object-cover grayscale-25 hover:grayscale-0 transition-all duration-700"
               unoptimized
             />
             <Image
-              src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80"
+              src="assets/images/about_hero2.jpg"
               alt="Próba chóru"
               width={600}
               height={800}
               sizes="(min-width: 768px) 280px, 45vw"
-              className="aspect-3/4 object-cover grayscale hover:grayscale-0 transition-all duration-700 mt-12"
+              className="aspect-3/4 object-cover grayscale-25 hover:grayscale-0 transition-all duration-700 mt-12"
               unoptimized
             />
           </div>

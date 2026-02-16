@@ -15,9 +15,7 @@ export default function AwardsListWithMore({
 }: AwardsListWithMoreProps) {
   const [festivals, setFestivals] = useState<FestivalItem[]>(initialFestivals);
   const [isLoading, setIsLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(
-    initialFestivals.length >= pageSize
-  );
+  const [hasMore, setHasMore] = useState(initialFestivals.length >= pageSize);
 
   const handleLoadMore = async () => {
     if (isLoading) {
@@ -27,7 +25,7 @@ export default function AwardsListWithMore({
     setIsLoading(true);
     try {
       const response = await fetch(
-        `/api/festivals?limit=${pageSize}&offset=${festivals.length}`
+        `/api/festivals?limit=${pageSize}&offset=${festivals.length}`,
       );
 
       if (!response.ok) {

@@ -2,9 +2,9 @@
 @import "tailwindcss";
 
 :root {
-  --color-deep-teal: #00384d;
-  --color-deep-teal-medium: #0e3444;
-  --color-deep-teal-dark: #17252c;
+  --color-deep-teal: #0f2830;
+  --color-deep-teal-medium: rgb(26, 45, 54);
+  --color-deep-teal-dark: rgb(19, 35, 43);
   --color-champagne-gold: #d4af37;
   --color-champagne-gold-dark: #22241f;
   --color-soft-charcoal: #1a1a1a;
@@ -42,7 +42,7 @@ body {
 }
 
 .logo-loop {
-  animation: logo-loop 40s linear infinite;
+  animation: logo-loop var(--logo-loop-duration, 40s) linear infinite;
 }
 
 .logo-loop:hover {

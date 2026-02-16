@@ -51,7 +51,7 @@ type FetchFestivalsOptions = {
 };
 
 export async function fetchFestivals(
-  options: FetchFestivalsOptions = {}
+  options: FetchFestivalsOptions = {},
 ): Promise<FestivalItem[]> {
   const { limit, offset } = options;
   const baseUrl = process.env.API_URL;
@@ -74,7 +74,7 @@ export async function fetchFestivals(
       `${baseUrl}/jsonapi/node/festival?${params.toString()}`,
       {
         cache: "no-store",
-      }
+      },
     );
 
     if (!response.ok) {
@@ -87,7 +87,7 @@ export async function fetchFestivals(
     const includedAwards = new Map(
       (payload.included ?? [])
         .filter((item) => item.type === "paragraph--award")
-        .map((item) => [item.id, item])
+        .map((item) => [item.id, item]),
     );
 
     const items = Array.isArray(payload.data)
