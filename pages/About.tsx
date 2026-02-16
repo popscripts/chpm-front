@@ -8,8 +8,13 @@ import WhatIsSpecial from "@/components/about/WhatIsSpecial";
 import SectionScrollHeader, {
   ScrollSectionLink,
 } from "@/components/layout/SectionScrollHeader";
+import type { FestivalItem } from "@/data/festivals";
 
-export default function About() {
+type AboutProps = {
+  festivals?: FestivalItem[];
+};
+
+export default function About({ festivals = [] }: AboutProps) {
   const sectionLinks: ScrollSectionLink[] = [
     { label: "Kim jesteśmy", id: "kim-jestesmy" },
     { label: "Nagrody", id: "nagrody" },
@@ -24,7 +29,7 @@ export default function About() {
       <SectionScrollHeader items={sectionLinks} />
       <Story />
       <Stats />
-      <Awards />
+      <Awards festivals={festivals} />
       <WhatIsSpecial />
       <Achievements />
       <Project />

@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-(--color-deep-teal) pt-20 pb-8 px-6 shadow-[0_-10px_60px_-15px_rgb(var(--color-deep-teal-dark))]">
+    <footer className="relative z-10 bg-(--color-deep-teal) pt-20 pb-8 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Main Footer Content */}
         <div className="grid md:grid-cols-4 gap-12 mb-16">
