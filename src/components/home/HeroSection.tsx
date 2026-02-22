@@ -40,13 +40,12 @@ export default function HeroSection() {
           </h1>
 
           <p className="font-montserrat text-lg md:text-xl text-[rgb(var(--color-off-white-rgb)/0.8)] mb-10 max-w-2xl mx-auto leading-relaxed">
-            Przeżyj magię muzyki chóralnej. Od sakralnych harmonii po
-            współczesne brzmienia — tworzymy dźwięki, które poruszają duszę.
+            pod dyrekcją prof. Sylwii Fabiańczyk-Makuch
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href={createPageUrl("koncerty")}
+              href={createPageUrl("wydarzenia")}
               className="inline-flex items-center justify-center px-8 py-4 bg-(--color-champagne-gold) text-(--color-soft-charcoal) font-montserrat font-semibold text-sm uppercase tracking-wider hover:bg-[rgb(var(--color-champagne-gold-rgb)/0.9)] transition-all duration-300"
             >
               Najbliższy koncert

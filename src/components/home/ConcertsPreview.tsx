@@ -1,35 +1,13 @@
+import EventCard from "@/components/ui/EventCard";
+import type { EventItem } from "@/data/events";
+import { fetchEvents } from "@/data/events";
 import { createPageUrl } from "@/utils/helpers";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-const upcomingConcerts = [
-  {
-    id: 1,
-    title: "Koncert Wielkanocny",
-    date: "2026-04-05",
-    time: "19:00",
-    venue: "Filharmonia Narodowa",
-    city: "Warszawa",
-  },
-  {
-    id: 2,
-    title: "Festiwal Muzyki Sakralnej",
-    date: "2026-05-15",
-    time: "18:30",
-    venue: "Katedra św. Jana",
-    city: "Kraków",
-  },
-  {
-    id: 3,
-    title: "Letnie Brzmienia",
-    date: "2026-06-20",
-    time: "20:00",
-    venue: "Amfiteatr Miejski",
-    city: "Gdańsk",
-  },
-];
+export default async function ConcertsPreview() {
+  const upcomingConcerts: EventItem[] = await fetchEvents(3);
 
-export default function ConcertsPreview() {
   return (
     <section className="bg-[--color-soft-charcoal] py-24 px-6 shadow-[0_10px_60px_-15px_var(--color-deep-teal)]">
       <div className="max-w-6xl mx-auto">
@@ -44,7 +22,7 @@ export default function ConcertsPreview() {
             </h2>
           </div>
           <Link
-            href={createPageUrl("koncerty")}
+            href={createPageUrl("wydarzenia")}
             className="inline-flex items-center gap-3 text-(--color-champagne-gold) font-montserrat font-semibold text-sm uppercase tracking-wider hover:gap-5 transition-all duration-300 group mt-6 md:mt-0"
           >
             Zobacz wszystkie
@@ -56,12 +34,11 @@ export default function ConcertsPreview() {
         </div>
 
         {/* Concert List */}
-        {/* <div className="space-y-0">
+        <div className="space-y-0">
           {upcomingConcerts.map((concert, index) => {
-            
             return <EventCard key={concert.id} event={concert} index={index} />;
           })}
-        </div> */}
+        </div>
       </div>
     </section>
   );

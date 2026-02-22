@@ -82,7 +82,7 @@ type EventsApiResponse = {
   included?: Array<SocialMediaIncluded | MediaImageIncluded | FileIncluded>;
 };
 
-export async function fetchEvents(): Promise<EventItem[]> {
+export async function fetchEvents(limit?: number): Promise<EventItem[]> {
   const baseUrl = process.env.API_URL;
   if (!baseUrl) {
     console.warn("API_URL is not set.");
@@ -128,13 +128,15 @@ export async function fetchEvents(): Promise<EventItem[]> {
     for (const include of includeVariants) {
       const params = new URLSearchParams();
       params.set("sort", "-field_date");
+      if (typeof limit === "number" && limit > 0) {
+        params.set("page[limit]", String(limit));
+      }
       if (include) {
         params.set("include", include);
       }
 
       const query = params.toString();
       const endpoint = `${normalizedBaseUrl}/jsonapi/node/event${query ? `?${query}` : ""}`;
-      console.log(endpoint);
 
       response = await fetch(endpoint, {
         cache: "no-store",

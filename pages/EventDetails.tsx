@@ -26,7 +26,7 @@ function EventDetails({ event }: EventDetailsProps) {
               className="inline-flex items-center gap-2 text-(--color-off-white)/80 hover:text-(--color-champagne-gold) font-montserrat text-sm mb-6 transition-colors"
             >
               <ArrowLeft size={16} />
-              Wróć do wydarzeń
+              Wszystkie wydarzenia
             </Link>
             <h1 className="font-playfair text-3xl md:text-5xl text-(--color-off-white)">
               Nie znaleziono wydarzenia
@@ -61,7 +61,7 @@ function EventDetails({ event }: EventDetailsProps) {
               className="inline-flex items-center gap-2 text-(--color-off-white)/80 hover:text-(--color-champagne-gold) font-montserrat text-sm mb-6 transition-colors"
             >
               <ArrowLeft size={16} />
-              Wróć do wydarzeń
+              Wszystkie wydarzenia
             </Link>
             <h1 className="font-playfair text-4xl md:text-6xl text-(--color-off-white)">
               {event.title}

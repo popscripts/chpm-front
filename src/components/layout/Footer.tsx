@@ -38,7 +38,7 @@ export default function Footer() {
               {[
                 { name: "O nas", page: "o-nas" },
                 { name: "Dyrygent", page: "dyrygent" },
-                { name: "Koncerty", page: "koncerty" },
+                { name: "Wydarzenia", page: "wydarzenia" },
                 { name: "Twórczość", page: "tworczosc" },
                 { name: "Wsparcie", page: "wsparcie" },
               ].map((link) => (
