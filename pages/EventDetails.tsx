@@ -53,7 +53,7 @@ function EventDetails({ event }: EventDetailsProps) {
   return (
     <div className="min-h-screen bg-(--color-soft-charcoal)">
       <Hero isAbsolute />
-      <section className="relative mt-[90px] overflow-hidden">
+      <section className="relative mt-22.5 lg:h-[40vh] lg:mt-0 overflow-hidden">
         <div className="relative z-10 h-full flex items-end">
           <div className="max-w-6xl mx-auto w-full px-6 pb-10 animate-reveal fade-up">
             <Link
