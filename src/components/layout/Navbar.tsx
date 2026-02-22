@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 const navLinks = [
   { name: "O nas", page: "o-nas" },
   { name: "Dyrygent", page: "dyrygent" },
-  { name: "Koncerty", page: "koncerty" },
+  { name: "Wydarzenia", page: "wydarzenia" },
   { name: "Twórczość", page: "tworczosc" },
   { name: "Wsparcie", page: "wsparcie" },
 ];
@@ -67,16 +67,6 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-
-          {/* CTA Button
-          <Link
-            href={createPageUrl('Concerts')}
-            className="hidden lg:flex px-6 py-2 border border-[var(--color-champagne-gold)] text-(--color-champagne-gold) font-montserrat text-sm uppercase tracking-wider hover:bg-[var(--color-champagne-gold)] hover:text-(--color-soft-charcoal) transition-all duration-300"
-          >
-            Bilety
-          </Link> */}
-
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden text-(--color-off-white) p-2"

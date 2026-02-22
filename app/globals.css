@@ -2,13 +2,15 @@
 @import "tailwindcss";
 
 :root {
-  --color-deep-teal: #0f2830;
-  --color-deep-teal-medium: rgb(26, 45, 54);
-  --color-deep-teal-dark: rgb(19, 35, 43);
+  --color-deep-teal: #002e4d;
+  --color-deep-teal-medium: #082a43;
+  --color-deep-teal-dark: #122534;
   --color-champagne-gold: #d4af37;
   --color-champagne-gold-dark: #22241f;
   --color-soft-charcoal: #1a1a1a;
   --color-off-white: #f5f5f5;
+  --color-off-white-medium: #a5a5a5;
+  --color-off-white-dark: #5c5c5c;
   --color-deep-teal-rgb: 0 56 77;
   --color-champagne-gold-rgb: 212 175 55;
   --color-soft-charcoal-rgb: 26 26 26;
@@ -42,7 +44,7 @@ body {
 }
 
 .logo-loop {
-  animation: logo-loop var(--logo-loop-duration, 40s) linear infinite;
+  animation: logo-loop 40s linear infinite;
 }
 
 .logo-loop:hover {

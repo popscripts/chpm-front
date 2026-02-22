@@ -1,5 +1,5 @@
-import Footer from "@/components/layout/Footer";
 import FadeInProvider from "@/components/layout/FadeInProvider";
+import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body>
         <Navbar />
         <FadeInProvider>{children}</FadeInProvider>
