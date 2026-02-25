@@ -73,7 +73,7 @@ export async function fetchFestivals(
     const response = await fetch(
       `${baseUrl}/jsonapi/node/festival?${params.toString()}`,
       {
-        cache: "no-store",
+        next: { revalidate: 2592000 },
       },
     );
 

@@ -1,10 +1,19 @@
-const Instagram = ({ fill = "var(--color-off-white)", size = 24 }) => (
+import type { IconProps } from "./IconProps";
+
+const Instagram = ({
+  fill = "var(--color-off-white-medium)",
+  size = 24,
+  className,
+  ...props
+}: IconProps) => (
   <svg
     width={size}
     height={size}
+    className={`${className ?? ""} transition-colors hover:fill-(--color-off-white)`}
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <path
       fillRule="evenodd"

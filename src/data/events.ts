@@ -139,7 +139,7 @@ export async function fetchEvents(limit?: number): Promise<EventItem[]> {
       const endpoint = `${normalizedBaseUrl}/jsonapi/node/event${query ? `?${query}` : ""}`;
 
       response = await fetch(endpoint, {
-        cache: "no-store",
+        next: { revalidate: 3600 },
       });
 
       if (response.ok) {

@@ -1,31 +1,50 @@
-"use client";
-
+import { fetchMusicVideos, type MusicVideoItem } from "@/data/musicVideos";
 import { createPageUrl } from "@/utils/helpers";
-import { ArrowRight, Play, X } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import SectionHeader from "../about/SectionHeader";
 
-const sampleVideos = [
+const sampleVideos: MusicVideoItem[] = [
   {
-    id: 1,
-    title: "Raj Kaczmarskiego",
-    url: "https://www.youtube.com/watch?v=TUAsVo1v36Q",
+    id: "v-1",
+    title: "Powrót - Raj Kaczmarskiego",
+    field_description: null,
+    field_release_date: "2025-12-13",
+    field_link: {
+      uri: "https://www.youtube.com/watch?v=TUAsVo1v36Q",
+      title: "",
+    },
   },
   {
-    id: 2,
+    id: "v-2",
     title: "I'll be there for you / With a little help from my friends",
-    url: "https://www.youtube.com/watch?v=3JWVOPaRml8",
+    field_description: null,
+    field_release_date: "2025-12-02",
+    field_link: {
+      uri: "https://www.youtube.com/watch?v=3JWVOPaRml8",
+      title: "",
+    },
   },
   {
-    id: 3,
+    id: "v-3",
     title: "Samoloty",
-    url: "https://www.youtube.com/watch?v=CrwffZHXjhg",
+    field_description: null,
+    field_release_date: "2024-10-29",
+    field_link: {
+      uri: "https://www.youtube.com/watch?v=CrwffZHXjhg",
+      title: "",
+    },
   },
   {
-    id: 4,
+    id: "v-4",
     title: "Solitude Love Song",
-    url: "https://www.youtube.com/watch?v=eYctURBtiig",
+    field_description: null,
+    field_release_date: "2023-02-20",
+    field_link: {
+      uri: "https://www.youtube.com/watch?v=eYctURBtiig",
+      title: "",
+    },
   },
 ];
 
@@ -42,42 +61,43 @@ const getYoutubeThumb = (url: string) => {
   return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : "";
 };
 
-export default function MultimediaSection() {
-  const [activeVideo, setActiveVideo] = useState<
-    (typeof sampleVideos)[number] | null
-  >(null);
+const fallbackThumb =
+  "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=700&q=80";
+
+export default async function MultimediaSection() {
+  const videosFromApi = await fetchMusicVideos();
+  const videos = videosFromApi.length > 0 ? videosFromApi : sampleVideos;
 
   return (
     <section className="bg-radial from-(--color-deep-teal-dark) to-(--color-soft-charcoal) py-24 px-6 relative ">
       {/* Decorative background */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-(--color-champagne-gold-dark) rounded-full blur-3xl" />
+        <div className="absolute top-[-200px] left-[-200px] w-[800px] h-[800px] bg-radial from-(--color-champagne-gold-dark) via-transparent to-transparent" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-(--color-champagne-gold-dark) rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-16 animate-reveal fade-up">
-          <span className="text-(--color-champagne-gold) font-montserrat text-sm uppercase tracking-[0.3em] mb-4 block">
-            Multimedia
-          </span>
-          <h2 className="font-playfair text-4xl md:text-5xl text-(--color-off-white) leading-tight">
-            Nasze wykonania
-          </h2>
-        </div>
+        <SectionHeader title="Zobacz i posłuchaj" eyebrow="Teledyski" />
 
         {/* Video Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {sampleVideos.map((video, index) => (
-            <div
+          {videos.map((video, index) => (
+            <a
               key={video.id}
+              href={video.field_link?.uri ?? "#"}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group cursor-pointer animate-reveal fade-up"
               style={{ transitionDelay: `${index * 90}ms` }}
-              onClick={() => setActiveVideo(video)}
             >
               <div className="relative aspect-video overflow-hidden bg-(--color-soft-charcoal)">
                 <Image
-                  src={getYoutubeThumb(video.url)}
+                  src={
+                    video.field_link?.uri
+                      ? getYoutubeThumb(video.field_link.uri) || fallbackThumb
+                      : fallbackThumb
+                  }
                   alt={video.title}
                   fill
                   sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
@@ -99,7 +119,7 @@ export default function MultimediaSection() {
               <h3 className="font-playfair text-lg text-(--color-off-white) mt-4 group-hover:text-(--color-champagne-gold) transition-colors">
                 {video.title}
               </h3>
-            </div>
+            </a>
           ))}
         </div>
 
@@ -117,30 +137,6 @@ export default function MultimediaSection() {
           </Link>
         </div>
       </div>
-
-      {/* Video Modal */}
-      {activeVideo && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[rgb(var(--color-soft-charcoal-rgb)/0.95)]"
-          onClick={() => setActiveVideo(null)}
-        >
-          <div className="relative w-full max-w-4xl aspect-video">
-            <button
-              onClick={() => setActiveVideo(null)}
-              className="absolute -top-12 right-0 text-(--color-off-white) hover:text-(--color-champagne-gold) transition-colors"
-            >
-              <X size={32} />
-            </button>
-            <iframe
-              src={`https://www.youtube.com/embed/${getYoutubeId(activeVideo.url)}?autoplay=1`}
-              title={activeVideo.title}
-              className="w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-        </div>
-      )}
     </section>
   );
 }
