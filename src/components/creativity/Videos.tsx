@@ -1,7 +1,7 @@
 import MultimediaSection from "../home/MultimediaSection";
 
 function Videos() {
-    return ( <MultimediaSection /> );
+    return ( <section id="teledyski" className="scroll-mt-32"><MultimediaSection /> </section>);
 }
 
 export default Videos;

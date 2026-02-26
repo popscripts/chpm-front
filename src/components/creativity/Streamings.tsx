@@ -42,7 +42,7 @@ function Streamings() {
       { name: "Yandex Music" },
     ];
 
-    return ( <section className="py-16 px-6 bg-(--color-soft-charcoal)">
+    return ( <section className="scroll-mt-32 py-16 px-6 bg-(--color-soft-charcoal)" id="streamingi">
         <div className="max-w-6xl mx-auto">
           <SectionHeader eyebrow="Streamingi" title={<>Posłuchaj nas <span className="text-(--color-champagne-gold)">online</span></>} description="Znajdź naszą muzykę na swojej ulubionej platformie" />
 

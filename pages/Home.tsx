@@ -8,7 +8,7 @@ import SupportPreview from "@/components/home/SupportPreview";
 
 export default function Home() {
   return (
-    <div className="bg-(--color-soft-charcoal)">
+    <div className="bg-(--color-soft-charcoal) overflow-x-hidden">
       <HeroSection />
       <AboutPreview />
       <MultimediaSection />

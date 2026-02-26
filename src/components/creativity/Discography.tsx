@@ -66,7 +66,7 @@ async function Discography() {
     const albums = albumsFromApi.length > 0 ? albumsFromApi : fallbackAlbums;
 
     return (
-    <section className="py-24 px-6 bg-(--color-soft-charcoal)">
+    <section className="scroll-mt-32 py-24 px-6 bg-(--color-soft-charcoal)" id="albumy">
         <div className="max-w-6xl mx-auto">
           <div
             className="text-center mb-16 animate-reveal fade-up"

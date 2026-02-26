@@ -57,10 +57,14 @@ type StreamingIncluded = {
   id: string;
   type: "paragraph--streaming";
   attributes?: {
+    field_service?: string | null;
     field_platform?: string | null;
     field_name?: string | null;
-    field_url?: string | { uri?: string | null } | null;
-    field_link?: { uri?: string | null } | null;
+    field_url?:
+      | string
+      | { uri?: string | null; url?: string | null }
+      | null;
+    field_link?: { uri?: string | null; url?: string | null } | null;
   };
 };
 
@@ -124,21 +128,30 @@ const extractStreamUrl = (
     return null;
   }
 
-  const platformName =
-    platform.attributes?.field_platform?.trim() ??
-    platform.attributes?.field_name?.trim() ??
-    "";
-
   const fieldUrl = platform.attributes?.field_url;
-  const directUrl = typeof fieldUrl === "string" ? fieldUrl : fieldUrl?.uri;
-  const linkUrl = platform.attributes?.field_link?.uri;
+  const directUrl =
+    typeof fieldUrl === "string"
+      ? fieldUrl
+      : fieldUrl?.uri ?? fieldUrl?.url;
+  const fieldLink = platform.attributes?.field_link;
+  const linkUrl = fieldLink?.uri ?? fieldLink?.url;
   const url = (directUrl ?? linkUrl ?? "").trim();
 
   if (!url) {
     return null;
   }
 
-  return { platform: platformName, url };
+  const platformName =
+    platform.attributes?.field_service?.trim() ??
+    platform.attributes?.field_platform?.trim() ??
+    platform.attributes?.field_name?.trim() ??
+    "";
+
+  const normalizedPlatformName =
+    platformName ||
+    "Streaming";
+
+  return { platform: normalizedPlatformName, url };
 };
 
 export async function fetchAlbums(): Promise<AlbumItem[]> {

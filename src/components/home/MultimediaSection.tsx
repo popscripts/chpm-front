@@ -69,12 +69,12 @@ export default async function MultimediaSection() {
   const videos = videosFromApi.length > 0 ? videosFromApi : sampleVideos;
 
   return (
-    <section className="bg-radial from-(--color-deep-teal-dark) to-(--color-soft-charcoal) py-24 px-6 relative ">
+    <section className="bg-radial from-(--color-deep-teal-dark) to-(--color-soft-charcoal) py-24 px-6 relative">
       {/* Decorative background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-[-200px] left-[-200px] w-[800px] h-[800px] bg-radial from-(--color-champagne-gold-dark) via-transparent to-transparent" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-(--color-champagne-gold-dark) rounded-full blur-3xl" />
-      </div>
+      {/* <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-50 -left-50 w-200 h-200 bg-radial from-(--color-champagne-gold-dark) via-transparent to-transparent" />
+        <div className="absolute -bottom-50 -right-50 w-200 h-200 bg-radial from-(--color-champagne-gold-dark) via-transparent to-transparent" />
+      </div> */}
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}

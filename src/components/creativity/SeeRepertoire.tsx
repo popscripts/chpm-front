@@ -3,7 +3,7 @@ import SectionHeader from "../about/SectionHeader";
 
 function SeeRepertoire() {
     return ( 
-    <section className="py-24 px-6 bg-linear-to-b from-(--color-soft-charcoal) to-(--color-deep-teal-medium)">
+    <section className="scroll-mt-32 py-24 px-6 bg-linear-to-b from-(--color-soft-charcoal) to-(--color-deep-teal-medium)" id="repertuar">
         <div className="max-w-4xl mx-auto text-center">
          <SectionHeader title={"Pełen repertuar"} eyebrow="repertuar" description="lista wykonywanych przez nas utworów na przestrzeni lat"/>
             <a

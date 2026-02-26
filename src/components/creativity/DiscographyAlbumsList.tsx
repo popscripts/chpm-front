@@ -1,9 +1,10 @@
 "use client";
 
-import { ChevronDown, ExternalLink, Headphones } from "lucide-react";
-import Image from "next/image";
-import { useState } from "react";
 import type { AlbumItem } from "@/data/albums";
+import { getStreamingLogoByName } from "@/utils/helpers";
+import { ChevronDown, ExternalLink, ListMusic } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 const fallbackCoverUrl =
   "https://images.unsplash.com/photo-1619983081563-430f63602796?w=600&q=80";
@@ -14,25 +15,62 @@ type DiscographyAlbumsListProps = {
 
 function DiscographyAlbumsList({ albums }: DiscographyAlbumsListProps) {
   const [expandedAlbumId, setExpandedAlbumId] = useState<string | null>(null);
+  const [scrollReadyAlbumId, setScrollReadyAlbumId] = useState<string | null>(null);
+  const scrollTimerRef = useRef<number | null>(null);
 
   const getReleaseYear = (releaseDate: string) =>
     releaseDate ? releaseDate.slice(0, 4) : "";
 
   const toggleAlbum = (albumId: string) => {
-    setExpandedAlbumId((current) => (current === albumId ? null : albumId));
+    setExpandedAlbumId((current) => {
+      const nextAlbumId = current === albumId ? null : albumId;
+
+      if (scrollTimerRef.current) {
+        window.clearTimeout(scrollTimerRef.current);
+        scrollTimerRef.current = null;
+      }
+
+      if (!nextAlbumId) {
+        setScrollReadyAlbumId(null);
+        return nextAlbumId;
+      }
+
+      setScrollReadyAlbumId(null);
+      scrollTimerRef.current = window.setTimeout(() => {
+        setScrollReadyAlbumId(nextAlbumId);
+      }, 500);
+
+      return nextAlbumId;
+    });
   };
+
+  useEffect(() => {
+    return () => {
+      if (scrollTimerRef.current) {
+        window.clearTimeout(scrollTimerRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="grid md:grid-cols-3 gap-8">
       {albums.map((album) => {
         const isExpanded = expandedAlbumId === album.id;
+        const isScrollReady = scrollReadyAlbumId === album.id;
+        const detailsId = `album-details-${album.id}`;
 
         return (
           <div
             key={album.id}
             className={`group relative ${isExpanded ? "z-30" : "z-10"}`}
           >
-            <div className="relative aspect-square overflow-hidden bg-(--color-deep-teal) mb-4">
+            <button
+              type="button"
+              className="relative aspect-square w-full overflow-hidden bg-(--color-deep-teal) mb-24 text-left"
+              onClick={() => toggleAlbum(album.id)}
+              aria-expanded={isExpanded}
+              aria-controls={detailsId}
+            >
               <Image
                 src={album.field_image?.url || fallbackCoverUrl}
                 alt={album.field_image?.alt || album.title}
@@ -40,80 +78,111 @@ function DiscographyAlbumsList({ albums }: DiscographyAlbumsListProps) {
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
-              <div className="absolute inset-0 bg-(--color-deep-teal)/50 group-hover:bg-(--color-deep-teal)/30 transition-colors" />
-
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="flex gap-3">
-                  {album.field_streaming_platforms.map((platform) => (
-                    <a
-                      key={platform.id}
-                      href={platform.field_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 bg-(--color-champagne-gold) flex items-center justify-center hover:bg-(--color-champagne-gold)/80 transition-colors"
-                      onClick={(e) => e.stopPropagation()}
-                      title={platform.field_platform || "Streaming"}
-                      aria-label={platform.field_platform || "Streaming"}
-                    >
-                      {platform.field_platform.toLowerCase().includes("spotify") ? (
-                        <Headphones
-                          size={20}
-                          className="text-(--color-soft-charcoal)"
-                        />
-                      ) : (
-                        <ExternalLink
-                          size={20}
-                          className="text-(--color-soft-charcoal)"
-                        />
-                      )}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <button
-              type="button"
-              className="w-full flex items-center justify-between text-left"
-              onClick={() => toggleAlbum(album.id)}
-              aria-expanded={isExpanded}
-              aria-controls={`album-details-${album.id}`}
-            >
-              <div>
-                <h3 className="font-playfair text-2xl text-(--color-off-white) group-hover:text-(--color-champagne-gold) transition-colors mb-1">
-                  {album.title}
-                </h3>
-                <p className="text-(--color-off-white)/50 font-montserrat text-sm">
-                  {getReleaseYear(album.field_release_date)}
-                </p>
-              </div>
-              <ChevronDown
-                size={22}
-                className={`text-(--color-off-white)/70 transition-transform duration-300 ${isExpanded ? "rotate-180" : "rotate-0"}`}
-              />
+              <div className="absolute inset-0  group-hover:bg-(--color-deep-teal)/30 transition-colors" />
             </button>
 
             <div
-              id={`album-details-${album.id}`}
-              className={`absolute left-0 right-0 top-full z-40 transition-all duration-300 ease-out ${
-                isExpanded
-                  ? "opacity-100 translate-y-3 pointer-events-auto"
-                  : "opacity-0 translate-y-0 pointer-events-none"
+              id={detailsId}
+              className={`absolute inset-x-0 z-40 flex overflow-hidden bg-(--color-soft-charcoal) transition-all duration-500 ease-out ${
+                isExpanded ? "top-0 h-full" : "top-[calc(100%-6rem)] h-24"
               }`}
+              aria-hidden={false}
             >
-              <div className="bg-(--color-deep-teal-dark)/95 border border-(--color-off-white)/15 p-4 backdrop-blur-sm">
-                {album.field_description && (
-                  <p className="text-(--color-off-white)/60 font-montserrat text-sm leading-relaxed">
-                    {album.field_description}
-                  </p>
-                )}
-                {album.field_pieces.length > 0 && (
-                  <ul className="mt-4 space-y-1 text-(--color-off-white)/60 font-montserrat text-sm leading-relaxed">
-                    {album.field_pieces.map((piece) => (
-                      <li key={piece.id}>• {piece.title}</li>
-                    ))}
-                  </ul>
-                )}
+              <div className="flex  w-full flex-col">
+                <button
+                  type="button"
+                  className="flex min-h-24 w-full items-center justify-between border-b border-(--color-off-white)/10 px-4 py-4 text-left"
+                  onClick={() => toggleAlbum(album.id)}
+                  aria-expanded={isExpanded}
+                  aria-controls={detailsId}
+                >
+                  <div>
+                    <h3 className="font-playfair text-2xl text-(--color-off-white) group-hover:text-(--color-champagne-gold) transition-colors mb-1">
+                      {album.title}
+                    </h3>
+                    <p className="text-(--color-off-white)/50 font-montserrat text-sm">
+                      {getReleaseYear(album.field_release_date)}
+                    </p>
+                  </div>
+                  <ChevronDown
+                    size={22}
+                    className={`text-(--color-off-white)/70 transition-transform duration-300`}
+                  />
+                </button>
+
+                <div
+                  className={`min-h-0 flex-1 px-4 pb-4 pt-3 ${
+                    isExpanded && isScrollReady ? "overflow-y-auto" : "overflow-y-hidden"
+                  }`}
+                  onClick={() => {
+                    if (isExpanded) {
+                      toggleAlbum(album.id);
+                    }
+                  }}
+                >
+                  {album.field_streaming_platforms.length > 0 && (
+                    <div className="flex flex-wrap gap-3 mb-4">
+                      {album.field_streaming_platforms.map((platform) => {
+                        const StreamingLogo = getStreamingLogoByName(platform.field_platform);
+
+                        return (
+                          <a
+                            key={platform.id}
+                            href={platform.field_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-12 h-12 bg-(--color-champagne-gold) flex items-center justify-center hover:bg-(--color-champagne-gold)/80 transition-colors"
+                            onClick={(e) => e.stopPropagation()}
+                            title={platform.field_platform || "Streaming"}
+                            aria-label={platform.field_platform || "Streaming"}
+                          >
+                            {StreamingLogo ? (
+                              <StreamingLogo
+                                size={20}
+                                fill="var(--color-soft-charcoal)"
+                                className="hover:fill-(--color-soft-charcoal)"
+                              />
+                            ) : (
+                              <ExternalLink
+                                size={20}
+                                className="text-(--color-soft-charcoal)"
+                              />
+                            )}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  )}
+
+                  {album.field_description && (
+                    <p className="text-(--color-off-white)/60 font-montserrat text-sm leading-relaxed whitespace-pre-line">
+                      {album.field_description}
+                    </p>
+                  )}
+                  {album.field_pieces.length > 0 && (
+                    <div>
+                      <div className="flex items-center gap-2 mb-3 mt-4">
+                        <ListMusic size={14} className="text-(--color-champagne-gold)" />
+                        <span className="text-(--color-champagne-gold) font-montserrat text-xs uppercase tracking-wider">
+                          Lista utworów
+                        </span>
+                      </div>
+                      <ol className="space-y-1">
+                        {album.field_pieces.map((track, i) => (
+                          <li
+                            key={track.id}
+                            className="flex items-center gap-3 text-(--color-off-white)/60 font-montserrat text-sm"
+                          >
+                            <span className="text-(--color-champagne-gold)/50 text-xs w-4 text-right shrink-0">
+                              {i + 1}
+                            </span>
+                            <span>{track.title}</span>
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
