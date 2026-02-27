@@ -27,6 +27,9 @@ type MusicVideosApiResponse = {
   data?: MusicVideoApiNode | MusicVideoApiNode[];
 };
 
+const getAppEnv = () =>
+  (process.env.APP_ENV ?? process.env.NODE_ENV ?? "production").toLowerCase();
+
 export async function fetchMusicVideos(): Promise<MusicVideoItem[]> {
   const baseUrl = process.env.API_URL;
   if (!baseUrl) {
@@ -35,6 +38,7 @@ export async function fetchMusicVideos(): Promise<MusicVideoItem[]> {
   }
 
   const normalizedBaseUrl = baseUrl.replace(/\/$/, "");
+  const isDevEnvironment = ["dev", "development"].includes(getAppEnv());
 
   try {
     const params = new URLSearchParams();
@@ -42,9 +46,11 @@ export async function fetchMusicVideos(): Promise<MusicVideoItem[]> {
 
     const response = await fetch(
       `${normalizedBaseUrl}/jsonapi/node/music_video?${params.toString()}`,
-      {
-        next: { revalidate: 3600 },
-      },
+      isDevEnvironment
+        ? { cache: "no-store" }
+        : {
+            next: { revalidate: 3600 },
+          },
     );
 
     if (!response.ok) {

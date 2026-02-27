@@ -82,6 +82,9 @@ type EventsApiResponse = {
   included?: Array<SocialMediaIncluded | MediaImageIncluded | FileIncluded>;
 };
 
+const getAppEnv = () =>
+  (process.env.APP_ENV ?? process.env.NODE_ENV ?? "production").toLowerCase();
+
 export async function fetchEvents(limit?: number): Promise<EventItem[]> {
   const baseUrl = process.env.API_URL;
   if (!baseUrl) {
@@ -90,6 +93,7 @@ export async function fetchEvents(limit?: number): Promise<EventItem[]> {
   }
 
   const normalizedBaseUrl = baseUrl.replace(/\/$/, "");
+  const isDevEnvironment = ["dev", "development"].includes(getAppEnv());
   const getFirstRelationId = (
     relation?:
       | { id: string; type: string }
@@ -138,9 +142,12 @@ export async function fetchEvents(limit?: number): Promise<EventItem[]> {
       const query = params.toString();
       const endpoint = `${normalizedBaseUrl}/jsonapi/node/event${query ? `?${query}` : ""}`;
 
-      response = await fetch(endpoint, {
-        next: { revalidate: 3600 },
-      });
+      response = await fetch(
+        endpoint,
+        isDevEnvironment
+          ? { cache: "no-store" }
+          : { next: { revalidate: 3600 } },
+      );
 
       if (response.ok) {
         break;

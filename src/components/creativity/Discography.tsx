@@ -61,9 +61,9 @@ const fallbackAlbums: AlbumItem[] = [
 const fallbackCoverUrl =
   "https://images.unsplash.com/photo-1619983081563-430f63602796?w=600&q=80";
 
+
 async function Discography() {
-    const albumsFromApi = await fetchAlbums();
-    const albums = albumsFromApi.length > 0 ? albumsFromApi : fallbackAlbums;
+    const albums = await fetchAlbums();
 
     return (
     <section className="scroll-mt-32 py-24 px-6 bg-(--color-soft-charcoal)" id="albumy">

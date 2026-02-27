@@ -16,6 +16,16 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Environment
+
+Create `.env.local` based on `.env.example` and set:
+
+- `API_URL` - Drupal API base URL
+- `APP_ENV` - `dev` or `prod`
+
+`APP_ENV=dev` disables server fetch cache for albums (`cache: "no-store"`), so changes are visible immediately in development.
+`APP_ENV=prod` enables ISR cache (`revalidate: 3600`).
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

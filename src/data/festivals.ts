@@ -50,6 +50,9 @@ type FetchFestivalsOptions = {
   offset?: number;
 };
 
+const getAppEnv = () =>
+  (process.env.APP_ENV ?? process.env.NODE_ENV ?? "production").toLowerCase();
+
 export async function fetchFestivals(
   options: FetchFestivalsOptions = {},
 ): Promise<FestivalItem[]> {
@@ -59,6 +62,8 @@ export async function fetchFestivals(
     console.warn("API_URL is not set.");
     return [];
   }
+
+  const isDevEnvironment = ["dev", "development"].includes(getAppEnv());
 
   try {
     const params = new URLSearchParams();
@@ -72,9 +77,11 @@ export async function fetchFestivals(
 
     const response = await fetch(
       `${baseUrl}/jsonapi/node/festival?${params.toString()}`,
-      {
-        next: { revalidate: 2592000 },
-      },
+      isDevEnvironment
+        ? { cache: "no-store" }
+        : {
+            next: { revalidate: 2592000 },
+          },
     );
 
     if (!response.ok) {

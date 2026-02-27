@@ -13,10 +13,16 @@ type DiscographyAlbumsListProps = {
   albums: AlbumItem[];
 };
 
+const INITIAL_VISIBLE_ALBUMS = 3;
+const ALBUMS_PER_PAGE = 3;
+
 function DiscographyAlbumsList({ albums }: DiscographyAlbumsListProps) {
   const [expandedAlbumId, setExpandedAlbumId] = useState<string | null>(null);
   const [scrollReadyAlbumId, setScrollReadyAlbumId] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_ALBUMS);
   const scrollTimerRef = useRef<number | null>(null);
+  const visibleAlbums = albums.slice(0, visibleCount);
+  const canShowMore = visibleCount < albums.length;
 
   const getReleaseYear = (releaseDate: string) =>
     releaseDate ? releaseDate.slice(0, 4) : "";
@@ -53,8 +59,9 @@ function DiscographyAlbumsList({ albums }: DiscographyAlbumsListProps) {
   }, []);
 
   return (
-    <div className="grid md:grid-cols-3 gap-8">
-      {albums.map((album) => {
+    <div>
+      <div className="grid md:grid-cols-3 gap-8">
+      {visibleAlbums.map((album) => {
         const isExpanded = expandedAlbumId === album.id;
         const isScrollReady = scrollReadyAlbumId === album.id;
         const detailsId = `album-details-${album.id}`;
@@ -62,7 +69,8 @@ function DiscographyAlbumsList({ albums }: DiscographyAlbumsListProps) {
         return (
           <div
             key={album.id}
-            className={`group relative ${isExpanded ? "z-30" : "z-10"}`}
+            className={`group relative ${isExpanded ? "z-30" : "z-10"} animate-reveal fade-up`}
+            style={{ transitionDelay: `${visibleAlbums.indexOf(album) % 3 * 120}ms` }}
           >
             <button
               type="button"
@@ -111,7 +119,7 @@ function DiscographyAlbumsList({ albums }: DiscographyAlbumsListProps) {
                 </button>
 
                 <div
-                  className={`min-h-0 flex-1 px-4 pb-4 pt-3 ${
+                  className={`min-h-0 flex-1 px-4 pb-4 pt-3 [scrollbar-gutter:stable] ${
                     isExpanded && isScrollReady ? "overflow-y-auto" : "overflow-y-hidden"
                   }`}
                   onClick={() => {
@@ -188,6 +196,19 @@ function DiscographyAlbumsList({ albums }: DiscographyAlbumsListProps) {
           </div>
         );
       })}
+      </div>
+
+      {canShowMore && (
+        <div className="mt-12 flex justify-center">
+          <button
+            type="button"
+            className="flex items-center border border-(--color-champagne-gold) px-6 py-3 font-montserrat text-sm uppercase tracking-[0.2em] text-(--color-champagne-gold) transition-colors hover:bg-(--color-champagne-gold) hover:text-(--color-soft-charcoal)"
+            onClick={() => setVisibleCount((current) => current + ALBUMS_PER_PAGE)}
+          >
+            Pokaż więcej <ChevronDown className="ml-2" size={20} />
+          </button>
+        </div>
+      )}
     </div>
   );
 }

@@ -154,6 +154,9 @@ const extractStreamUrl = (
   return { platform: normalizedPlatformName, url };
 };
 
+const getAppEnv = () =>
+  (process.env.APP_ENV ?? process.env.NODE_ENV ?? "production").toLowerCase();
+
 export async function fetchAlbums(): Promise<AlbumItem[]> {
   const baseUrl = process.env.API_URL;
   if (!baseUrl) {
@@ -162,6 +165,7 @@ export async function fetchAlbums(): Promise<AlbumItem[]> {
   }
 
   const normalizedBaseUrl = normalizeBaseUrl(baseUrl);
+  const isDevEnvironment = ["dev", "development"].includes(getAppEnv());
 
   try {
     const includeVariants = [
@@ -180,9 +184,12 @@ export async function fetchAlbums(): Promise<AlbumItem[]> {
       }
 
       const endpoint = `${normalizedBaseUrl}/jsonapi/node/album?${params.toString()}`;
-      response = await fetch(endpoint, {
-        next: { revalidate: 3600 },
-      });
+      response = await fetch(
+        endpoint,
+        isDevEnvironment
+          ? { cache: "no-store" }
+          : { next: { revalidate: 3600 } },
+      );
 
       if (response.ok || response.status !== 400) {
         break;
