@@ -60,10 +60,7 @@ type StreamingIncluded = {
     field_service?: string | null;
     field_platform?: string | null;
     field_name?: string | null;
-    field_url?:
-      | string
-      | { uri?: string | null; url?: string | null }
-      | null;
+    field_url?: string | { uri?: string | null; url?: string | null } | null;
     field_link?: { uri?: string | null; url?: string | null } | null;
   };
 };
@@ -130,9 +127,7 @@ const extractStreamUrl = (
 
   const fieldUrl = platform.attributes?.field_url;
   const directUrl =
-    typeof fieldUrl === "string"
-      ? fieldUrl
-      : fieldUrl?.uri ?? fieldUrl?.url;
+    typeof fieldUrl === "string" ? fieldUrl : (fieldUrl?.uri ?? fieldUrl?.url);
   const fieldLink = platform.attributes?.field_link;
   const linkUrl = fieldLink?.uri ?? fieldLink?.url;
   const url = (directUrl ?? linkUrl ?? "").trim();
@@ -147,9 +142,7 @@ const extractStreamUrl = (
     platform.attributes?.field_name?.trim() ??
     "";
 
-  const normalizedPlatformName =
-    platformName ||
-    "Streaming";
+  const normalizedPlatformName = platformName || "Streaming";
 
   return { platform: normalizedPlatformName, url };
 };
@@ -221,7 +214,8 @@ export async function fetchAlbums(): Promise<AlbumItem[]> {
     const streamingsById = new Map(
       (payload.included ?? [])
         .filter(
-          (item): item is StreamingIncluded => item.type === "paragraph--streaming",
+          (item): item is StreamingIncluded =>
+            item.type === "paragraph--streaming",
         )
         .map((item) => [item.id, item]),
     );
@@ -229,27 +223,38 @@ export async function fetchAlbums(): Promise<AlbumItem[]> {
     const piecesById = new Map(
       (payload.included ?? [])
         .filter(
-          (item): item is CompositionIncluded => item.type === "node--composition",
+          (item): item is CompositionIncluded =>
+            item.type === "node--composition",
         )
         .map((item) => [item.id, item]),
     );
 
     return items
       .map((item) => {
-        const imageRelationId = getFirstRelationId(item.relationships?.field_image?.data);
-        const file = imageRelationId ? filesById.get(imageRelationId) : undefined;
+        const imageRelationId = getFirstRelationId(
+          item.relationships?.field_image?.data,
+        );
+        const file = imageRelationId
+          ? filesById.get(imageRelationId)
+          : undefined;
 
         const coverUrl = resolveDrupalUrl(
           normalizedBaseUrl,
-          file?.attributes?.uri?.url ?? file?.attributes?.url ?? file?.attributes?.fileuri,
+          file?.attributes?.uri?.url ??
+            file?.attributes?.url ??
+            file?.attributes?.fileuri,
         );
 
         const imageData = item.relationships?.field_image?.data;
         const imageAlt =
-          imageData && !Array.isArray(imageData) ? imageData.meta?.alt?.trim() : "";
-        const coverAlt = imageAlt || item.attributes?.title?.trim() || "Okładka albumu";
+          imageData && !Array.isArray(imageData)
+            ? imageData.meta?.alt?.trim()
+            : "";
+        const coverAlt =
+          imageAlt || item.attributes?.title?.trim() || "Okładka albumu";
 
-        const streamingRefs = item.relationships?.field_streaming_platforms?.data ?? [];
+        const streamingRefs =
+          item.relationships?.field_streaming_platforms?.data ?? [];
         const streamingPlatforms = streamingRefs
           .map((ref) => {
             const stream = extractStreamUrl(streamingsById.get(ref.id));
@@ -263,7 +268,9 @@ export async function fetchAlbums(): Promise<AlbumItem[]> {
               field_url: stream.url,
             };
           })
-          .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
+          .filter((entry): entry is NonNullable<typeof entry> =>
+            Boolean(entry),
+          );
 
         const pieceRefs = item.relationships?.field_pieces?.data ?? [];
         const pieces = pieceRefs
@@ -278,7 +285,9 @@ export async function fetchAlbums(): Promise<AlbumItem[]> {
               title: piece.attributes?.title?.trim() ?? "",
             };
           })
-          .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry?.title));
+          .filter((entry): entry is NonNullable<typeof entry> =>
+            Boolean(entry?.title),
+          );
 
         return {
           id: item.id,

@@ -2,8 +2,8 @@ import type { FestivalItem } from "@/data/festivals";
 import { createPageUrl } from "@/utils/helpers";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import SectionHeader from "../ui/SectionHeader";
 import AwardsList from "./AwardsList";
-import SectionHeader from "./SectionHeader";
 
 type AwardsProps = {
   festivals?: FestivalItem[];
@@ -25,12 +25,7 @@ function Awards({ festivals = [] }: AwardsProps) {
         <div className="mb-10 animate-reveal fade-up">
           <SectionHeader
             eyebrow="Międzynarodowe sukcesy"
-            title={
-              <>
-                Nasze{" "}
-                <span className="text-(--color-champagne-gold)">nagrody</span>
-              </>
-            }
+            title="Nasze nagrody"
             description={
               <>
                 Tylko w ostatnich 10 latach zdobyliśmy ponad{" "}

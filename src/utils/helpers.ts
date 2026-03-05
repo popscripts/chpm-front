@@ -37,7 +37,9 @@ export function createEventAnchorId(id: string) {
   return `event-${id}`;
 }
 
-export function getStreamingLogoByName(platformName?: string): ComponentType<IconProps> | null {
+export function getStreamingLogoByName(
+  platformName?: string,
+): ComponentType<IconProps> | null {
   if (!platformName) {
     return null;
   }

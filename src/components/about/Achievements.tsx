@@ -1,8 +1,10 @@
 import { Award, Globe, Medal } from "lucide-react";
-import Image from "next/image";
-import SectionHeader from "./SectionHeader";
+import AlternatingFeatureList, {
+  type AlternatingFeatureItem,
+} from "../ui/AlternatingFeatureList";
+import SectionHeader from "../ui/SectionHeader";
 
-const achievements = [
+const achievements: AlternatingFeatureItem[] = [
   {
     title: "Expo Osaka",
     icon: Globe,
@@ -89,65 +91,11 @@ function Achievements() {
         <div className="mb-16 animate-reveal fade-up">
           <SectionHeader
             eyebrow="Nasze osiągnięcia"
-            title={
-              <>
-                Największe{" "}
-                <span className="text-(--color-champagne-gold)">
-                  osiągnięcia
-                </span>
-              </>
-            }
+            title="Największe osiągnięcia"
           />
         </div>
 
-        <div className="space-y-12 md:space-y-20">
-          {achievements.map((achievement, index) => {
-            const isReversed = index === 1;
-            return (
-              <div key={achievement.title}>
-                <article
-                  className={`grid gap-8 md:grid-cols-[2fr_3fr] items-start text-left animate-reveal fade-up ${
-                    isReversed ? "md:grid-cols-[3fr_2fr]" : ""
-                  }`}
-                  style={{ transitionDelay: `${index * 120}ms` }}
-                >
-                  <div
-                    className={`relative aspect-4/3 overflow-hidden bg-(--color-deep-teal)/20 mb-5 ${
-                      isReversed ? "md:order-2" : ""
-                    }`}
-                  >
-                    <Image
-                      src={achievement.image}
-                      alt={achievement.title}
-                      fill
-                      sizes="(min-width: 1024px) 360px, (min-width: 768px) 320px, 90vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className={isReversed ? "md:order-1" : ""}>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 flex items-center justify-center bg-(--color-champagne-gold)/15 text-(--color-champagne-gold)">
-                        <achievement.icon size={20} />
-                      </div>
-                      <h3 className="font-playfair text-3xl text-(--color-off-white)">
-                        {achievement.title}
-                      </h3>
-                    </div>
-                    <p className="text-(--color-off-white)/70 font-montserrat leading-relaxed">
-                      {achievement.content}
-                    </p>
-                  </div>
-                </article>
-                {index < achievements.length - 1 && (
-                  <div className="mt-12 md:mt-16">
-                    <div className="relative h-px w-full bg-linear-to-r from-transparent via-(--color-champagne-gold)/50 to-transparent" />
-                    <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-(--color-champagne-gold) shadow-[0_0_12px_rgba(212,175,55,0.6)]" />
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
+        <AlternatingFeatureList items={achievements} />
       </div>
     </section>
   );

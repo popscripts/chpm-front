@@ -1,6 +1,6 @@
 import { MapPin, Music, Users } from "lucide-react";
 import ListCard from "../ui/ListCard";
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "../ui/SectionHeader";
 
 function WhatIsSpecial() {
   return (
@@ -12,12 +12,7 @@ function WhatIsSpecial() {
         <div className="mb-16 animate-reveal fade-up">
           <SectionHeader
             eyebrow="Nasze wyróżnienia"
-            title={
-              <>
-                Co nas{" "}
-                <span className="text-(--color-champagne-gold)">wyróżnia</span>
-              </>
-            }
+            title="Co nas wyróżnia"
           />
         </div>
 

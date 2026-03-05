@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "../ui/SectionHeader";
 
 function Story() {
   return (
@@ -14,6 +14,7 @@ function Story() {
               align="left"
               eyebrow="Kim jesteśmy"
               title="Chór Politechniki Morskiej w Szczecinie"
+              highlightWordsFromEnd={0}
             />
             <div className="space-y-4 text-(--color-off-white)/70 font-montserrat leading-relaxed">
               <p>

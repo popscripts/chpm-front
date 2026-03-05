@@ -83,7 +83,9 @@ export async function fetchMusicVideos(): Promise<MusicVideoItem[]> {
             : null,
         };
       })
-      .filter((video) => Boolean(video.title) && Boolean(video.field_link?.uri));
+      .filter(
+        (video) => Boolean(video.title) && Boolean(video.field_link?.uri),
+      );
   } catch (error) {
     console.warn("Music videos fetch error:", error);
     return [];

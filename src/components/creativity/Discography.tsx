@@ -13,7 +13,11 @@ const fallbackAlbums: AlbumItem[] = [
       alt: "Swiatlo i Cisza",
     },
     field_streaming_platforms: [
-      { id: "sp-1", field_platform: "Spotify", field_url: "https://open.spotify.com" },
+      {
+        id: "sp-1",
+        field_platform: "Spotify",
+        field_url: "https://open.spotify.com",
+      },
       {
         id: "am-1",
         field_platform: "Apple Music",
@@ -33,7 +37,11 @@ const fallbackAlbums: AlbumItem[] = [
       alt: "Harmonia",
     },
     field_streaming_platforms: [
-      { id: "sp-2", field_platform: "Spotify", field_url: "https://open.spotify.com" },
+      {
+        id: "sp-2",
+        field_platform: "Spotify",
+        field_url: "https://open.spotify.com",
+      },
     ],
     field_pieces: [],
   },
@@ -61,34 +69,36 @@ const fallbackAlbums: AlbumItem[] = [
 const fallbackCoverUrl =
   "https://images.unsplash.com/photo-1619983081563-430f63602796?w=600&q=80";
 
-
 async function Discography() {
-    const albums = await fetchAlbums();
+  const albums = await fetchAlbums();
 
-    return (
-    <section className="scroll-mt-32 py-24 px-6 bg-(--color-soft-charcoal)" id="albumy">
-        <div className="max-w-6xl mx-auto">
-          <div
-            className="text-center mb-16 animate-reveal fade-up"
-          >
-            <span className="text-(--color-champagne-gold) font-montserrat text-sm uppercase tracking-[0.3em] mb-4 block">
-              Dyskografia
-            </span>
-            <h2 className="font-playfair text-4xl md:text-5xl text-(--color-off-white)">
-              Nasze albumy
-            </h2>
-          </div>
+  return (
+    <section
+      className="scroll-mt-32 py-24 px-6 bg-(--color-soft-charcoal)"
+      id="albumy"
+    >
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16 animate-reveal fade-up">
+          <span className="text-(--color-champagne-gold) font-montserrat text-sm uppercase tracking-[0.3em] mb-4 block">
+            Dyskografia
+          </span>
+          <h2 className="font-playfair text-4xl md:text-5xl text-(--color-off-white)">
+            Nasze albumy
+          </h2>
+        </div>
 
-          <DiscographyAlbumsList albums={albums.map((album) => ({
+        <DiscographyAlbumsList
+          albums={albums.map((album) => ({
             ...album,
             field_image: album.field_image ?? {
               url: fallbackCoverUrl,
               alt: album.title,
             },
-          }))} />
-        </div>
-      </section>
- );
+          }))}
+        />
+      </div>
+    </section>
+  );
 }
 
 export default Discography;

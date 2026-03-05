@@ -3,7 +3,7 @@ import { createPageUrl } from "@/utils/helpers";
 import { ArrowRight, Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import SectionHeader from "../about/SectionHeader";
+import SectionHeader from "../ui/SectionHeader";
 
 const sampleVideos: MusicVideoItem[] = [
   {

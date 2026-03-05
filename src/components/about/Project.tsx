@@ -1,5 +1,5 @@
 import { ExternalLink } from "lucide-react";
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "../ui/SectionHeader";
 
 function Project() {
   return (
@@ -11,12 +11,7 @@ function Project() {
         <div className="animate-reveal fade-up">
           <SectionHeader
             eyebrow="Nasz autorski projekt"
-            title={
-              <>
-                Wspólne{" "}
-                <span className="text-(--color-champagne-gold)">Brzmienia</span>
-              </>
-            }
+            title="Wspólne Brzmienia"
           />
           <p className="text-(--color-off-white)/70 font-montserrat leading-relaxed mb-8">
             Od kilku lat jesteśmy autorami i pomysłodawcami projektu{" "}

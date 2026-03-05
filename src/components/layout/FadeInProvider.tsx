@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 type FadeInProviderProps = {
   children: React.ReactNode;
@@ -43,7 +43,10 @@ export default function FadeInProvider({ children }: FadeInProviderProps) {
         return;
       }
 
-      if (element.classList.contains("is-visible") || observedElements.has(element)) {
+      if (
+        element.classList.contains("is-visible") ||
+        observedElements.has(element)
+      ) {
         return;
       }
 
@@ -52,7 +55,10 @@ export default function FadeInProvider({ children }: FadeInProviderProps) {
     };
 
     const observeRevealElementsIn = (root: ParentNode | HTMLElement) => {
-      if (root instanceof HTMLElement && root.classList.contains("animate-reveal")) {
+      if (
+        root instanceof HTMLElement &&
+        root.classList.contains("animate-reveal")
+      ) {
         observeRevealElement(root);
       }
 

@@ -1,5 +1,5 @@
 import AwardsListWithMore from "@/components/about/AwardsListWithMore";
-import SectionHeader from "@/components/about/SectionHeader";
+import SectionHeader from "@/components/ui/SectionHeader";
 import { fetchFestivals } from "@/data/festivals";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
@@ -20,12 +20,7 @@ export default async function Page() {
           </Link>
         </div>
         <SectionHeader
-          title={
-            <>
-              Nasze{" "}
-              <span className="text-(--color-champagne-gold)">nagrody</span>
-            </>
-          }
+          title="Nasze nagrody"
           description={
             <>
               Tylko w ostatnich 10 latach zdobyliśmy ponad{" "}

@@ -2,20 +2,22 @@ import { fetchCompositions } from "@/data/compositions";
 
 export default async function Repertoire() {
   const compositions = await fetchCompositions();
-  const compositionsByLetter = compositions.reduce<Record<string, typeof compositions>>(
-    (acc, composition) => {
-      const firstLetter = composition.title.trim().charAt(0).toLocaleUpperCase("pl-PL");
-      const key = firstLetter || "#";
+  const compositionsByLetter = compositions.reduce<
+    Record<string, typeof compositions>
+  >((acc, composition) => {
+    const firstLetter = composition.title
+      .trim()
+      .charAt(0)
+      .toLocaleUpperCase("pl-PL");
+    const key = firstLetter || "#";
 
-      if (!acc[key]) {
-        acc[key] = [];
-      }
+    if (!acc[key]) {
+      acc[key] = [];
+    }
 
-      acc[key].push(composition);
-      return acc;
-    },
-    {},
-  );
+    acc[key].push(composition);
+    return acc;
+  }, {});
 
   const groupedEntries = Object.entries(compositionsByLetter).sort(([a], [b]) =>
     a.localeCompare(b, "pl"),
@@ -45,7 +47,9 @@ export default async function Repertoire() {
             {groupedEntries.map(([letter, letterCompositions]) => (
               <section key={letter} className="mb-4">
                 <div className="flex items-center gap-4">
-                  <span className="font-playfair text-3xl text-[#D4AF37]">{letter}</span>
+                  <span className="font-playfair text-3xl text-[#D4AF37]">
+                    {letter}
+                  </span>
                   <div className="flex-1 h-px bg-[#F5F5F5]/10" />
                 </div>
                 <ul className="space-y-3 ml-6 mt-2 grid grid-cols-1 md:grid-cols-2 md:auto-rows-fr gap-y-4">
@@ -69,10 +73,12 @@ export default async function Repertoire() {
                       >
                         <p>
                           <span className="font-playfair text-lg text-(--color-off-white)">
-                          {composition.title}
+                            {composition.title}
                           </span>
                           <span className="text-(--color-off-white-medium) text-sm text-montserrat">
-                            {details.length > 0 ? ` - ${details.join(", ")}` : ""}
+                            {details.length > 0
+                              ? ` - ${details.join(", ")}`
+                              : ""}
                           </span>
                         </p>
                         {composition.genres.length > 0 &&

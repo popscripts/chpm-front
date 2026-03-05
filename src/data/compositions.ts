@@ -16,10 +16,16 @@ type CompositionApiNode = {
       data?: Array<{ id: string; type: string }>;
     };
     field_composer?: {
-      data?: { id: string; type: string } | Array<{ id: string; type: string }> | null;
+      data?:
+        | { id: string; type: string }
+        | Array<{ id: string; type: string }>
+        | null;
     };
     field_arranger?: {
-      data?: { id: string; type: string } | Array<{ id: string; type: string }> | null;
+      data?:
+        | { id: string; type: string }
+        | Array<{ id: string; type: string }>
+        | null;
     };
   };
 };
@@ -48,13 +54,18 @@ type CompositionsApiResponse = {
 };
 
 const getRelationIds = (
-  relation?: { id: string; type: string } | Array<{ id: string; type: string }> | null,
+  relation?:
+    | { id: string; type: string }
+    | Array<{ id: string; type: string }>
+    | null,
 ) => {
   if (!relation) {
     return [];
   }
 
-  return Array.isArray(relation) ? relation.map((item) => item.id) : [relation.id];
+  return Array.isArray(relation)
+    ? relation.map((item) => item.id)
+    : [relation.id];
 };
 
 const getIncludedLabel = (item?: GenreIncluded | PersonIncluded) =>
@@ -76,9 +87,7 @@ export async function fetchCompositions(): Promise<CompositionItem[]> {
   try {
     const response = await fetch(
       `${normalizedBaseUrl}/jsonapi/node/composition?include=field_genres,field_composer,field_arranger`,
-      isDevEnvironment
-        ? { cache: "no-store" }
-        : { next: { revalidate: 3600 } },
+      isDevEnvironment ? { cache: "no-store" } : { next: { revalidate: 3600 } },
     );
 
     if (!response.ok) {
@@ -108,14 +117,20 @@ export async function fetchCompositions(): Promise<CompositionItem[]> {
           .map((entry) => getIncludedLabel(entry))
           .filter(Boolean);
 
-        const includedById = new Map((payload.included ?? []).map((entry) => [entry.id, entry]));
+        const includedById = new Map(
+          (payload.included ?? []).map((entry) => [entry.id, entry]),
+        );
 
-        const composers = getRelationIds(item.relationships?.field_composer?.data)
+        const composers = getRelationIds(
+          item.relationships?.field_composer?.data,
+        )
           .map((id) => includedById.get(id))
           .map((entry) => getIncludedLabel(entry))
           .filter(Boolean);
 
-        const arrangers = getRelationIds(item.relationships?.field_arranger?.data)
+        const arrangers = getRelationIds(
+          item.relationships?.field_arranger?.data,
+        )
           .map((id) => includedById.get(id))
           .map((entry) => getIncludedLabel(entry))
           .filter(Boolean);
