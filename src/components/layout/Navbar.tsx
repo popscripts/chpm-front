@@ -13,7 +13,7 @@ const navLinks = [
   { name: "Dyrygent", page: "dyrygent" },
   { name: "Twórczość", page: "tworczosc" },
   { name: "Wydarzenia", page: "wydarzenia" },
-  { name: "Nabór", page: "https://dajsienabrac.pl/" },
+  { name: "Nabór", page: "nabor" },
   { name: "Kontakt", page: "kontakt" },
 ];
 

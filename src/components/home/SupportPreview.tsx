@@ -1,10 +1,15 @@
 import { createPageUrl } from "@/utils/helpers";
 import { ArrowRight, Heart } from "lucide-react";
 import Link from "next/link";
+import SectionWrapper from "../layout/SectionWrapper";
 
 export default function SupportPreview() {
   return (
-    <section id="wesprzyj-nas" className="scroll-mt-32 bg-linear-to-b from-(--color-soft-charcoal) via-(--color-deep-teal-dark) to-(--color-deep-teal-medium) py-24 px-6 relative overflow-hidden">
+    <SectionWrapper
+      id="wesprzyj-nas"
+      background="tealLinear"
+      className="relative overflow-hidden"
+    >
       {/* Decorative background */}
       <div className="absolute inset-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 border border-[rgb(var(--color-champagne-gold-rgb)/0.1)] rounded-full" />
@@ -80,6 +85,6 @@ export default function SupportPreview() {
           </div>
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }

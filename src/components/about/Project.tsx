@@ -1,12 +1,10 @@
 import { ExternalLink } from "lucide-react";
+import SectionWrapper from "../layout/SectionWrapper";
 import SectionHeader from "../ui/SectionHeader";
 
 function Project() {
   return (
-    <section
-      id="wspolne-brzmienia"
-      className="scroll-mt-32 py-24 px-6 bg-(--color-soft-charcoal)"
-    >
+    <SectionWrapper id="wspolne-brzmienia" background="dark">
       <div className="max-w-4xl mx-auto text-center">
         <div className="animate-reveal fade-up">
           <SectionHeader
@@ -31,7 +29,7 @@ function Project() {
           </a>
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }
 

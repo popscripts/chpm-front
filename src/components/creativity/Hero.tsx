@@ -5,9 +5,9 @@ function Hero() {
     <section className="relative h-[50vh] overflow-hidden bg-linear-to-b from-(--color-deep-teal)/40 via-(--color-deep-teal)/20 to-(--color-soft-charcoal)">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1920&q=80"
+          src="/assets/images/nagranie.jpeg"
           alt="Twórczość"
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover object-[50%_10%]"
           fill
           sizes="100vw"
         />

@@ -1,6 +1,7 @@
 import Achievements from "@/components/about/Achievements";
 import Awards from "@/components/about/Awards";
 import Hero from "@/components/about/Hero";
+import JoinUs from "@/components/about/JoinUs";
 import Project from "@/components/about/Project";
 import Stats from "@/components/about/Stats";
 import Story from "@/components/about/Story";
@@ -21,6 +22,7 @@ export default function About({ festivals = [] }: AboutProps) {
     { label: "Co nas wyróżnia", id: "co-nas-wyroznia" },
     { label: "Osiągnięcia", id: "osiagniecia" },
     { label: "Wspólne brzmienia", id: "wspolne-brzmienia" },
+    { label: "Dołącz do nas", id: "dolacz-do-nas" },
   ];
 
   return (
@@ -33,6 +35,7 @@ export default function About({ festivals = [] }: AboutProps) {
       <WhatIsSpecial />
       <Achievements />
       <Project />
+      {/* <JoinUs /> */}
     </div>
   );
 }

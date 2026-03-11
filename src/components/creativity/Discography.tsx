@@ -1,4 +1,5 @@
 import { fetchAlbums } from "@/data/albums";
+import SectionWrapper from "../layout/SectionWrapper";
 import DiscographyAlbumsList from "../ui/DiscographyAlbumsList";
 
 
@@ -6,10 +7,7 @@ async function Discography() {
   const albums = await fetchAlbums();
 
   return (
-    <section
-      className="scroll-mt-32 py-24 px-6 bg-(--color-soft-charcoal)"
-      id="albumy"
-    >
+    <SectionWrapper id="albumy" background="dark">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 animate-reveal fade-up">
           <span className="text-(--color-champagne-gold) font-montserrat text-sm uppercase tracking-[0.3em] mb-4 block">
@@ -27,7 +25,7 @@ async function Discography() {
           }))}
         />
       </div>
-    </section>
+    </SectionWrapper>
   );
 }
 

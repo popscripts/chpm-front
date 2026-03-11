@@ -1,4 +1,5 @@
 import { Award, Globe, Medal } from "lucide-react";
+import SectionWrapper from "../layout/SectionWrapper";
 import AlternatingFeatureList, {
   type AlternatingFeatureItem,
 } from "../ui/AlternatingFeatureList";
@@ -83,10 +84,7 @@ const achievements: AlternatingFeatureItem[] = [
 
 function Achievements() {
   return (
-    <section
-      id="osiagniecia"
-      className="scroll-mt-32 py-24 px-6 bg-radial from-(--color-deep-teal-dark) to-(--color-soft-charcoal)"
-    >
+    <SectionWrapper id="osiagniecia" background="tealRadial">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16 animate-reveal fade-up">
           <SectionHeader
@@ -97,7 +95,7 @@ function Achievements() {
 
         <AlternatingFeatureList items={achievements} />
       </div>
-    </section>
+    </SectionWrapper>
   );
 }
 

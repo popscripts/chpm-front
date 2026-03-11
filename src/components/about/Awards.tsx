@@ -2,6 +2,7 @@ import type { FestivalItem } from "@/data/festivals";
 import { createPageUrl } from "@/utils/helpers";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import SectionWrapper from "../layout/SectionWrapper";
 import SectionHeader from "../ui/SectionHeader";
 import AwardsList from "./AwardsList";
 
@@ -17,10 +18,7 @@ function Awards({ festivals = [] }: AwardsProps) {
   }
 
   return (
-    <section
-      id="nagrody"
-      className="scroll-mt-32 py-16 px-4 bg-radial from-(--color-deep-teal-dark) to-(--color-soft-charcoal)"
-    >
+    <SectionWrapper id="nagrody" background="tealRadial">
       <div className="max-w-5xl mx-auto">
         <div className="mb-10 animate-reveal fade-up">
           <SectionHeader
@@ -50,7 +48,7 @@ function Awards({ festivals = [] }: AwardsProps) {
           </Link>
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }
 

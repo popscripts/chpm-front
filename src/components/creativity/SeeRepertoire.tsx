@@ -1,12 +1,13 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import SectionWrapper from "../layout/SectionWrapper";
 import SectionHeader from "../ui/SectionHeader";
 
 function SeeRepertoire() {
   return (
-    <section
-      className="scroll-mt-32 py-24 px-6 bg-linear-to-b from-(--color-soft-charcoal) to-(--color-deep-teal-medium)"
+    <SectionWrapper
       id="repertuar"
+      background="tealLinear"
     >
       <div className="max-w-4xl mx-auto text-center">
         <SectionHeader
@@ -22,7 +23,7 @@ function SeeRepertoire() {
           <ArrowRight size={18} className="ml-2" />
         </Link>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }
 

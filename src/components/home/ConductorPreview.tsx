@@ -2,10 +2,11 @@ import { createPageUrl } from "@/utils/helpers";
 import { ArrowRight, Quote } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import SectionWrapper from "../layout/SectionWrapper";
 
 export default function ConductorPreview() {
   return (
-    <section id="dyrygent" className="scroll-mt-32 bg-radial from-(--color-deep-teal-dark) to-(--color-soft-charcoal) py-24 px-6">
+    <SectionWrapper id="dyrygent" background="dark">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Content */}
@@ -69,6 +70,6 @@ export default function ConductorPreview() {
           </div>
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }

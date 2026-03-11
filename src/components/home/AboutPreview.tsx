@@ -2,10 +2,11 @@ import { createPageUrl } from "@/utils/helpers";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import SectionWrapper from "../layout/SectionWrapper";
 
 export default function AboutPreview() {
   return (
-    <section id="o-nas" className="scroll-mt-32 bg-radial from-(--color-deep-teal-dark) to-(--color-soft-charcoal) py-24 px-6 ">
+    <SectionWrapper id="o-nas" background="tealRadial">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image */}
@@ -63,6 +64,6 @@ export default function AboutPreview() {
           </div>
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }

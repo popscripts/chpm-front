@@ -1,13 +1,11 @@
 import { MapPin, Music, Users } from "lucide-react";
+import SectionWrapper from "../layout/SectionWrapper";
 import ListCard from "../ui/ListCard";
 import SectionHeader from "../ui/SectionHeader";
 
 function WhatIsSpecial() {
   return (
-    <section
-      id="co-nas-wyroznia"
-      className="scroll-mt-32 py-24 px-6 bg-(--color-soft-charcoal)"
-    >
+    <SectionWrapper id="co-nas-wyroznia" background="dark">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16 animate-reveal fade-up">
           <SectionHeader
@@ -97,7 +95,7 @@ function WhatIsSpecial() {
           </div>
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }
 

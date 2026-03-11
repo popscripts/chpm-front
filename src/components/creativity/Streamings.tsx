@@ -1,40 +1,8 @@
-import type { ComponentType } from "react";
-import AppleMusic from "../icons/AppleMusic";
-import Deezer from "../icons/Deezer";
-import type { IconProps } from "../icons/IconProps";
-import Spotify from "../icons/Spotify";
-import Tidal from "../icons/Tidal";
-import YoutubeMusic from "../icons/YoutubeMusic";
+import { STREAMING_PLATFORMS } from "@/utils/constants";
+import SectionWrapper from "../layout/SectionWrapper";
 import SectionHeader from "../ui/SectionHeader";
 
 function Streamings() {
-  const streamingPlatforms: Array<{
-    name: string;
-    url: string;
-    icon: ComponentType<IconProps>;
-  }> = [
-    {
-      name: "Spotify",
-      url: "https://open.spotify.com/artist/222VaksbMkcTr4vuK79lMh?si=ajIuQRPxRASrrIeYw7F-2g",
-      icon: Spotify,
-    },
-    {
-      name: "Apple Music",
-      url: "https://music.apple.com/pl/artist/chór-politechniki-morskiej-w-szczecinie/1643431635?l=pl",
-      icon: AppleMusic,
-    },
-    {
-      name: "YouTube Music",
-      url: "https://music.youtube.com/channel/UCnflGXwOk05zpSlGBnm66GQ?si=9kwUVOtjOTh-XOFz",
-      icon: YoutubeMusic,
-    },
-    {
-      name: "Deezer",
-      url: "https://link.deezer.com/s/32wBK4aKn9nfMHpfX3MT4",
-      icon: Deezer,
-    },
-    { name: "Tidal", url: "https://tidal.com/artist/34175477/u", icon: Tidal },
-  ];
 
   const otherPlatforms: Array<{
     name: string;
@@ -57,10 +25,7 @@ function Streamings() {
   ];
 
   return (
-    <section
-      className="scroll-mt-32 py-16 px-6 bg-(--color-soft-charcoal)"
-      id="streamingi"
-    >
+    <SectionWrapper id="streamingi" background="dark">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
           eyebrow="Streamingi"
@@ -69,7 +34,7 @@ function Streamings() {
         />
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-8">
-          {streamingPlatforms.map((platform, index) => {
+          {STREAMING_PLATFORMS.map((platform, index) => {
             const Icon = platform.icon;
 
             return (
@@ -131,7 +96,7 @@ function Streamings() {
           </div>
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }
 

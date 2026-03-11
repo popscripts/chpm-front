@@ -1,12 +1,10 @@
 import Image from "next/image";
+import SectionWrapper from "../layout/SectionWrapper";
 import SectionHeader from "../ui/SectionHeader";
 
 function Story() {
   return (
-    <section
-      id="kim-jestesmy"
-      className="scroll-mt-32 py-24 px-6 bg-radial from-(--color-deep-teal-dark) to-(--color-soft-charcoal)"
-    >
+    <SectionWrapper id="kim-jestesmy" background="tealRadial">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div className="animate-reveal fade-left">
@@ -60,7 +58,7 @@ function Story() {
           </div>
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }
 
