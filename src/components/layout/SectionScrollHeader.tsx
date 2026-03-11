@@ -18,7 +18,7 @@ export default function SectionScrollHeader({
 }: SectionScrollHeaderProps) {
   const [activeId, setActiveId] = useState(items[0]?.id ?? "");
   const itemIds = useMemo(() => items.map((item) => item.id), [items]);
-  const listRef = useRef<HTMLUListElement | null>(null);
+  const navRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!itemIds.length) {
@@ -58,19 +58,24 @@ export default function SectionScrollHeader({
   }, [itemIds]);
 
   useEffect(() => {
-    if (!activeId || !listRef.current) {
+    if (!activeId || !navRef.current) {
       return;
     }
 
-    const activeLink = listRef.current.querySelector(
+    const activeLink = navRef.current.querySelector(
       `[data-section-id="${activeId}"]`,
     );
 
     if (activeLink instanceof HTMLElement) {
-      activeLink.scrollIntoView({
+      const container = navRef.current;
+      const maxLeft = container.scrollWidth - container.clientWidth;
+      const linkLeft = activeLink.offsetLeft;
+      const targetLeft =
+        linkLeft - container.clientWidth / 2 + activeLink.clientWidth / 2;
+
+      container.scrollTo({
+        left: Math.max(0, Math.min(targetLeft, maxLeft)),
         behavior: "smooth",
-        inline: "center",
-        block: "nearest",
       });
     }
   }, [activeId]);
@@ -84,11 +89,11 @@ export default function SectionScrollHeader({
       className={`sticky ${offsetTopClassName} z-40 bg-[rgb(var(--color-soft-charcoal-rgb)/0.9)] backdrop-blur-md border-b border-(--color-off-white)/10`}
     >
       <nav
+        ref={navRef}
         aria-label="Nawigacja sekcji"
         className="max-w-6xl mx-auto px-6 py-2 overflow-x-auto scrollbar-hide"
       >
         <ul
-          ref={listRef}
           className="flex min-w-max items-center justify-center gap-3 text-sm font-montserrat uppercase tracking-wide whitespace-nowrap"
         >
           {items.map((item) => {

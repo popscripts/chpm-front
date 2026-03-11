@@ -1,8 +1,6 @@
 import { fetchMusicVideos, type MusicVideoItem } from "@/data/musicVideos";
-import { createPageUrl } from "@/utils/helpers";
-import { ArrowRight, Play } from "lucide-react";
+import { Play } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import SectionHeader from "../ui/SectionHeader";
 
 const sampleVideos: MusicVideoItem[] = [
@@ -69,7 +67,7 @@ export default async function MultimediaSection() {
   const videos = videosFromApi.length > 0 ? videosFromApi : sampleVideos;
 
   return (
-    <section className="bg-radial from-(--color-deep-teal-dark) to-(--color-soft-charcoal) py-24 px-6 relative">
+    <section id="multimedia" className="scroll-mt-32 bg-radial from-(--color-deep-teal-dark) to-(--color-soft-charcoal) py-24 px-6 relative">
       {/* Decorative background */}
       {/* <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-50 -left-50 w-200 h-200 bg-radial from-(--color-champagne-gold-dark) via-transparent to-transparent" />
@@ -123,19 +121,7 @@ export default async function MultimediaSection() {
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center animate-reveal fade-up">
-          <Link
-            href={createPageUrl("tworczosc")}
-            className="inline-flex items-center gap-3 text-(--color-champagne-gold) font-montserrat font-semibold text-sm uppercase tracking-wider hover:gap-5 transition-all duration-300 group"
-          >
-            Zobacz wszystkie nagrania
-            <ArrowRight
-              size={18}
-              className="group-hover:translate-x-1 transition-transform"
-            />
-          </Link>
-        </div>
+        
       </div>
     </section>
   );

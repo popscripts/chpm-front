@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function AboutPreview() {
   return (
-    <section className="bg-radial from-(--color-deep-teal-dark) to-(--color-soft-charcoal) py-24 px-6 ">
+    <section id="o-nas" className="scroll-mt-32 bg-radial from-(--color-deep-teal-dark) to-(--color-soft-charcoal) py-24 px-6 ">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image */}

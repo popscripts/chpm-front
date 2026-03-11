@@ -8,6 +8,9 @@ import Tidal from "@/components/icons/Tidal";
 import YoutubeMusic from "@/components/icons/YoutubeMusic";
 
 export function createPageUrl(pageName: string) {
+  if (pageName.startsWith("http://") || pageName.startsWith("https://")) {
+    return pageName;
+  }
   return "/" + pageName.replace(/ /g, "-").toLowerCase();
 }
 

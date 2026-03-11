@@ -11,15 +11,29 @@ import { useEffect, useState } from "react";
 const navLinks = [
   { name: "O nas", page: "o-nas" },
   { name: "Dyrygent", page: "dyrygent" },
-  { name: "Wydarzenia", page: "wydarzenia" },
   { name: "Twórczość", page: "tworczosc" },
-  { name: "Wsparcie", page: "wsparcie" },
+  { name: "Wydarzenia", page: "wydarzenia" },
+  { name: "Nabór", page: "https://dajsienabrac.pl/" },
+  { name: "Kontakt", page: "kontakt" },
 ];
+
+const splitIndex = Math.ceil(navLinks.length / 2);
+const leftNavLinks = navLinks.slice(0, splitIndex);
+const rightNavLinks = navLinks.slice(splitIndex);
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const isLinkActive = (page: string) => {
+    if (page === "") {
+      return pathname === "/";
+    }
+
+    const pagePath = `/${page.toLowerCase()}`;
+    return pathname === pagePath || pathname?.startsWith(`${pagePath}/`);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,8 +52,23 @@ export default function Navbar() {
             : "bg-transparent py-6 border-b border-(--color-off-white)/0"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between ">
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between lg:justify-around ">
           {/* Logo */}
+          <div className="hidden lg:flex items-center gap-8">
+            {leftNavLinks.map((link) => (
+              <Link
+                key={link.page}
+                href={createPageUrl(link.page)}
+                className={`font-montserrat text-sm uppercase tracking-wider transition-colors ${
+                  isLinkActive(link.page)
+                    ? "text-(--color-champagne-gold)"
+                    : "text-[rgb(var(--color-off-white-rgb)/0.8)] hover:text-(--color-champagne-gold)"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
           <Link href={createPageUrl("")} className="inline-flex items-center">
             <Image
               src="/assets/logo/logo2-1-2.png"
@@ -53,12 +82,12 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {rightNavLinks.map((link) => (
               <Link
                 key={link.page}
                 href={createPageUrl(link.page)}
                 className={`font-montserrat text-sm uppercase tracking-wider transition-colors ${
-                  pathname?.includes(link.page.toLowerCase())
+                  isLinkActive(link.page)
                     ? "text-(--color-champagne-gold)"
                     : "text-[rgb(var(--color-off-white-rgb)/0.8)] hover:text-(--color-champagne-gold)"
                 }`}
@@ -91,7 +120,7 @@ export default function Navbar() {
                   key={link.page}
                   href={createPageUrl(link.page)}
                   className={`font-playfair text-2xl transition-colors ${
-                    pathname?.includes(link.page.toLowerCase())
+                    isLinkActive(link.page)
                       ? "text-(--color-champagne-gold)"
                       : "text-(--color-off-white) hover:text-(--color-champagne-gold)"
                   }`}

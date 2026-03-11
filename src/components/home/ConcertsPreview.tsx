@@ -9,7 +9,7 @@ export default async function ConcertsPreview() {
   const upcomingConcerts: EventItem[] = await fetchEvents(3);
 
   return (
-    <section className="bg-[--color-soft-charcoal] py-24 px-6 shadow-[0_10px_60px_-15px_var(--color-deep-teal)]">
+    <section id="wydarzenia" className="scroll-mt-32 bg-[--color-soft-charcoal] py-24 px-6 shadow-[0_10px_60px_-15px_var(--color-deep-teal)]">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 animate-reveal fade-up">

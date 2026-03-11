@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function SupportPreview() {
   return (
-    <section className="bg-linear-to-b from-(--color-soft-charcoal) via-(--color-deep-teal-dark) to-(--color-deep-teal-medium) py-24 px-6 relative overflow-hidden">
+    <section id="wesprzyj-nas" className="scroll-mt-32 bg-linear-to-b from-(--color-soft-charcoal) via-(--color-deep-teal-dark) to-(--color-deep-teal-medium) py-24 px-6 relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute inset-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 border border-[rgb(var(--color-champagne-gold-rgb)/0.1)] rounded-full" />
