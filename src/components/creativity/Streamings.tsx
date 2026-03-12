@@ -62,16 +62,15 @@ function Streamings() {
         </div>
 
         <div
-          className="mt-10 animate-reveal fade-up"
-          style={{ transitionDelay: "240ms" }}
+          className="mt-10"
         >
           <h3 className="w-full text-center font-montserrat text-sm uppercase tracking-wide text-(--color-off-white-medium) mb-4">
             Inne platformy
           </h3>
           <div className="flex-wrap gap-3 flex justify-center">
-            {otherPlatforms.map((platform) => {
+            {otherPlatforms.map((platform, i) => {
               const sharedClassName =
-                "inline-flex items-center rounded-full border border-(--color-off-white)/20 px-4 py-2 text-sm font-montserrat text-(--color-off-white-medium) transition-colors";
+                " animate-reveal fade-up inline-flex items-center rounded-full border border-(--color-off-white)/20 px-4 py-2 text-sm font-montserrat text-(--color-off-white-medium) transition-colors";
 
               if (platform.url) {
                 return (
@@ -81,6 +80,7 @@ function Streamings() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`${sharedClassName} hover:border-(--color-champagne-gold) hover:text-(--color-champagne-gold)`}
+                    style={{ transitionDelay: `${240 + i * 80}ms` }}
                   >
                     {platform.name}
                   </a>
@@ -88,7 +88,7 @@ function Streamings() {
               }
 
               return (
-                <span key={platform.name} className={sharedClassName}>
+                <span key={platform.name} className={sharedClassName} style={{ transitionDelay: `${240 + i * 30}ms` }}>
                   {platform.name}
                 </span>
               );

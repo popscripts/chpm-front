@@ -1,5 +1,5 @@
+import SectionWrapper from "@/components/layout/SectionWrapper";
 import { ExternalLink } from "lucide-react";
-import SectionWrapper from "../layout/SectionWrapper";
 
 const joinUsHighlights = [
   {
@@ -66,10 +66,10 @@ function JoinUs() {
             ))}
           </div>
 
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+          <div className="flex justify-center gap-4 flex-row">
             <a
             href="#"
-            className="inline-flex items-center gap-3 px-8 py-4 border border-(--color-champagne-gold) text-(--color-champagne-gold) font-montserrat font-semibold text-sm uppercase tracking-wider hover:bg-(--color-champagne-gold) hover:text-[#1A1A1A] transition-all duration-300"
+            className="text-center inline-flex items-center gap-3 px-8 py-4 border border-(--color-champagne-gold) text-(--color-champagne-gold) font-montserrat font-semibold text-sm uppercase tracking-wider hover:bg-(--color-champagne-gold) hover:text-[#1A1A1A] transition-all duration-300"
             >
             Dowiedz się więcej
             <ExternalLink size={18} />

@@ -1,14 +1,14 @@
 import type { IconProps } from "./IconProps";
 
 const Facebook = ({
-  fill = "var(--color-off-white-medium)",
+  fill = "currentColor",
   size = 24,
   className,
   ...props
 }: IconProps) => (
   <svg
     fill={fill}
-    className={`${className ?? ""} transition-colors hover:fill-(--color-off-white)`}
+    className={`${className ?? ""} transition-colors`}
     height={size}
     width={size}
     id="Layer_1"

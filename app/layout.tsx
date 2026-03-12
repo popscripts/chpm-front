@@ -1,3 +1,4 @@
+import BackToTopButton from "@/components/layout/BackToTopButton";
 import FadeInProvider from "@/components/layout/FadeInProvider";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         <FadeInProvider>{children}</FadeInProvider>
+        <BackToTopButton />
         <Footer />
       </body>
     </html>

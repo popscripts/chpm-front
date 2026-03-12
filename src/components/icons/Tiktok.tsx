@@ -1,7 +1,7 @@
 import type { IconProps } from "./IconProps";
 
 const Tiktok = ({
-  fill = "var(--color-off-white-medium)",
+  fill = "currentColor",
   size = 24,
   className,
   ...props
@@ -10,11 +10,11 @@ const Tiktok = ({
     fill={fill}
     height={size}
     width={size}
-    className={`${className ?? ""} transition-colors hover:fill-(--color-off-white)`}
+    className={`${className ?? ""} transition-colors`}
     id="Layer_1"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
-    viewBox="-337 273 123.5 256"
+    viewBox="0 0 32 32"
     xmlSpace="preserve"
     {...props}
   >

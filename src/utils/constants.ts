@@ -1,8 +1,11 @@
 import AppleMusic from "@/components/icons/AppleMusic";
 import Deezer from "@/components/icons/Deezer";
+import Facebook from "@/components/icons/Facebook";
 import { IconProps } from "@/components/icons/IconProps";
+import Instagram from "@/components/icons/Instagram";
 import Spotify from "@/components/icons/Spotify";
 import Tidal from "@/components/icons/Tidal";
+import Tiktok from "@/components/icons/Tiktok";
 import YoutubeMusic from "@/components/icons/YoutubeMusic";
 import { ComponentType } from "react";
 
@@ -33,3 +36,24 @@ export const STREAMING_PLATFORMS: Array<{
     },
     { name: "Tidal", url: "https://tidal.com/artist/34175477/u", icon: Tidal },
   ];
+
+export const SOCIAL_MEDIA = [
+    {
+      name: "Facebook",
+      url: "https://www.facebook.com/ChPMSzczecin",
+      icon: Facebook, 
+    },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/chor_pm_szczecin/",
+      icon: Instagram, 
+    },
+    { name: "YouTube",
+      url: "https://www.youtube.com/@ChorAkademiiMorskiej",
+      icon: YoutubeMusic, 
+    },
+    { name: "TikTok",
+      url: "https://www.tiktok.com/@choir_pm_szczecin",
+      icon: Tiktok, 
+    }
+  ]

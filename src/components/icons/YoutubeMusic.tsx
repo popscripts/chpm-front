@@ -1,7 +1,7 @@
 import type { IconProps } from "./IconProps";
 
 const YoutubeMusic = ({
-  fill = "var(--color-off-white-medium)",
+  fill = "currentColor",
   size = 24,
   className,
   ...props
@@ -9,7 +9,7 @@ const YoutubeMusic = ({
   <svg
     width={size}
     height={size}
-    className={`${className ?? ""} transition-colors hover:fill-(--color-off-white)`}
+    className={`${className ?? ""} transition-colors`}
     viewBox="0 0 760 760"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
