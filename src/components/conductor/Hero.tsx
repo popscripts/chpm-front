@@ -1,12 +1,15 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
-function Hero() {
+async function Hero() {
+  const t = await getTranslations("conductorPage.hero");
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-linear-to-b from-(--color-deep-teal)/40 via-(--color-deep-teal)/20 to-(--color-soft-charcoal) md:h-screen">
       <div className="absolute inset-0">
         <Image
           src="/assets/images/Sylwia_Fabiańczyk-Makuch.jpg"
-          alt="Prof. Sylwia Fabiańczyk-Makuch"
+          alt={t("imageAlt")}
           fill
           sizes="100vw"
           className="object-cover opacity-30"
@@ -21,19 +24,17 @@ function Hero() {
           <div className="grid items-center gap-12 md:grid-cols-2">
             <div className="animate-reveal fade-left">
               <span className="mb-4 block font-montserrat text-sm uppercase tracking-[0.3em] text-(--color-champagne-gold)">
-                Dyrygent
+                {t("eyebrow")}
               </span>
               <h1 className="mb-6 font-playfair text-5xl text-(--color-off-white) md:text-7xl">
-                prof. Sylwia{" "}
-                <span className="text-(--color-champagne-gold)">
-                  Fabiańczyk-Makuch
-                </span>
+                {t.rich("titleRich", {
+                  highlight: (chunks) => (
+                    <span className="text-(--color-champagne-gold)">{chunks}</span>
+                  ),
+                })}
               </h1>
               <p className="font-montserrat text-lg leading-relaxed text-(--color-off-white)/70">
-                Prof. Akademii Sztuki w Szczecinie oraz dyrygent i założyciel
-                Chóru Politechniki Morskiej w Szczecinie, z którym od 20 lat
-                koncertuje oraz zdobywa prestiżowe nagrody w kraju i za
-                granicą.
+                {t("description")}
               </p>
             </div>
 
@@ -44,7 +45,7 @@ function Hero() {
               <div className="relative aspect-3/4 overflow-hidden">
                 <Image
                   src="/assets/images/Sylwia_Fabiańczyk-Makuch.jpg"
-                  alt="Prof. Sylwia Fabiańczyk-Makuch"
+                  alt={t("imageAlt")}
                   fill
                   sizes="(min-width: 768px) 340px, 70vw"
                   className="object-cover"

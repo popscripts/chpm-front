@@ -4,6 +4,7 @@ import type { AlbumItem } from "@/data/albums";
 import { getStreamingLogoByName } from "@/utils/helpers";
 import { ChevronDown, ExternalLink, ListMusic } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
 const fallbackCoverUrl =
@@ -17,6 +18,7 @@ const INITIAL_VISIBLE_ALBUMS = 3;
 const ALBUMS_PER_PAGE = 3;
 
 function DiscographyAlbumsList({ albums }: DiscographyAlbumsListProps) {
+  const t = useTranslations("creativityPage.discographyList");
   const [expandedAlbumId, setExpandedAlbumId] = useState<string | null>(null);
   const [scrollReadyAlbumId, setScrollReadyAlbumId] = useState<string | null>(
     null,
@@ -78,7 +80,7 @@ function DiscographyAlbumsList({ albums }: DiscographyAlbumsListProps) {
             >
               <button
                 type="button"
-                className="relative aspect-square w-full overflow-hidden bg-(--color-deep-teal) mb-24 text-left"
+                className="relative aspect-square w-full cursor-pointer overflow-hidden bg-(--color-deep-teal) mb-24 text-left"
                 onClick={() => toggleAlbum(album.id)}
                 aria-expanded={isExpanded}
                 aria-controls={detailsId}
@@ -103,7 +105,7 @@ function DiscographyAlbumsList({ albums }: DiscographyAlbumsListProps) {
                 <div className="flex  w-full flex-col">
                   <button
                     type="button"
-                    className="flex min-h-24 w-full items-center justify-between border-b border-(--color-off-white)/10 px-4 py-4 text-left"
+                    className="flex min-h-24 w-full cursor-pointer items-center justify-between border-b border-(--color-off-white)/10 px-4 py-4 text-left"
                     onClick={() => toggleAlbum(album.id)}
                     aria-expanded={isExpanded}
                     aria-controls={detailsId}
@@ -145,13 +147,11 @@ function DiscographyAlbumsList({ albums }: DiscographyAlbumsListProps) {
                             <a
                               key={platform.id}
                               href={platform.field_url}
-                              target="_blank"
-                              rel="noopener noreferrer"
                               className="w-12 h-12 bg-(--color-champagne-gold) flex items-center justify-center hover:bg-(--color-champagne-gold)/80 transition-colors"
                               onClick={(e) => e.stopPropagation()}
-                              title={platform.field_platform || "Streaming"}
+                              title={platform.field_platform || t("streaming")}
                               aria-label={
-                                platform.field_platform || "Streaming"
+                                platform.field_platform || t("streaming")
                               }
                             >
                               {StreamingLogo ? (
@@ -185,7 +185,7 @@ function DiscographyAlbumsList({ albums }: DiscographyAlbumsListProps) {
                             className="text-(--color-champagne-gold)"
                           />
                           <span className="text-(--color-champagne-gold) font-montserrat text-xs uppercase tracking-wider">
-                            Lista utworów
+                            {t("tracklist")}
                           </span>
                         </div>
                         <ol className="space-y-1">
@@ -215,12 +215,12 @@ function DiscographyAlbumsList({ albums }: DiscographyAlbumsListProps) {
         <div className="mt-12 flex justify-center">
           <button
             type="button"
-            className="flex items-center border border-(--color-champagne-gold) px-6 py-3 font-montserrat text-sm uppercase tracking-[0.2em] text-(--color-champagne-gold) transition-colors hover:bg-(--color-champagne-gold) hover:text-(--color-soft-charcoal)"
+            className="flex cursor-pointer items-center border border-(--color-champagne-gold) px-6 py-3 font-montserrat text-sm uppercase tracking-[0.2em] text-(--color-champagne-gold) transition-colors hover:bg-(--color-champagne-gold) hover:text-(--color-soft-charcoal)"
             onClick={() =>
               setVisibleCount((current) => current + ALBUMS_PER_PAGE)
             }
           >
-            Pokaż więcej <ChevronDown className="ml-2" size={20} />
+            {t("showMore")} <ChevronDown className="ml-2" size={20} />
           </button>
         </div>
       )}

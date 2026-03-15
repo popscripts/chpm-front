@@ -1,10 +1,12 @@
 "use client";
 
-import { createPageUrl } from "@/utils/helpers";
+import { Link } from "@/i18n/navigation";
 import { ChevronDown } from "lucide-react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function HeroSection() {
+  const t = useTranslations("home.hero");
+
   const scrollToContent = () => {
     window.scrollTo({
       top: window.innerHeight,
@@ -33,28 +35,28 @@ export default function HeroSection() {
       <div className="relative z-20 h-full flex flex-col items-center justify-center px-6 text-center">
         <div className="max-w-4xl animate-reveal fade-up">
           <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl text-(--color-off-white) mb-6 tracking-tight">
-            Chór Politechniki Morskiej
+            {t("titleLine1")}
             <span className="block text-(--color-champagne-gold)">
-              W Szczecinie
+              {t("titleLine2")}
             </span>
           </h1>
 
           <p className="font-montserrat text-lg md:text-xl text-[rgb(var(--color-off-white-rgb)/0.8)] mb-10 max-w-2xl mx-auto leading-relaxed">
-            pod dyrekcją prof. Sylwii Fabiańczyk-Makuch
+            {t("subtitle")}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href={createPageUrl("wydarzenia")}
+              href="/wydarzenia"
               className="inline-flex items-center justify-center px-8 py-4 bg-(--color-champagne-gold) text-(--color-soft-charcoal) font-montserrat font-semibold text-sm uppercase tracking-wider hover:bg-[rgb(var(--color-champagne-gold-rgb)/0.9)] transition-all duration-300"
             >
-              Najbliższy koncert
+              {t("ctaEvents")}
             </Link>
             <Link
-              href={createPageUrl("wsparcie")}
+              href="/wsparcie"
               className="inline-flex items-center justify-center px-8 py-4 border border-[rgb(var(--color-off-white-rgb)/0.3)] text-(--color-off-white) font-montserrat font-semibold text-sm uppercase tracking-wider hover:bg-[rgb(var(--color-off-white-rgb)/0.1)] transition-all duration-300 backdrop-blur-sm"
             >
-              Wesprzyj nas
+              {t("ctaSupport")}
             </Link>
           </div>
         </div>

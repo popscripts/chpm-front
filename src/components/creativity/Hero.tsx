@@ -1,12 +1,15 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
-function Hero() {
+async function Hero() {
+  const t = await getTranslations("creativityPage.hero");
+
   return (
     <section className="relative h-[50vh] overflow-hidden bg-linear-to-b from-(--color-deep-teal)/40 via-(--color-deep-teal)/20 to-(--color-soft-charcoal)">
       <div className="absolute inset-0">
         <Image
           src="/assets/images/nagranie.jpeg"
-          alt="Twórczość"
+          alt={t("imageAlt")}
           className="w-full h-full object-cover object-[50%_10%]"
           fill
           sizes="100vw"
@@ -17,10 +20,10 @@ function Hero() {
       <div className="relative z-10 h-full flex items-center justify-center px-6">
         <div className="text-center animate-reveal fade-up">
           <h1 className="font-playfair text-5xl md:text-7xl text-(--color-off-white) mb-6">
-            Twórczość
+            {t("title")}
           </h1>
           <p className="font-montserrat text-lg text-(--color-off-white)/70">
-            Nasza muzyka dostępna na wszystkich platformach
+            {t("subtitle")}
           </p>
         </div>
       </div>

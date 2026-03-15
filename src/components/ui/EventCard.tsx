@@ -1,38 +1,49 @@
 import { EventItem } from "@/data/events";
-import { createEventDetailsUrl } from "@/utils/helpers";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight, Clock, MapPin } from "lucide-react";
-import Link from "next/link";
+import { getLocale, getTranslations } from "next-intl/server";
 
 interface EventCardProps {
   event: EventItem;
   index: number;
 }
 
-function EventCard({ event, index }: EventCardProps) {
+async function EventCard({ event, index }: EventCardProps) {
+  const locale = await getLocale();
+  const t = await getTranslations("events");
+  const localeStr = locale === "en" ? "en-GB" : "pl-PL";
+
   const formatDate = (dateStr: string) => {
     const date = new Date(dateStr);
     return {
-      time: date.toLocaleTimeString("pl-PL", {
+      time: date.toLocaleTimeString(localeStr, {
         hour: "2-digit",
         minute: "2-digit",
       }),
       day: date.getDate(),
-      month: date.toLocaleString("pl-PL", { month: "short" }).toUpperCase(),
+      month: date.toLocaleString(localeStr, { month: "short" }).toUpperCase(),
       year: date.getFullYear(),
     };
   };
+
+  const eventSlug = event.title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
   const dateInfo = formatDate(event.date);
   return (
     <div
-      key={event.id}
       id={`event-${event.id}`}
       className={`${index === 0 ? "border-t" : ""} group relative border-b border-[rgb(var(--color-off-white-rgb)/0.1)] py-8 hover:bg-[rgb(var(--color-deep-teal-rgb)/0.2)] [&:has(.ticket-link:hover)]:bg-transparent hover:[&:not(:has(.ticket-link:hover))_.event-title]:text-(--color-champagne-gold) hover:[&:not(:has(.ticket-link:hover))_.event-arrow]:text-(--color-champagne-gold) hover:[&:not(:has(.ticket-link:hover))_.event-arrow]:translate-x-1 hover:[&:not(:has(.ticket-link:hover))_.event-arrow]:-translate-y-1 transition-colors duration-300 cursor-pointer px-4 -mx-4 animate-reveal fade-up`}
       style={{ transitionDelay: `${index * 90}ms` }}
     >
       <Link
-        href={createEventDetailsUrl(event.title, event.id)}
+        href={{ pathname: "/wydarzenia/[id]", params: { id: `${eventSlug}--${event.id}` } }}
         className="absolute inset-0 z-10"
-        aria-label={`Zobacz szczegóły wydarzenia: ${event.title}`}
+        aria-label={t("eventDetailsAria", { title: event.title })}
       />
 
       <ArrowRight
@@ -86,14 +97,13 @@ function EventCard({ event, index }: EventCardProps) {
 
       {event.link && (
         <div className="pointer-events-auto">
-          <Link
+          <a
             href={event.link}
-            target="_blank"
-            rel="noopener noreferrer"
+            aria-label={t("buyTicketAria", { title: event.title })}
             className="ticket-link relative z-20 mt-4 inline-flex w-fit px-5 py-2 border border-(--color-champagne-gold)/60 text-(--color-champagne-gold) font-montserrat text-xs uppercase tracking-wider hover:border-(--color-champagne-gold) hover:bg-(--color-champagne-gold)/10 transition-all md:absolute md:bottom-4 md:right-4 md:mt-0"
           >
-            Kup bilet
-          </Link>
+            {t("buyTicket")}
+          </a>
         </div>
       )}
     </div>

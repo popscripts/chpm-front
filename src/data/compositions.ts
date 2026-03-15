@@ -1,3 +1,8 @@
+import {
+  drupalLocalePathPrefix,
+  resolveDrupalLocale,
+} from "@/data/drupalLocale";
+
 export type CompositionItem = {
   id: string;
   title: string;
@@ -74,7 +79,7 @@ const getIncludedLabel = (item?: GenreIncluded | PersonIncluded) =>
 const getAppEnv = () =>
   (process.env.APP_ENV ?? process.env.NODE_ENV ?? "production").toLowerCase();
 
-export async function fetchCompositions(): Promise<CompositionItem[]> {
+export async function fetchCompositions(locale?: string): Promise<CompositionItem[]> {
   const baseUrl = process.env.API_URL;
   if (!baseUrl) {
     console.warn("API_URL is not set.");
@@ -83,10 +88,16 @@ export async function fetchCompositions(): Promise<CompositionItem[]> {
 
   const normalizedBaseUrl = baseUrl.replace(/\/$/, "");
   const isDevEnvironment = ["dev", "development"].includes(getAppEnv());
+  const drupalLocale = await resolveDrupalLocale(locale);
 
   try {
+    const params = new URLSearchParams();
+    params.set("include", "field_genres,field_composer,field_arranger");
+
+    const localePrefix = drupalLocalePathPrefix(drupalLocale);
     const response = await fetch(
-      `${normalizedBaseUrl}/jsonapi/node/composition?include=field_genres,field_composer,field_arranger`,
+      `${normalizedBaseUrl}${localePrefix}/jsonapi/node/composition?${params.toString()}`,
+
       isDevEnvironment ? { cache: "no-store" } : { next: { revalidate: 3600 } },
     );
 
@@ -144,7 +155,9 @@ export async function fetchCompositions(): Promise<CompositionItem[]> {
         };
       })
       .filter((composition) => Boolean(composition.title))
-      .sort((a, b) => a.title.localeCompare(b.title, "pl"));
+      .sort((a, b) =>
+        a.title.localeCompare(b.title, drupalLocale === "en" ? "en" : "pl"),
+      );
   } catch (error) {
     console.warn("Compositions fetch error:", error);
     return [];

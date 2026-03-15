@@ -1,3 +1,8 @@
+import {
+  drupalLocalePathPrefix,
+  resolveDrupalLocale,
+} from "@/data/drupalLocale";
+
 export type AlbumItem = {
   id: string;
   title: string;
@@ -150,7 +155,7 @@ const extractStreamUrl = (
 const getAppEnv = () =>
   (process.env.APP_ENV ?? process.env.NODE_ENV ?? "production").toLowerCase();
 
-export async function fetchAlbums(): Promise<AlbumItem[]> {
+export async function fetchAlbums(locale?: string): Promise<AlbumItem[]> {
   const baseUrl = process.env.API_URL;
   if (!baseUrl) {
     console.warn("API_URL is not set.");
@@ -159,6 +164,7 @@ export async function fetchAlbums(): Promise<AlbumItem[]> {
 
   const normalizedBaseUrl = normalizeBaseUrl(baseUrl);
   const isDevEnvironment = ["dev", "development"].includes(getAppEnv());
+  const drupalLocale = await resolveDrupalLocale(locale);
 
   try {
     const includeVariants = [
@@ -176,7 +182,8 @@ export async function fetchAlbums(): Promise<AlbumItem[]> {
         params.set("include", include);
       }
 
-      const endpoint = `${normalizedBaseUrl}/jsonapi/node/album?${params.toString()}`;
+      const localePrefix = drupalLocalePathPrefix(drupalLocale);
+      const endpoint = `${normalizedBaseUrl}${localePrefix}/jsonapi/node/album?${params.toString()}`;
       response = await fetch(
         endpoint,
         isDevEnvironment
@@ -191,7 +198,7 @@ export async function fetchAlbums(): Promise<AlbumItem[]> {
 
     if (!response || !response.ok) {
       const status = response?.status ?? "no-response";
-      console.warn(`Albums fetch failed: ${status}`);
+      console.warn(`Albums fetch failed: ${status}`, response);
       return [];
     }
 

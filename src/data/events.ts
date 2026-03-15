@@ -1,3 +1,8 @@
+import {
+  drupalLocalePathPrefix,
+  resolveDrupalLocale,
+} from "@/data/drupalLocale";
+
 export type EventItem = {
   id: string;
   title: string;
@@ -85,7 +90,10 @@ type EventsApiResponse = {
 const getAppEnv = () =>
   (process.env.APP_ENV ?? process.env.NODE_ENV ?? "production").toLowerCase();
 
-export async function fetchEvents(limit?: number): Promise<EventItem[]> {
+export async function fetchEvents(
+  limit?: number,
+  locale?: string,
+): Promise<EventItem[]> {
   const baseUrl = process.env.API_URL;
   if (!baseUrl) {
     console.warn("API_URL is not set.");
@@ -94,6 +102,7 @@ export async function fetchEvents(limit?: number): Promise<EventItem[]> {
 
   const normalizedBaseUrl = baseUrl.replace(/\/$/, "");
   const isDevEnvironment = ["dev", "development"].includes(getAppEnv());
+  const drupalLocale = await resolveDrupalLocale(locale);
   const getFirstRelationId = (
     relation?:
       | { id: string; type: string }
@@ -140,7 +149,8 @@ export async function fetchEvents(limit?: number): Promise<EventItem[]> {
       }
 
       const query = params.toString();
-      const endpoint = `${normalizedBaseUrl}/jsonapi/node/event${query ? `?${query}` : ""}`;
+      const localePrefix = drupalLocalePathPrefix(drupalLocale);
+      const endpoint = `${normalizedBaseUrl}${localePrefix}/jsonapi/node/event${query ? `?${query}` : ""}`;
 
       response = await fetch(
         endpoint,
@@ -257,7 +267,10 @@ export async function fetchEvents(limit?: number): Promise<EventItem[]> {
   }
 }
 
-export async function fetchEventById(id: string): Promise<EventItem | null> {
-  const events = await fetchEvents();
+export async function fetchEventById(
+  id: string,
+  locale?: string,
+): Promise<EventItem | null> {
+  const events = await fetchEvents(undefined, locale);
   return events.find((event) => event.id === id) ?? null;
 }

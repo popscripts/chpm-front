@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
-function Hero() {
+async function Hero() {
+  const t = await getTranslations("aboutPage.hero");
+
   return (
     <section className="relative h-[60vh] overflow-hidden bg-linear-to-b from-(--color-deep-teal)/40 via-(--color-deep-teal)/20 to-(--color-soft-charcoal) shadow-[0_10px_40px_0px_rgb(var(--color-soft-charcoal-rgb))]">
       <div className="absolute inset-0">
@@ -19,10 +22,14 @@ function Hero() {
       <div className="relative z-10 h-full flex items-center justify-center px-6">
         <div className="text-center max-w-4xl animate-reveal fade-up">
           <h1 className="font-playfair text-5xl md:text-7xl text-(--color-off-white) mb-6">
-            O <span className="text-(--color-champagne-gold)">nas</span>
+            {t.rich("titleRich", {
+              highlight: (chunks) => (
+                <span className="text-(--color-champagne-gold)">{chunks}</span>
+              ),
+            })}
           </h1>
           <p className="font-montserrat text-lg md:text-xl text-(--color-off-white)/80">
-            Pasja, perfekcja i tradycja muzyki chóralnej
+            {t("subtitle")}
           </p>
         </div>
       </div>

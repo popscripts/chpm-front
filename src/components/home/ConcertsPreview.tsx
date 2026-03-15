@@ -1,13 +1,14 @@
 import EventCard from "@/components/ui/EventCard";
 import type { EventItem } from "@/data/events";
 import { fetchEvents } from "@/data/events";
-import { createPageUrl } from "@/utils/helpers";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import SectionWrapper from "../layout/SectionWrapper";
 
 export default async function ConcertsPreview() {
   const upcomingConcerts: EventItem[] = await fetchEvents(3);
+  const t = await getTranslations("home.concerts");
 
   return (
     <SectionWrapper
@@ -19,17 +20,17 @@ export default async function ConcertsPreview() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 animate-reveal fade-up">
           <div>
             <span className="text-(--color-champagne-gold) font-montserrat text-sm uppercase tracking-[0.3em] mb-4 block">
-              Koncerty
+              {t("eyebrow")}
             </span>
             <h2 className="font-playfair text-4xl md:text-5xl text-(--color-off-white) leading-tight">
-              Nadchodzące wydarzenia
+              {t("heading")}
             </h2>
           </div>
           <Link
-            href={createPageUrl("wydarzenia")}
+            href="/wydarzenia"
             className="inline-flex items-center gap-3 text-(--color-champagne-gold) font-montserrat font-semibold text-sm uppercase tracking-wider hover:gap-5 transition-all duration-300 group mt-6 md:mt-0"
           >
-            Zobacz wszystkie
+            {t("cta")}
             <ArrowRight
               size={18}
               className="group-hover:translate-x-1 transition-transform"

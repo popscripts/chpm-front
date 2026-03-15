@@ -28,8 +28,6 @@ export default async function MusicVideos() {
         <a
             key={video.id}
             href={video.field_link?.uri ?? "#"}
-            target="_blank"
-            rel="noopener noreferrer"
             className="group cursor-pointer animate-reveal fade-up"
             style={{ transitionDelay: `${index * 90}ms` }}
         >

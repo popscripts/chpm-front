@@ -1,10 +1,15 @@
+"use client";
+
 import type { FestivalItem } from "@/data/festivals";
+import { useTranslations } from "next-intl";
 
 type AwardsListProps = {
   festivals: FestivalItem[];
 };
 
 export default function AwardsList({ festivals }: AwardsListProps) {
+  const t = useTranslations("aboutPage.awards");
+
   if (!festivals.length) {
     return null;
   }
@@ -47,7 +52,7 @@ export default function AwardsList({ festivals }: AwardsListProps) {
                 </ul>
               ) : (
                 <p className="text-(--color-off-white)/50 font-montserrat text-sm">
-                  Brak przypisanych nagród.
+                  {t("noAwards")}
                 </p>
               )}
             </div>

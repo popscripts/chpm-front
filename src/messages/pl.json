@@ -1,0 +1,488 @@
+{
+  "metadata": {
+    "home": {
+      "title": "Chór Politechniki Morskiej w Szczecinie",
+      "description": "Oficjalna strona Chóru Politechniki Morskiej w Szczecinie - jednego z najbardziej renomowanych zespołów chóralnych w Polsce, znanego z wyjątkowej jakości artystycznej i szerokiego repertuaru. Odkryj naszą historię, osiągnięcia, nadchodzące wydarzenia i współpracę z wybitnymi artystami."
+    },
+    "about": {
+      "title": "O nas – Chór Politechniki Morskiej w Szczecinie",
+      "description": "Poznaj historię, osiągnięcia i misję Chóru Politechniki Morskiej w Szczecinie."
+    },
+    "conductor": {
+      "title": "Dyrygent – prof. Sylwia Fabiańczyk-Makuch",
+      "description": "Poznaj prof. Sylwię Fabiańczyk-Makuch, dyrygentkę Chóru Politechniki Morskiej w Szczecinie."
+    },
+    "creativity": {
+      "title": "Twórczość – Chór Politechniki Morskiej w Szczecinie",
+      "description": "Odkryj dyskografię, teledyski i repertuar Chóru Politechniki Morskiej w Szczecinie."
+    },
+    "events": {
+      "title": "Wydarzenia i koncerty – Chór Politechniki Morskiej w Szczecinie",
+      "description": "Sprawdź nadchodzące koncerty i wydarzenia Chóru Politechniki Morskiej w Szczecinie."
+    },
+    "support": {
+      "title": "Wesprzyj nas – Chór Politechniki Morskiej w Szczecinie",
+      "description": "Zostań patronem Chóru Politechniki Morskiej w Szczecinie i wspieraj muzykę chóralną."
+    },
+    "joinus": {
+      "title": "Dołącz do nas – Chór Politechniki Morskiej w Szczecinie",
+      "description": "Dołącz do Chóru Politechniki Morskiej w Szczecinie. Dowiedz się o rekrutacji i próbach."
+    },
+    "contact": {
+      "title": "Kontakt – Chór Politechniki Morskiej w Szczecinie",
+      "description": "Skontaktuj się z Chórem Politechniki Morskiej w Szczecinie."
+    },
+    "awards": {
+      "title": "Nagrody – Chór Politechniki Morskiej w Szczecinie",
+      "description": "Nagrody i wyróżnienia Chóru Politechniki Morskiej w Szczecinie."
+    },
+    "repertoire": {
+      "title": "Repertuar – Chór Politechniki Morskiej w Szczecinie",
+      "description": "Repertuar Chóru Politechniki Morskiej w Szczecinie."
+    }
+  },
+  "nav": {
+    "about": "O nas",
+    "conductor": "Dyrygent",
+    "creativity": "Twórczość",
+    "events": "Wydarzenia",
+    "joinus": "Nabór",
+    "contact": "Kontakt",
+    "logoAlt": "Chór Politechniki Morskiej w Szczecinie",
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu"
+  },
+  "langSwitch": {
+    "switchTo": "EN",
+    "ariaLabel": "Zmień język na angielski"
+  },
+  "footer": {
+    "brandName": "Chór Politechniki Morskiej w Szczecinie",
+    "description": "Chór akademicki z tradycją sięgającą ponad 20 lat. Wykonujemy szeroki repertuar, od muzyki klasycznej po współczesną.",
+    "contactHeading": "Kontakt",
+    "socialHeading": "Social Media",
+    "followText": "Śledź nas, aby nie przegapić żadnego koncertu",
+    "copyright": "Wszelkie prawa zastrzeżone."
+  },
+  "backToTop": {
+    "label": "Wróć na górę",
+    "supportLabel": "Wesprzyj nas",
+    "ariaSupport": "Przejdź do strony wsparcia",
+    "ariaTop": "Wróć na górę strony"
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "Chór Politechniki Morskiej",
+      "titleLine2": "W Szczecinie",
+      "subtitle": "pod dyrekcją prof. Sylwii Fabiańczyk-Makuch",
+      "ctaEvents": "Najbliższy koncert",
+      "ctaSupport": "Wesprzyj nas"
+    },
+    "about": {
+      "eyebrow": "O nas",
+      "headingRich": "Trzy dekady <highlight>doskonałości</highlight>",
+      "body1": "Od ponad 30 lat tworzymy przestrzeń, w której muzyka chóralna staje się niezapomnianym przeżyciem. Nasz zespół to połączenie pasji, profesjonalizmu i nieustannego dążenia do perfekcji.",
+      "body2": "Zdobyliśmy uznanie na scenach całej Europy, zdobywając nagrody na najbardziej prestiżowych festiwalach muzyki chóralnej. Każdy koncert to dla nas spotkanie z publicznością, która dzieli naszą miłość do harmonii.",
+      "cta": "Zobacz więcej",
+      "imageAlt": "Chór podczas próby"
+    },
+    "concerts": {
+      "eyebrow": "Koncerty",
+      "heading": "Nadchodzące wydarzenia",
+      "cta": "Zobacz wszystkie"
+    },
+    "creativity": {
+      "eyebrow": "Twórczość",
+      "heading": "Posłuchaj naszych utworów",
+      "description": "Tworzymy teledyski, albumy, nagrywamy w profesjonalnych studiach",
+      "listenOn": "Słuchaj na:",
+      "cta": "Zobacz pełną twórczość"
+    },
+    "conductor": {
+      "eyebrow": "Dyrygent",
+      "quote": "Muzyka chóralna to sztuka wspólnego oddychania. Kiedy dziesiątki głosów stają się jednym, dzieje się magia, której nie da się opisać słowami.",
+      "body": "Z wykształceniem zdobytym w Akademii Muzycznej w Warszawie i wieloletnim doświadczeniem na europejskich scenach, prowadzi nasz zespół ku najwyższym artystycznym szczytom od ponad 15 lat.",
+      "cta": "Poznaj historię",
+      "imageAlt": "Sylwia Fabiańczyk-Makuch - Dyrygent"
+    },
+    "support": {
+      "eyebrow": "Wesprzyj nas",
+      "headingRich": "Zostań Patronem <highlight>Harmonii</highlight>",
+      "body": "Dzięki wsparciu naszych Patronów możemy rozwijać działalność artystyczną, nagrywać nowe płyty i występować na międzynarodowych scenach. Każda złotówka przybliża nas do kolejnych muzycznych marzeń.",
+      "patronsLabel": "Patronów",
+      "yearsLabel": "Lat tradycji",
+      "concertsLabel": "Koncertów",
+      "ctaPatronite": "Wesprzyj na Patronite",
+      "ctaWall": "Ściana Wdzięczności"
+    },
+    "sections": {
+      "about": "O nas",
+      "events": "Wydarzenia",
+      "creativity": "Twórczość",
+      "conductor": "Dyrygent",
+      "support": "Wsparcie"
+    }
+  },
+  "aboutPage": {
+    "scroll": {
+      "whoWeAre": "Kim jesteśmy",
+      "awards": "Nagrody",
+      "whatMakesUsSpecial": "Co nas wyróżnia",
+      "achievements": "Osiągnięcia",
+      "sharedSounds": "Wspólne brzmienia"
+    },
+    "hero": {
+      "titleRich": "O <highlight>nas</highlight>",
+      "subtitle": "Pasja, perfekcja i tradycja muzyki chóralnej"
+    },
+    "story": {
+      "eyebrow": "Kim jesteśmy",
+      "title": "Chór Politechniki Morskiej w Szczecinie",
+      "paragraph1Rich": "Pod dyrekcją założycielki, <highlight>prof. Sylwii Fabiańczyk-Makuch</highlight>, istnieje na scenie muzycznej już ponad 20 lat. Zespół szybko stał się wizytówką miasta i regionu, szerząc morską tradycję w kraju i poza jego granicami.",
+      "paragraph2": "Blisko stuosobowa grupa ma na swoim koncie setki koncertów, kilkanaście międzynarodowych tournée oraz kilkadziesiąt głównych nagród uzyskanych na prestiżowych festiwalach chóralnych w kraju i za granicą.",
+      "image1Alt": "Chór podczas koncertu",
+      "image2Alt": "Próba chóru"
+    },
+    "stats": {
+      "members": "Członków zespołu",
+      "concerts": "Wykonanych koncertów",
+      "awards": "Zdobytych nagród i wyróżnień",
+      "albums": "Płyt i teledysków"
+    },
+    "awards": {
+      "eyebrow": "Międzynarodowe sukcesy",
+      "title": "Nasze nagrody",
+      "descriptionRich": "Tylko w ostatnich 10 latach zdobyliśmy ponad <highlight>85 głównych nagród</highlight> festiwalowych, w tym 14 Grand Prix, 50 Złotych Medali oraz liczne nagrody uznaniowe",
+      "ctaAll": "Zobacz wszystkie nagrody",
+      "noAwards": "Brak przypisanych nagród.",
+      "loading": "Ładowanie...",
+      "more": "Więcej"
+    },
+    "whatIsSpecial": {
+      "eyebrow": "Nasze wyróżnienia",
+      "title": "Co nas wyróżnia",
+      "touring": {
+        "title": "Tournée międzynarodowe",
+        "description": "Zespół odwiedził już kilkadziesiąt krajów świata, zdobywając uznanie międzynarodowej publiczności",
+        "items": {
+          "japan": "Japonia",
+          "taiwan": "Tajwan",
+          "canada": "Kanada",
+          "ecuador": "Ekwador",
+          "italy": "Włochy",
+          "france": "Francja",
+          "spain": "Hiszpania",
+          "turkey": "Turcja",
+          "macedonia": "Macedonia",
+          "lithuania": "Litwa",
+          "malta": "Malta",
+          "ireland": "Irlandia",
+          "russia": "Rosja"
+        }
+      },
+      "collaboration": {
+        "title": "Współpraca z gwiazdami",
+        "description": "Grupa zapraszana jest do współpracy z wybitnymi artystami polskiej i zagranicznej sceny muzycznej"
+      },
+      "premieres": {
+        "title": "Prapremiery",
+        "description": "Chór dokonał kilkunastu prapremierowych wykonań dzieł uznanych kompozytorów polskich, w tym:"
+      }
+    },
+    "achievements": {
+      "eyebrow": "Nasze osiągnięcia",
+      "title": "Największe osiągnięcia",
+      "items": {
+        "expo": {
+          "title": "Expo Osaka",
+          "paragraph1Rich": "Chór Politechniki Morskiej reprezentował Polskę podczas <highlight>Expo 2025 Osaka Kansai Japan</highlight>, jednego z najważniejszych miejsc spotkań kultur, idei i ludzi z całego świata.",
+          "paragraph2": "Zespół został zaproszony przez Pawilon Polski, a przygotowania do występu trwały ponad rok. Koncerty przyciągnęły tak wielu słuchaczy, że zagrano dodatkowy, nadprogramowy występ. To wyróżnienie podkreśla międzynarodową rangę chóru i jego rolę w promowaniu polskiej kultury."
+        },
+        "fryderyk": {
+          "title": "Nominacja do Fryderyków",
+          "paragraph1Rich": "W roku 2023, wydana w listopadzie roku poprzedniego płyta pn. <highlight>„The Sound of the Sea”</highlight>, zawierająca dzieła o tematyce marynistycznej, skomponowane specjalnie dla Chóru Politechniki Morskiej w Szczecinie przez wybitnych polskich kompozytorów muzyki współczesnej, otrzymała nominację do nagrody Fryderyk w kategorii <highlight>Album Roku – Muzyka Chóralna</highlight>.",
+          "paragraph2": "To wyróżnienie potwierdza zarówno rangę projektu, jak i najwyższy poziom artystyczny zespołu."
+        },
+        "ambassador": {
+          "title": "Ambasador Szczecina 2019",
+          "paragraph1Rich": "Cztery lata temu Chór Akademii Morskiej otrzymał honorowy tytuł <highlight>Ambasadora Szczecina 2019</highlight>. O przyznaniu honorowej nagrody dla osób „których osiągnięcia przyczyniają się do budowania pozytywnego wizerunku Szczecina w kraju i za granicą” decyduje kapituła złożona z byłych prezydentów i obecnego prezydenta Szczecina oraz redaktorów naczelnych części szczecińskich mediów.",
+          "paragraph2": "To oficjalne potwierdzenie roli zespołu jako kulturalnej wizytówki miasta."
+        }
+      }
+    },
+    "project": {
+      "eyebrow": "Nasz autorski projekt",
+      "title": "Wspólne Brzmienia",
+      "descriptionRich": "Od kilku lat jesteśmy autorami i pomysłodawcami projektu <highlight>Wspólne brzmienia</highlight>, który rokrocznie przyciąga rzesze fanów. Łączymy klasyczne brzmienia chóralne z rozmaitymi nurtami i stylami muzycznymi - od rocka (ØRGANEK), przez jazz (Kuba Badach, Dorota Miśkiewicz, Komeda), po muzykę etniczną (Kayah i Kroke) i eksperymenty z elektroniką (Fisz Emade Tworzywo, Mikromusic, Smolik).",
+      "cta": "Dowiedz się więcej"
+    }
+  },
+  "awardsPage": {
+    "back": "Powrót",
+    "title": "Nasze nagrody",
+    "descriptionRich": "Tylko w ostatnich 10 latach zdobyliśmy ponad <highlight>85 głównych nagród</highlight> festiwalowych, w tym 14 Grand Prix, 50 Złotych Medali oraz liczne nagrody uznaniowe"
+  },
+  "joinUsPage": {
+    "eyebrow": "Nabór",
+    "titleRich": "Dołącz <highlight>do nas</highlight>",
+    "description": "Szukamy osób, które chcą śpiewać, rozwijać się muzycznie i współtworzyć zespół obecny na scenach w kraju i za granicą. Jeśli masz w sobie wrażliwość, energię i chęć pracy we wspólnym brzmieniu, odezwij się do nas.",
+    "ctaMore": "Dowiedz się więcej",
+    "highlights": {
+      "rehearsals": {
+        "title": "Próby",
+        "description": "Regularna praca z zespołem, wspólne rozwijanie warsztatu i muzyczna dyscyplina bez zadęcia."
+      },
+      "stage": {
+        "title": "Scena",
+        "description": "Koncerty, nagrania i ambitne projekty, które pozwalają realnie poczuć energię wspólnego brzmienia."
+      },
+      "ensemble": {
+        "title": "Zespół",
+        "description": "Ludzie, których łączy wrażliwość, zaangażowanie i satysfakcja z tworzenia czegoś większego razem."
+      }
+    }
+  },
+  "contactPage": {
+    "eyebrow": "Chór Politechniki Morskiej w Szczecinie",
+    "title": "Dane kontaktowe",
+    "conductorLabel": "Dyrygent Chóru Politechniki Morskiej w Szczecinie",
+    "contactTitle": "Kontakt",
+    "address": {
+      "line1": "Politechnika Morska w Szczecinie",
+      "line2": "ul. Wały Chrobrego 1-2",
+      "line3": "70-500 Szczecin"
+    },
+    "board": {
+      "title": "Zarząd chóru",
+      "roles": {
+        "president": "Prezes",
+        "vicePresident": "Wiceprezes",
+        "members": "Członkowie Zarządu"
+      }
+    },
+    "mapTitle": "Mapa Politechnika Morska w Szczecinie"
+  },
+  "conductorPage": {
+    "hero": {
+      "eyebrow": "Dyrygent",
+      "titleRich": "prof. Sylwia <highlight>Fabiańczyk-Makuch</highlight>",
+      "description": "Prof. Akademii Sztuki w Szczecinie oraz dyrygent i założyciel Chóru Politechniki Morskiej w Szczecinie, z którym od 20 lat koncertuje oraz zdobywa prestiżowe nagrody w kraju i za granicą.",
+      "imageAlt": "Prof. Sylwia Fabiańczyk-Makuch"
+    },
+    "biography": {
+      "title": "Biografia",
+      "description": "Dyrygentka, pedagożka i animatorka życia muzycznego Pomorza Zachodniego, łącząca działalność koncertową, dydaktyczną i organizacyjną.",
+      "items": {
+        "education": {
+          "title": "Wykształcenie i stopnie",
+          "imageAlt": "Prof. Sylwia Fabiańczyk-Makuch",
+          "contentRich": "Akademia Muzyczna im. I. J. Paderewskiego w Poznaniu (filia w Szczecinie), <highlight>dyplom z wyróżnieniem</highlight> w klasie prof. Jana Szyrockiego. Podyplomowe <highlight>Studium Chórmistrzowskie</highlight> w Akademii Muzycznej im. F. Nowowiejskiego w Bydgoszczy. <highlight>Doktor sztuk muzycznych</highlight> (dyrygentura) - Uniwersytet Muzyczny Fryderyka Chopina w Warszawie, 2011. <highlight>Doktor habilitowany</highlight> - Akademia Muzyczna w Gdańsku, 2017."
+        },
+        "artistic": {
+          "title": "Działalność artystyczna",
+          "imageAlt": "Występ chóru",
+          "contentRich": "<highlight>Jurorka</highlight> festiwali i przeglądów chóralnych. Od 2001 roku prowadzi <highlight>warsztaty szkoleniowe z emisji głosu</highlight>. W latach 2008-2014 dyrygent chóru działającego w Zespole Szkół Muzycznych II st. w Szczecinie. Założycielka zespołu wokalnego <highlight>Pomerania Singers</highlight> (2015), aktywnego w najważniejszych wydarzeniach artystycznych miasta i regionu."
+        },
+        "educational": {
+          "title": "Działalność dydaktyczna i organizacyjna",
+          "imageAlt": "Działalność dydaktyczna i organizacyjna",
+          "contentRich": "Z zespołem Pomerania Singers wydała płytę z dziełami Romualda Twardowskiego (Tryptyk morski) oraz Mszą Stella Maris op.49 nr 4 Feliksa Nowowiejskiego. Od 2017 roku związana z Akademią Sztuki w Szczecinie, gdzie prowadzi zajęcia z dyrygentury, czytania partytur i metodyki prowadzenia zespołów wokalnych. <highlight>Dyrektor Centrum Kultury Akademickiej</highlight> Politechniki Morskiej w Szczecinie. <highlight>Dyrektor artystyczna PZChiO</highlight> oddział Szczecin oraz autorskiego projektu Chóru Politechniki Morskiej <highlight>\"Wspólne brzmienia\"</highlight>."
+        }
+      }
+    },
+    "awards": {
+      "eyebrow": "Dorobek artystyczny",
+      "title": "Nagrody i wyróżnienia",
+      "intro": "Najważniejsze wyróżnienia dyrygentki za działalność artystyczną, edukacyjną i społeczną.",
+      "items": {
+        "cavalierCross": {
+          "title": "Krzyż Kawalerski Orderu Odrodzenia Polski",
+          "description": "Za wybitne zasługi dla rozwoju i popularyzowania polskiej chóralistyki, w szczególności muzyki marynistycznej oraz za działalność charytatywną.",
+          "date": "wrzesień 2023"
+        },
+        "rectorAward": {
+          "title": "Akademia Sztuki w Szczecinie - Nagroda Rektorska",
+          "description": "Za wybitne osiągnięcia artystyczne w dyscyplinie sztuk muzycznych.",
+          "date": "październik 2022"
+        },
+        "proArte": {
+          "title": "Nagroda \"Pro Arte\" Marszałka Województwa Zachodniopomorskiego",
+          "description": "Za wybitne osiągnięcia w dziedzinie twórczości artystycznej, upowszechniania i ochrony kultury.",
+          "date": "październik 2022"
+        },
+        "maritimeMedal": {
+          "title": "Odznaczenie Medalem Honorowym Akademii Morskiej w Szczecinie",
+          "date": "czerwiec 2022"
+        },
+        "hongKong": {
+          "title": "World Choir Festival - Hong Kong (Chiny)",
+          "description": "Dyplom dla jednego z 10 najlepszych dyrygentów festiwalu.",
+          "date": "czerwiec 2021"
+        },
+        "magnolias": {
+          "title": "Magnolie Biznesu (III edycja)",
+          "description": "Nagroda w kategorii \"Z miłości do Szczecina\".",
+          "date": "wrzesień 2021"
+        },
+        "gloriaArtis": {
+          "title": "Brązowy Medal \"Zasłużony Kulturze Gloria Artis\"",
+          "description": "Nagroda Ministra Kultury i Dziedzictwa Narodowego.",
+          "date": "czerwiec 2019"
+        },
+        "meritCross": {
+          "title": "Srebrny Krzyż Zasługi",
+          "description": "Nagroda Prezydenta RP.",
+          "date": "czerwiec 2019"
+        },
+        "pzchioBadge": {
+          "title": "Złota Odznaka Honorowa PZCHiO",
+          "date": "czerwiec 2019"
+        },
+        "archdioceseCross": {
+          "title": "Krzyż Zasługi Archidiecezji Szczecińsko-Kamieńskiej",
+          "date": "czerwiec 2019"
+        },
+        "ambassadorTitle": {
+          "title": "Honorowy tytuł Ambasadora Szczecina dla Chóru Akademii Morskiej w Szczecinie",
+          "date": "2019"
+        },
+        "cityAwardNomination": {
+          "title": "Nominacja do Nagrody Artystycznej Miasta Szczecina",
+          "date": "2018"
+        },
+        "westPomeranianNobel": {
+          "title": "Zachodniopomorski Nobel w dziedzinie nauk artystycznych",
+          "date": "2017"
+        },
+        "rectorPrizes": {
+          "title": "Nagrody rektorskie Akademii Morskiej w Szczecinie",
+          "date": "2012, 2015"
+        },
+        "educationCommissionMedal": {
+          "title": "Medal Komisji Edukacji Narodowej",
+          "description": "Za szczególne zasługi dla oświaty i wychowania.",
+          "date": "sierpień 2015"
+        },
+        "cultureBadge": {
+          "title": "Odznaka Honorowa \"Zasłużony dla Kultury Polskiej\"",
+          "description": "Nagroda Ministra Kultury i Dziedzictwa Narodowego.",
+          "date": "2013"
+        },
+        "recognitionDiploma": {
+          "title": "Dyplom Uznania Zasług dla Kultury i Promocji Województwa Zachodniopomorskiego",
+          "description": "Nagroda Marszałka Województwa Zachodniopomorskiego.",
+          "date": "wrzesień 2013"
+        },
+        "bestConductorAwards": {
+          "title": "Nagrody indywidualne dla najlepszego dyrygenta festiwalu",
+          "description": "Chełmno 2010, Głogów 2012, Praga 2014, Bratysława 2016, Legnica 2017, Lublin 2017, Barczewo 2022, Gorizia 2023.",
+          "date": "2010-2023"
+        }
+      }
+    }
+  },
+  "creativityPage": {
+    "scroll": {
+      "streamings": "Streamingi",
+      "videos": "Teledyski",
+      "albums": "Albumy",
+      "repertoire": "Repertuar"
+    },
+    "hero": {
+      "title": "Twórczość",
+      "subtitle": "Nasza muzyka dostępna na wszystkich platformach",
+      "imageAlt": "Twórczość"
+    },
+    "streamings": {
+      "eyebrow": "Streamingi",
+      "title": "Posłuchaj nas online",
+      "description": "Znajdź naszą muzykę na swojej ulubionej platformie",
+      "otherPlatforms": "Inne platformy"
+    },
+    "videos": {
+      "eyebrow": "Teledyski",
+      "title": "Zobacz nasze teledyski",
+      "description": "Nasze nagrania są wspierane przez profesjonalne teledyski, które tworzymy we współpracy z utalentowanymi reżyserami i ekipami filmowymi"
+    },
+    "discography": {
+      "eyebrow": "Dyskografia",
+      "title": "Nasze albumy"
+    },
+    "discographyList": {
+      "tracklist": "Lista utworów",
+      "showMore": "Pokaż więcej",
+      "streaming": "Streaming"
+    },
+    "seeRepertoire": {
+      "eyebrow": "Repertuar",
+      "title": "Pełen repertuar",
+      "description": "Lista wykonywanych przez nas utworów na przestrzeni lat",
+      "cta": "Zobacz pełen repertuar"
+    }
+  },
+  "supportPage": {
+    "hero": {
+      "titleRich": "Wesprzyj <highlight>Harmonię</highlight>",
+      "body": "Dzięki wsparciu naszych Patronów możemy rozwijać działalność artystyczną, nagrywać nowe płyty i występować na międzynarodowych scenach. Każda złotówka przybliża nas do kolejnych muzycznych marzeń.",
+      "cta": "Zostań patronem"
+    },
+    "why": {
+      "titleRich": "Dlaczego <highlight>warto</highlight> nas wesprzeć?",
+      "cards": {
+        "recordings": {
+          "title": "Nowe nagrania",
+          "description": "Twoje wsparcie pozwala nam nagrywać kolejne albumy i realizować ambitne projekty muzyczne."
+        },
+        "tours": {
+          "title": "Międzynarodowe tournée",
+          "description": "Dzięki Patronom możemy występować na prestiżowych festiwalach w całej Europie."
+        },
+        "repertoire": {
+          "title": "Rozwój repertuaru",
+          "description": "Wasze darowizny umożliwiają nam pracę z najlepszymi kompozytorami i aranżerami."
+        }
+      }
+    },
+    "wall": {
+      "eyebrow": "Ściana Wdzięczności",
+      "title": "Nasi Patroni",
+      "description": "Dziękujemy wszystkim, którzy wspierają naszą misję"
+    },
+    "tiers": {
+      "oficer": "Oficer",
+      "mechanik": "Mechanik",
+      "bosman": "Bosman",
+      "marynarz": "Marynarz",
+      "matPodchorazy": "Mat Podchorąży"
+    },
+    "cta": {
+      "titleRich": "Dołącz do <highlight>grona patronów</highlight>",
+      "body": "Każde wsparcie, niezależnie od wysokości, jest dla nas niezwykle cenne. Razem tworzymy muzykę, która porusza serca!",
+      "button": "Wesprzyj nas"
+    }
+  },
+  "repertoirePage": {
+    "eyebrow": "Twórczość",
+    "title": "Repertuar",
+    "subtitle": "Lista wszystkich utworów",
+    "empty": "Brak utworów do wyświetlenia.",
+    "arrangerPrefix": "ar."
+  },
+  "events": {
+    "hero": {
+      "titleRich": "Wydarzenia i <highlight>koncerty</highlight>",
+      "subtitle": "Dołącz do nas na niezapomnianym muzycznym przeżyciu",
+      "imageAlt": "Koncert"
+    },
+    "noEvents": "Brak zaplanowanych koncertów.",
+    "noDate": "Bez daty",
+    "buyTicket": "Kup bilet",
+    "buyTicketAria": "Kup bilet na: {title}",
+    "eventDetailsAria": "Zobacz szczegóły wydarzenia: {title}"
+  },
+  "eventDetails": {
+    "backToEvents": "Wszystkie wydarzenia",
+    "notFound": "Nie znaleziono wydarzenia",
+    "duration": "{minutes} min"
+  }
+}

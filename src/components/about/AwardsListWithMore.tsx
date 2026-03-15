@@ -1,6 +1,7 @@
 "use client";
 
 import type { FestivalItem } from "@/data/festivals";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import AwardsList from "./AwardsList";
 
@@ -13,6 +14,7 @@ export default function AwardsListWithMore({
   initialFestivals,
   pageSize = 50,
 }: AwardsListWithMoreProps) {
+  const t = useTranslations("aboutPage.awards");
   const [festivals, setFestivals] = useState<FestivalItem[]>(initialFestivals);
   const [isLoading, setIsLoading] = useState(false);
   const [hasMore, setHasMore] = useState(initialFestivals.length >= pageSize);
@@ -56,7 +58,7 @@ export default function AwardsListWithMore({
             disabled={isLoading}
             className="inline-flex items-center gap-2 px-8 py-3 border border-(--color-champagne-gold) text-(--color-champagne-gold) font-montserrat font-semibold text-sm uppercase tracking-wider hover:bg-(--color-champagne-gold) hover:text-[#1A1A1A] transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            {isLoading ? "Ładowanie..." : "Więcej"}
+            {isLoading ? t("loading") : t("more")}
           </button>
         </div>
       ) : null}

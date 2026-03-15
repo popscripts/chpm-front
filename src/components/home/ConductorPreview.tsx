@@ -1,10 +1,12 @@
-import { createPageUrl } from "@/utils/helpers";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight, Quote } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
-import Link from "next/link";
 import SectionWrapper from "../layout/SectionWrapper";
 
-export default function ConductorPreview() {
+export default async function ConductorPreview() {
+  const t = await getTranslations("home.conductor");
+
   return (
     <SectionWrapper id="dyrygent" background="dark">
       <div className="max-w-6xl mx-auto">
@@ -12,7 +14,7 @@ export default function ConductorPreview() {
           {/* Content */}
           <div className="order-2 md:order-1 animate-reveal fade-left">
             <span className="text-(--color-champagne-gold) font-montserrat text-sm uppercase tracking-[0.3em] mb-4 block">
-              Dyrygent
+              {t("eyebrow")}
             </span>
             <h2 className="font-playfair text-4xl md:text-5xl text-(--color-off-white) mb-6 leading-tight">
               prof. Sylwia Fabiańczyk-Makuch
@@ -25,23 +27,19 @@ export default function ConductorPreview() {
                 className="text-[rgb(var(--color-champagne-gold-rgb)/0.2)] absolute -top-4 -left-4"
               />
               <p className="text-[rgb(var(--color-off-white-rgb)/0.8)] font-playfair text-xl italic leading-relaxed pl-8">
-                Muzyka chóralna to sztuka wspólnego oddychania. Kiedy dziesiątki
-                głosów stają się jednym, dzieje się magia, której nie da się
-                opisać słowami.
+                {t("quote")}
               </p>
             </div>
 
             <p className="text-[rgb(var(--color-off-white-rgb)/0.7)] font-montserrat leading-relaxed mb-8">
-              Z wykształceniem zdobytym w Akademii Muzycznej w Warszawie i
-              wieloletnim doświadczeniem na europejskich scenach, prowadzi nasz
-              zespół ku najwyższym artystycznym szczytom od ponad 15 lat.
+              {t("body")}
             </p>
 
             <Link
-              href={createPageUrl("dyrygent")}
+              href="/dyrygent"
               className="inline-flex items-center gap-3 text-(--color-champagne-gold) font-montserrat font-semibold text-sm uppercase tracking-wider hover:gap-5 transition-all duration-300 group"
             >
-              Poznaj historię
+              {t("cta")}
               <ArrowRight
                 size={18}
                 className="group-hover:translate-x-1 transition-transform"
@@ -57,7 +55,7 @@ export default function ConductorPreview() {
             <div className="relative z-10 aspect-3/4 overflow-hidden shadow-[0_10px_80px_0px_var(--color-champagne-gold-dark)]">
               <Image
                 src="/assets/images/Sylwia_Fabiańczyk-Makuch.jpg"
-                alt="Sylwia Fabiańczyk-Makuch - Dyrygent"
+                alt={t("imageAlt")}
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className="object-cover"

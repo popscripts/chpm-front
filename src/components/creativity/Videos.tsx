@@ -1,8 +1,11 @@
 import SectionWrapper from "../layout/SectionWrapper";
 import MusicVideosList from "../ui/MusicVideosList";
 import SectionHeader from "../ui/SectionHeader";
+import { getTranslations } from "next-intl/server";
 
-function Videos() {
+async function Videos() {
+  const t = await getTranslations("creativityPage.videos");
+
   return (
     <SectionWrapper
       id="teledyski"
@@ -10,9 +13,9 @@ function Videos() {
     >
       <div className="max-w-6xl mx-auto">
         <SectionHeader
-          eyebrow="Teledyski"
-          title="Zobacz nasze teledyski"
-          description="Nasze nagrania są wspierane przez profesjonalne teledyski, które tworzymy we współpracy z utalentowanymi reżyserami i ekipami filmowymi"
+          eyebrow={t("eyebrow")}
+          title={t("title")}
+          description={t("description")}
           className="mb-8"
         />
         <MusicVideosList />

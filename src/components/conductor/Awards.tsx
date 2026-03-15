@@ -1,5 +1,6 @@
 import SectionWrapper from "../layout/SectionWrapper";
 import SectionHeader from "../ui/SectionHeader";
+import { getTranslations } from "next-intl/server";
 
 type ConductorAwardItem = {
   title: string;
@@ -7,112 +8,105 @@ type ConductorAwardItem = {
   date: string;
 };
 
-const conductorAwards: {
-  eyebrow: string;
-  title: string;
-  intro: string;
-  items: ConductorAwardItem[];
-} = {
-  eyebrow: "Dorobek artystyczny",
-  title: "Nagrody i wyróżnienia",
-  intro:
-    "Najważniejsze wyróżnienia dyrygentki za działalność artystyczną, edukacyjną i społeczną.",
-  items: [
-    {
-      title: "Krzyż Kawalerski Orderu Odrodzenia Polski",
-      description:
-        "Za wybitne zasługi dla rozwoju i popularyzowania polskiej chóralistyki, w szczególności muzyki marynistycznej oraz za działalność charytatywną.",
-      date: "wrzesień 2023",
-    },
-    {
-      title: "Akademia Sztuki w Szczecinie - Nagroda Rektorska",
-      description:
-        "Za wybitne osiągnięcia artystyczne w dyscyplinie sztuk muzycznych.",
-      date: "październik 2022",
-    },
-    {
-      title: "Nagroda " +
-        "\"Pro Arte\" Marszałka Województwa Zachodniopomorskiego",
-      description:
-        "Za wybitne osiągnięcia w dziedzinie twórczości artystycznej, upowszechniania i ochrony kultury.",
-      date: "październik 2022",
-    },
-    {
-      title: "Odznaczenie Medalem Honorowym Akademii Morskiej w Szczecinie",
-      date: "czerwiec 2022",
-    },
-    {
-      title: "World Choir Festival - Hong Kong (Chiny)",
-      description: "Dyplom dla jednego z 10 najlepszych dyrygentów festiwalu.",
-      date: "czerwiec 2021",
-    },
-    {
-      title: "Magnolie Biznesu (III edycja)",
-      description: "Nagroda w kategorii \"Z miłości do Szczecina\".",
-      date: "wrzesień 2021",
-    },
-    {
-      title: "Brązowy Medal " +
-        "\"Zasłużony Kulturze Gloria Artis\"",
-      description: "Nagroda Ministra Kultury i Dziedzictwa Narodowego.",
-      date: "czerwiec 2019",
-    },
-    {
-      title: "Srebrny Krzyż Zasługi",
-      description: "Nagroda Prezydenta RP.",
-      date: "czerwiec 2019",
-    },
-    {
-      title: "Złota Odznaka Honorowa PZCHiO",
-      date: "czerwiec 2019",
-    },
-    {
-      title: "Krzyż Zasługi Archidiecezji Szczecińsko-Kamieńskiej",
-      date: "czerwiec 2019",
-    },
-    {
-      title:
-        "Honorowy tytuł Ambasadora Szczecina dla Chóru Akademii Morskiej w Szczecinie",
-      date: "2019",
-    },
-    {
-      title: "Nominacja do Nagrody Artystycznej Miasta Szczecina",
-      date: "2018",
-    },
-    {
-      title: "Zachodniopomorski Nobel w dziedzinie nauk artystycznych",
-      date: "2017",
-    },
-    {
-      title: "Nagrody rektorskie Akademii Morskiej w Szczecinie",
-      date: "2012, 2015",
-    },
-    {
-      title: "Medal Komisji Edukacji Narodowej",
-      description: "Za szczególne zasługi dla oświaty i wychowania.",
-      date: "sierpień 2015",
-    },
-    {
-      title: "Odznaka Honorowa \"Zasłużony dla Kultury Polskiej\"",
-      description: "Nagroda Ministra Kultury i Dziedzictwa Narodowego.",
-      date: "2013",
-    },
-    {
-      title:
-        "Dyplom Uznania Zasług dla Kultury i Promocji Województwa Zachodniopomorskiego",
-      description: "Nagroda Marszałka Województwa Zachodniopomorskiego.",
-      date: "wrzesień 2013",
-    },
-    {
-      title: "Nagrody indywidualne dla najlepszego dyrygenta festiwalu",
-      description:
-        "Chełmno 2010, Głogów 2012, Praga 2014, Bratysława 2016, Legnica 2017, Lublin 2017, Barczewo 2022, Gorizia 2023.",
-      date: "2010-2023",
-    },
-  ],
-};
+async function Awards() {
+  const t = await getTranslations("conductorPage.awards");
 
-function Awards() {
+  const conductorAwards: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    items: ConductorAwardItem[];
+  } = {
+    eyebrow: t("eyebrow"),
+    title: t("title"),
+    intro: t("intro"),
+    items: [
+      {
+        title: t("items.cavalierCross.title"),
+        description: t("items.cavalierCross.description"),
+        date: t("items.cavalierCross.date"),
+      },
+      {
+        title: t("items.rectorAward.title"),
+        description: t("items.rectorAward.description"),
+        date: t("items.rectorAward.date"),
+      },
+      {
+        title: t("items.proArte.title"),
+        description: t("items.proArte.description"),
+        date: t("items.proArte.date"),
+      },
+      {
+        title: t("items.maritimeMedal.title"),
+        date: t("items.maritimeMedal.date"),
+      },
+      {
+        title: t("items.hongKong.title"),
+        description: t("items.hongKong.description"),
+        date: t("items.hongKong.date"),
+      },
+      {
+        title: t("items.magnolias.title"),
+        description: t("items.magnolias.description"),
+        date: t("items.magnolias.date"),
+      },
+      {
+        title: t("items.gloriaArtis.title"),
+        description: t("items.gloriaArtis.description"),
+        date: t("items.gloriaArtis.date"),
+      },
+      {
+        title: t("items.meritCross.title"),
+        description: t("items.meritCross.description"),
+        date: t("items.meritCross.date"),
+      },
+      {
+        title: t("items.pzchioBadge.title"),
+        date: t("items.pzchioBadge.date"),
+      },
+      {
+        title: t("items.archdioceseCross.title"),
+        date: t("items.archdioceseCross.date"),
+      },
+      {
+        title: t("items.ambassadorTitle.title"),
+        date: t("items.ambassadorTitle.date"),
+      },
+      {
+        title: t("items.cityAwardNomination.title"),
+        date: t("items.cityAwardNomination.date"),
+      },
+      {
+        title: t("items.westPomeranianNobel.title"),
+        date: t("items.westPomeranianNobel.date"),
+      },
+      {
+        title: t("items.rectorPrizes.title"),
+        date: t("items.rectorPrizes.date"),
+      },
+      {
+        title: t("items.educationCommissionMedal.title"),
+        description: t("items.educationCommissionMedal.description"),
+        date: t("items.educationCommissionMedal.date"),
+      },
+      {
+        title: t("items.cultureBadge.title"),
+        description: t("items.cultureBadge.description"),
+        date: t("items.cultureBadge.date"),
+      },
+      {
+        title: t("items.recognitionDiploma.title"),
+        description: t("items.recognitionDiploma.description"),
+        date: t("items.recognitionDiploma.date"),
+      },
+      {
+        title: t("items.bestConductorAwards.title"),
+        description: t("items.bestConductorAwards.description"),
+        date: t("items.bestConductorAwards.date"),
+      },
+    ],
+  };
+
   return (
     <SectionWrapper id="nagrody-i-wyroznienia" background="tealLinear">
       <div className="mx-auto max-w-6xl">

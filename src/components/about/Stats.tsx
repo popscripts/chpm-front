@@ -2,14 +2,8 @@
 
 import { useInView } from "framer-motion";
 import { Award, Music, Trophy, Users } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
-
-const stats = [
-  { icon: Users, number: "150+", label: "Członków zespołu" },
-  { icon: Music, number: "800+", label: "Wykonanych koncertów" },
-  { icon: Trophy, number: "100+", label: "Zdobytych nagród i wyróżnień" },
-  { icon: Award, number: "50+", label: "Płyt i teledysków" },
-];
 
 type StatCardProps = {
   icon: typeof Users;
@@ -82,6 +76,15 @@ function StatCard({ icon: Icon, number, label, index }: StatCardProps) {
 }
 
 function Stats() {
+  const t = useTranslations("aboutPage.stats");
+
+  const stats = [
+    { icon: Users, number: "150+", label: t("members") },
+    { icon: Music, number: "800+", label: t("concerts") },
+    { icon: Trophy, number: "100+", label: t("awards") },
+    { icon: Award, number: "50+", label: t("albums") },
+  ];
+
   return (
     <section className="py-24 px-6 bg-(--color-soft-charcoal)">
       <div className="max-w-6xl mx-auto">

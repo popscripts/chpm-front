@@ -1,8 +1,11 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import SectionWrapper from "../layout/SectionWrapper";
 import SectionHeader from "../ui/SectionHeader";
 
-function Story() {
+async function Story() {
+  const t = await getTranslations("aboutPage.story");
+
   return (
     <SectionWrapper id="kim-jestesmy" background="tealRadial">
       <div className="max-w-6xl mx-auto">
@@ -10,25 +13,20 @@ function Story() {
           <div className="animate-reveal fade-left">
             <SectionHeader
               align="left"
-              eyebrow="Kim jesteśmy"
-              title="Chór Politechniki Morskiej w Szczecinie"
+              eyebrow={t("eyebrow")}
+              title={t("title")}
               highlightWordsFromEnd={0}
             />
             <div className="space-y-4 text-(--color-off-white)/70 font-montserrat leading-relaxed">
               <p>
-                Pod dyrekcją założycielki,{" "}
-                <strong className="text-(--color-off-white)">
-                  prof. Sylwii Fabiańczyk-Makuch
-                </strong>
-                , istnieje na scenie muzycznej już ponad 20 lat. Zespół szybko
-                stał się wizytówką miasta i regionu, szerząc morską tradycję w
-                kraju i poza jego granicami.
+                {t.rich("paragraph1Rich", {
+                  highlight: (chunks) => (
+                    <strong className="text-(--color-off-white)">{chunks}</strong>
+                  ),
+                })}
               </p>
               <p>
-                Blisko stuosobowa grupa ma na swoim koncie setki koncertów,
-                kilkanaście międzynarodowych tournée oraz kilkadziesiąt głównych
-                nagród uzyskanych na prestiżowych festiwalach chóralnych w kraju
-                i za granicą.
+                {t("paragraph2")}
               </p>
             </div>
           </div>
@@ -39,7 +37,7 @@ function Story() {
           >
             <Image
               src="assets/images/about_hero1.jpg"
-              alt="Chór podczas koncertu"
+              alt={t("image1Alt")}
               width={600}
               height={800}
               sizes="(min-width: 768px) 280px, 45vw"
@@ -48,7 +46,7 @@ function Story() {
             />
             <Image
               src="assets/images/about_hero2.jpg"
-              alt="Próba chóru"
+              alt={t("image2Alt")}
               width={600}
               height={800}
               sizes="(min-width: 768px) 280px, 45vw"

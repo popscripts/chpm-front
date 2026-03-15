@@ -1,0 +1,488 @@
+{
+  "metadata": {
+    "home": {
+      "title": "Choir of Maritime University of Szczecin",
+      "description": "Official website of the Choir of Maritime University of Szczecin – one of the most acclaimed choral ensembles in Poland, known for exceptional artistic quality and a wide repertoire. Discover our history, achievements, upcoming events and collaborations with distinguished artists."
+    },
+    "about": {
+      "title": "About Us – Choir of Maritime University of Szczecin",
+      "description": "Learn about the history, achievements and mission of the Choir of Maritime University of Szczecin."
+    },
+    "conductor": {
+      "title": "Conductor – Prof. Sylwia Fabiańczyk-Makuch",
+      "description": "Meet Prof. Sylwia Fabiańczyk-Makuch, the conductor of the Choir of Maritime University of Szczecin."
+    },
+    "creativity": {
+      "title": "Creativity – Choir of Maritime University of Szczecin",
+      "description": "Explore the discography, music videos and repertoire of the Choir of Maritime University of Szczecin."
+    },
+    "events": {
+      "title": "Events & Concerts – Choir of Maritime University of Szczecin",
+      "description": "Check upcoming concerts and events of the Choir of Maritime University of Szczecin."
+    },
+    "support": {
+      "title": "Support Us – Choir of Maritime University of Szczecin",
+      "description": "Become a patron of the Choir of Maritime University of Szczecin and support choral music."
+    },
+    "joinus": {
+      "title": "Join Us – Choir of Maritime University of Szczecin",
+      "description": "Join the Choir of Maritime University of Szczecin. Find out about auditions and rehearsals."
+    },
+    "contact": {
+      "title": "Contact – Choir of Maritime University of Szczecin",
+      "description": "Get in touch with the Choir of Maritime University of Szczecin."
+    },
+    "awards": {
+      "title": "Awards – Choir of Maritime University of Szczecin",
+      "description": "Awards and distinctions of the Choir of Maritime University of Szczecin."
+    },
+    "repertoire": {
+      "title": "Repertoire – Choir of Maritime University of Szczecin",
+      "description": "Repertoire of the Choir of Maritime University of Szczecin."
+    }
+  },
+  "nav": {
+    "about": "About Us",
+    "conductor": "Conductor",
+    "creativity": "Creativity",
+    "events": "Events",
+    "joinus": "Join Us",
+    "contact": "Contact",
+    "logoAlt": "Choir of Maritime University of Szczecin",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "langSwitch": {
+    "switchTo": "PL",
+    "ariaLabel": "Switch language to Polish"
+  },
+  "footer": {
+    "brandName": "Choir of Maritime University of Szczecin",
+    "description": "An academic choir with a tradition spanning over 20 years. We perform a wide repertoire, from classical to contemporary music.",
+    "contactHeading": "Contact",
+    "socialHeading": "Social Media",
+    "followText": "Follow us so you don't miss any concert",
+    "copyright": "All rights reserved."
+  },
+  "backToTop": {
+    "label": "Back to top",
+    "supportLabel": "Support us",
+    "ariaSupport": "Go to the support page",
+    "ariaTop": "Back to top of page"
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "Choir of Maritime University",
+      "titleLine2": "of Szczecin",
+      "subtitle": "under the baton of Prof. Sylwia Fabiańczyk-Makuch",
+      "ctaEvents": "Upcoming concert",
+      "ctaSupport": "Support us"
+    },
+    "about": {
+      "eyebrow": "About us",
+      "headingRich": "Three decades <highlight>of excellence</highlight>",
+      "body1": "For over 30 years we have been creating a space where choral music becomes an unforgettable experience. Our ensemble combines passion, professionalism and an unceasing pursuit of perfection.",
+      "body2": "We have earned recognition on stages across Europe, winning awards at the most prestigious choral music festivals. Every concert is a meeting with an audience that shares our love of harmony.",
+      "cta": "Learn more",
+      "imageAlt": "Choir during rehearsal"
+    },
+    "concerts": {
+      "eyebrow": "Concerts",
+      "heading": "Upcoming events",
+      "cta": "View all"
+    },
+    "creativity": {
+      "eyebrow": "Creativity",
+      "heading": "Listen to our music",
+      "description": "We create music videos, albums, and record in professional studios",
+      "listenOn": "Listen on:",
+      "cta": "See full discography"
+    },
+    "conductor": {
+      "eyebrow": "Conductor",
+      "quote": "Choral music is the art of breathing together. When dozens of voices become one, magic happens that cannot be described in words.",
+      "body": "With an education from the Music Academy in Warsaw and years of experience on European stages, she has led our ensemble to the highest artistic peaks for over 15 years.",
+      "cta": "Read the story",
+      "imageAlt": "Sylwia Fabiańczyk-Makuch – Conductor"
+    },
+    "support": {
+      "eyebrow": "Support us",
+      "headingRich": "Become a Patron <highlight>of Harmony</highlight>",
+      "body": "Thanks to the support of our Patrons we can develop our artistic activities, record new albums and perform on international stages. Every contribution brings us closer to our next musical dream.",
+      "patronsLabel": "Patrons",
+      "yearsLabel": "Years of tradition",
+      "concertsLabel": "Concerts",
+      "ctaPatronite": "Support on Patronite",
+      "ctaWall": "Wall of Gratitude"
+    },
+    "sections": {
+      "about": "About us",
+      "events": "Events",
+      "creativity": "Creativity",
+      "conductor": "Conductor",
+      "support": "Support"
+    }
+  },
+  "aboutPage": {
+    "scroll": {
+      "whoWeAre": "Who we are",
+      "awards": "Awards",
+      "whatMakesUsSpecial": "What makes us special",
+      "achievements": "Achievements",
+      "sharedSounds": "Shared sounds"
+    },
+    "hero": {
+      "titleRich": "About <highlight>us</highlight>",
+      "subtitle": "Passion, excellence and the tradition of choral music"
+    },
+    "story": {
+      "eyebrow": "Who we are",
+      "title": "Choir of Maritime University of Szczecin",
+      "paragraph1Rich": "Under the direction of the founder, <highlight>Prof. Sylwia Fabiańczyk-Makuch</highlight>, the choir has been present on the music scene for over 20 years. The ensemble quickly became a hallmark of the city and region, spreading maritime tradition in Poland and abroad.",
+      "paragraph2": "This nearly one-hundred-member group has performed hundreds of concerts, completed over a dozen international tours, and won dozens of top awards at prestigious choral festivals in Poland and internationally.",
+      "image1Alt": "Choir during a concert",
+      "image2Alt": "Choir rehearsal"
+    },
+    "stats": {
+      "members": "Choir members",
+      "concerts": "Concerts performed",
+      "awards": "Awards and distinctions",
+      "albums": "Albums and music videos"
+    },
+    "awards": {
+      "eyebrow": "International success",
+      "title": "Our awards",
+      "descriptionRich": "In the last 10 years alone, we have won over <highlight>85 major awards</highlight> including 14 Grand Prix, 50 Gold Medals and numerous special distinctions",
+      "ctaAll": "See all awards",
+      "noAwards": "No awards assigned.",
+      "loading": "Loading...",
+      "more": "More"
+    },
+    "whatIsSpecial": {
+      "eyebrow": "Our distinctions",
+      "title": "What makes us special",
+      "touring": {
+        "title": "International tours",
+        "description": "The ensemble has visited dozens of countries and earned recognition from international audiences",
+        "items": {
+          "japan": "Japan",
+          "taiwan": "Taiwan",
+          "canada": "Canada",
+          "ecuador": "Ecuador",
+          "italy": "Italy",
+          "france": "France",
+          "spain": "Spain",
+          "turkey": "Turkey",
+          "macedonia": "Macedonia",
+          "lithuania": "Lithuania",
+          "malta": "Malta",
+          "ireland": "Ireland",
+          "russia": "Russia"
+        }
+      },
+      "collaboration": {
+        "title": "Collaboration with stars",
+        "description": "The choir is invited to collaborate with outstanding artists from the Polish and international music scene"
+      },
+      "premieres": {
+        "title": "World premieres",
+        "description": "The choir has delivered more than a dozen world-premiere performances of works by renowned Polish composers, including:"
+      }
+    },
+    "achievements": {
+      "eyebrow": "Our achievements",
+      "title": "Major achievements",
+      "items": {
+        "expo": {
+          "title": "Expo Osaka",
+          "paragraph1Rich": "The Choir of Maritime University of Szczecin represented Poland at <highlight>Expo 2025 Osaka Kansai Japan</highlight>, one of the world’s most important meeting points for cultures, ideas and people.",
+          "paragraph2": "The ensemble was invited by the Polish Pavilion and preparations lasted over a year. The concerts attracted such large audiences that an additional encore performance was added. This distinction highlights the choir’s international standing and its role in promoting Polish culture."
+        },
+        "fryderyk": {
+          "title": "Fryderyk nomination",
+          "paragraph1Rich": "In 2023, the album released in November of the previous year titled <highlight>“The Sound of the Sea”</highlight>, featuring maritime-themed works composed specifically for the Choir of Maritime University of Szczecin by outstanding contemporary Polish composers, received a Fryderyk nomination in the category <highlight>Album of the Year – Choral Music</highlight>.",
+          "paragraph2": "This distinction confirms both the importance of the project and the ensemble’s highest artistic level."
+        },
+        "ambassador": {
+          "title": "Ambassador of Szczecin 2019",
+          "paragraph1Rich": "Four years ago, the choir of the Maritime Academy received the honorary title <highlight>Ambassador of Szczecin 2019</highlight>. The honorary award, granted to people whose achievements contribute to building a positive image of Szczecin in Poland and abroad, is decided by a chapter composed of former and current city presidents and editors-in-chief of selected Szczecin media.",
+          "paragraph2": "It is an official confirmation of the ensemble’s role as a cultural showcase of the city."
+        }
+      }
+    },
+    "project": {
+      "eyebrow": "Our original project",
+      "title": "Shared Sounds",
+      "descriptionRich": "For several years we have been creators and originators of the project <highlight>Shared sounds</highlight>, which attracts crowds of fans every year. We combine classical choral sound with a variety of genres and styles - from rock (ØRGANEK), through jazz (Kuba Badach, Dorota Miśkiewicz, Komeda), to ethnic music (Kayah and Kroke) and electronic experiments (Fisz Emade Tworzywo, Mikromusic, Smolik).",
+      "cta": "Learn more"
+    }
+  },
+  "awardsPage": {
+    "back": "Back",
+    "title": "Our awards",
+    "descriptionRich": "In the last 10 years alone, we have won over <highlight>85 major awards</highlight> including 14 Grand Prix, 50 Gold Medals and numerous special distinctions"
+  },
+  "joinUsPage": {
+    "eyebrow": "Recruitment",
+    "titleRich": "Join <highlight>us</highlight>",
+    "description": "We are looking for people who want to sing, grow musically and co-create an ensemble present on stages in Poland and abroad. If you have sensitivity, energy and a willingness to work in a shared sound, reach out to us.",
+    "ctaMore": "Learn more",
+    "highlights": {
+      "rehearsals": {
+        "title": "Rehearsals",
+        "description": "Regular work with the ensemble, continuous craft development and musical discipline without stiffness."
+      },
+      "stage": {
+        "title": "Stage",
+        "description": "Concerts, recordings and ambitious projects that let you truly feel the energy of a shared sound."
+      },
+      "ensemble": {
+        "title": "Ensemble",
+        "description": "People connected by sensitivity, commitment and the satisfaction of creating something bigger together."
+      }
+    }
+  },
+  "contactPage": {
+    "eyebrow": "Choir of Maritime University of Szczecin",
+    "title": "Contact details",
+    "conductorLabel": "Conductor of the Choir of Maritime University of Szczecin",
+    "contactTitle": "Contact",
+    "address": {
+      "line1": "Maritime University of Szczecin",
+      "line2": "ul. Waly Chrobrego 1-2",
+      "line3": "70-500 Szczecin"
+    },
+    "board": {
+      "title": "Choir board",
+      "roles": {
+        "president": "President",
+        "vicePresident": "Vice President",
+        "members": "Board members"
+      }
+    },
+    "mapTitle": "Map of Maritime University of Szczecin"
+  },
+  "conductorPage": {
+    "hero": {
+      "eyebrow": "Conductor",
+      "titleRich": "Prof. Sylwia <highlight>Fabiańczyk-Makuch</highlight>",
+      "description": "Professor at the Academy of Art in Szczecin, as well as the conductor and founder of the Choir of Maritime University of Szczecin, with whom she has performed for over 20 years and won prestigious awards in Poland and abroad.",
+      "imageAlt": "Prof. Sylwia Fabiańczyk-Makuch"
+    },
+    "biography": {
+      "title": "Biography",
+      "description": "A conductor, educator and promoter of music life in West Pomerania, combining concert, teaching and organizational work.",
+      "items": {
+        "education": {
+          "title": "Education and academic degrees",
+          "imageAlt": "Prof. Sylwia Fabiańczyk-Makuch",
+          "contentRich": "The I. J. Paderewski Academy of Music in Poznan (Szczecin branch), <highlight>graduated with distinction</highlight> in the class of Prof. Jan Szyrocki. Postgraduate <highlight>Choirmaster Studies</highlight> at the F. Nowowiejski Academy of Music in Bydgoszcz. <highlight>Doctor of Musical Arts</highlight> (conducting) - Fryderyk Chopin University of Music in Warsaw, 2011. <highlight>Postdoctoral degree</highlight> - Academy of Music in Gdansk, 2017."
+        },
+        "artistic": {
+          "title": "Artistic activity",
+          "imageAlt": "Choir performance",
+          "contentRich": "<highlight>Jury member</highlight> of choral festivals and reviews. Since 2001, she has been leading <highlight>voice emission training workshops</highlight>. In 2008-2014, conductor of the choir operating at the Secondary Music School Complex in Szczecin. Founder of the vocal ensemble <highlight>Pomerania Singers</highlight> (2015), active in the most important artistic events of the city and region."
+        },
+        "educational": {
+          "title": "Educational and organizational activity",
+          "imageAlt": "Educational and organizational activity",
+          "contentRich": "Together with Pomerania Singers, she released an album with works by Romuald Twardowski (Tryptyk morski) and the Stella Maris Mass op.49 no. 4 by Feliks Nowowiejski. Since 2017, she has been affiliated with the Academy of Art in Szczecin, where she teaches conducting, score reading and methodology of leading vocal ensembles. <highlight>Director of the Academic Culture Center</highlight> at Maritime University of Szczecin. <highlight>Artistic Director of PZChiO</highlight> Szczecin branch and of the Choir's original project <highlight>\"Shared sounds\"</highlight>."
+        }
+      }
+    },
+    "awards": {
+      "eyebrow": "Artistic achievements",
+      "title": "Awards and distinctions",
+      "intro": "The most important distinctions granted to the conductor for artistic, educational and social activity.",
+      "items": {
+        "cavalierCross": {
+          "title": "Knight's Cross of the Order of Polonia Restituta",
+          "description": "For outstanding contributions to the development and promotion of Polish choral music, especially maritime music, and for charitable activity.",
+          "date": "September 2023"
+        },
+        "rectorAward": {
+          "title": "Academy of Art in Szczecin - Rector's Award",
+          "description": "For outstanding artistic achievements in the discipline of musical arts.",
+          "date": "October 2022"
+        },
+        "proArte": {
+          "title": "\"Pro Arte\" Award of the Marshal of West Pomerania",
+          "description": "For outstanding achievements in artistic creation, dissemination and protection of culture.",
+          "date": "October 2022"
+        },
+        "maritimeMedal": {
+          "title": "Honorary Medal of Maritime University in Szczecin",
+          "date": "June 2022"
+        },
+        "hongKong": {
+          "title": "World Choir Festival - Hong Kong (China)",
+          "description": "Diploma for one of the 10 best conductors of the festival.",
+          "date": "June 2021"
+        },
+        "magnolias": {
+          "title": "Business Magnolias (3rd edition)",
+          "description": "Award in the category \"For the love of Szczecin\".",
+          "date": "September 2021"
+        },
+        "gloriaArtis": {
+          "title": "Bronze Medal \"Meritorious for Culture Gloria Artis\"",
+          "description": "Award of the Minister of Culture and National Heritage.",
+          "date": "June 2019"
+        },
+        "meritCross": {
+          "title": "Silver Cross of Merit",
+          "description": "Award of the President of Poland.",
+          "date": "June 2019"
+        },
+        "pzchioBadge": {
+          "title": "Gold Honorary Badge of PZChiO",
+          "date": "June 2019"
+        },
+        "archdioceseCross": {
+          "title": "Cross of Merit of the Archdiocese of Szczecin-Kamien",
+          "date": "June 2019"
+        },
+        "ambassadorTitle": {
+          "title": "Honorary title of Ambassador of Szczecin for the Choir of Maritime Academy in Szczecin",
+          "date": "2019"
+        },
+        "cityAwardNomination": {
+          "title": "Nomination for the Artistic Award of the City of Szczecin",
+          "date": "2018"
+        },
+        "westPomeranianNobel": {
+          "title": "West Pomeranian Nobel in artistic sciences",
+          "date": "2017"
+        },
+        "rectorPrizes": {
+          "title": "Rector's awards of Maritime Academy in Szczecin",
+          "date": "2012, 2015"
+        },
+        "educationCommissionMedal": {
+          "title": "Medal of the National Education Commission",
+          "description": "For special contributions to education and upbringing.",
+          "date": "August 2015"
+        },
+        "cultureBadge": {
+          "title": "Honorary Badge \"Meritorious for Polish Culture\"",
+          "description": "Award of the Minister of Culture and National Heritage.",
+          "date": "2013"
+        },
+        "recognitionDiploma": {
+          "title": "Diploma of Recognition of Merit for Culture and Promotion of West Pomerania",
+          "description": "Award of the Marshal of West Pomerania.",
+          "date": "September 2013"
+        },
+        "bestConductorAwards": {
+          "title": "Individual awards for best festival conductor",
+          "description": "Chelmno 2010, Glogow 2012, Prague 2014, Bratislava 2016, Legnica 2017, Lublin 2017, Barczewo 2022, Gorizia 2023.",
+          "date": "2010-2023"
+        }
+      }
+    }
+  },
+  "creativityPage": {
+    "scroll": {
+      "streamings": "Streaming",
+      "videos": "Music videos",
+      "albums": "Albums",
+      "repertoire": "Repertoire"
+    },
+    "hero": {
+      "title": "Creativity",
+      "subtitle": "Our music available on all platforms",
+      "imageAlt": "Creativity"
+    },
+    "streamings": {
+      "eyebrow": "Streaming",
+      "title": "Listen to us online",
+      "description": "Find our music on your favorite platform",
+      "otherPlatforms": "Other platforms"
+    },
+    "videos": {
+      "eyebrow": "Music videos",
+      "title": "Watch our music videos",
+      "description": "Our recordings are supported by professional music videos created in cooperation with talented directors and film crews"
+    },
+    "discography": {
+      "eyebrow": "Discography",
+      "title": "Our albums"
+    },
+    "discographyList": {
+      "tracklist": "Track list",
+      "showMore": "Show more",
+      "streaming": "Streaming"
+    },
+    "seeRepertoire": {
+      "eyebrow": "Repertoire",
+      "title": "Full repertoire",
+      "description": "A list of pieces we have performed over the years",
+      "cta": "See full repertoire"
+    }
+  },
+  "supportPage": {
+    "hero": {
+      "titleRich": "Support <highlight>Harmony</highlight>",
+      "body": "Thanks to the support of our Patrons, we can develop our artistic activities, record new albums, and perform on international stages. Every contribution brings us closer to our next musical dreams.",
+      "cta": "Become a patron"
+    },
+    "why": {
+      "titleRich": "Why is it worth <highlight>supporting</highlight> us?",
+      "cards": {
+        "recordings": {
+          "title": "New recordings",
+          "description": "Your support allows us to record new albums and deliver ambitious music projects."
+        },
+        "tours": {
+          "title": "International tours",
+          "description": "Thanks to our Patrons, we can perform at prestigious festivals across Europe."
+        },
+        "repertoire": {
+          "title": "Repertoire development",
+          "description": "Your donations allow us to work with top composers and arrangers."
+        }
+      }
+    },
+    "wall": {
+      "eyebrow": "Wall of Gratitude",
+      "title": "Our Patrons",
+      "description": "Thank you to everyone who supports our mission"
+    },
+    "tiers": {
+      "oficer": "Officer",
+      "mechanik": "Engineer",
+      "bosman": "Boatswain",
+      "marynarz": "Sailor",
+      "matPodchorazy": "Midshipman"
+    },
+    "cta": {
+      "titleRich": "Join the <highlight>circle of patrons</highlight>",
+      "body": "Every contribution, no matter the amount, is extremely valuable to us. Together we create music that moves hearts!",
+      "button": "Support us"
+    }
+  },
+  "repertoirePage": {
+    "eyebrow": "Creativity",
+    "title": "Repertoire",
+    "subtitle": "List of all pieces",
+    "empty": "No pieces to display.",
+    "arrangerPrefix": "arr."
+  },
+  "events": {
+    "hero": {
+      "titleRich": "Events & <highlight>concerts</highlight>",
+      "subtitle": "Join us for an unforgettable musical experience",
+      "imageAlt": "Concert"
+    },
+    "noEvents": "No concerts scheduled.",
+    "noDate": "No date",
+    "buyTicket": "Buy ticket",
+    "buyTicketAria": "Buy ticket for: {title}",
+    "eventDetailsAria": "View event details: {title}"
+  },
+  "eventDetails": {
+    "backToEvents": "All events",
+    "notFound": "Event not found",
+    "duration": "{minutes} min"
+  }
+}

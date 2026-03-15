@@ -1,10 +1,12 @@
-import { createPageUrl } from "@/utils/helpers";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
-import Link from "next/link";
 import SectionWrapper from "../layout/SectionWrapper";
 
-export default function AboutPreview() {
+export default async function AboutPreview() {
+  const t = await getTranslations("home.about");
+
   return (
     <SectionWrapper id="o-nas" background="tealRadial">
       <div className="max-w-6xl mx-auto">
@@ -14,7 +16,7 @@ export default function AboutPreview() {
             <div className="relative z-10 aspect-4/5 overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=800&q=80"
-                alt="Chór podczas próby"
+                alt={t("imageAlt")}
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
@@ -30,32 +32,27 @@ export default function AboutPreview() {
             style={{ transitionDelay: "120ms" }}
           >
             <span className="text-(--color-champagne-gold) font-montserrat text-sm uppercase tracking-[0.3em] mb-4 block">
-              O nas
+              {t("eyebrow")}
             </span>
             <h2 className="font-playfair text-4xl md:text-5xl text-(--color-off-white) mb-6 leading-tight">
-              Trzy dekady
-              <span className="text-(--color-champagne-gold)">
-                {" "}
-                doskonałości
-              </span>
+              {t.rich("headingRich", {
+                highlight: (chunks) => (
+                  <span className="text-(--color-champagne-gold)">{chunks}</span>
+                ),
+              })}
             </h2>
             <p className="text-[rgb(var(--color-off-white-rgb)/0.7)] font-montserrat leading-relaxed mb-6">
-              Od ponad 30 lat tworzymy przestrzeń, w której muzyka chóralna
-              staje się niezapomnianym przeżyciem. Nasz zespół to połączenie
-              pasji, profesjonalizmu i nieustannego dążenia do perfekcji.
+              {t("body1")}
             </p>
             <p className="text-[rgb(var(--color-off-white-rgb)/0.7)] font-montserrat leading-relaxed mb-8">
-              Zdobyliśmy uznanie na scenach całej Europy, zdobywając nagrody na
-              najbardziej prestiżowych festiwalach muzyki chóralnej. Każdy
-              koncert to dla nas spotkanie z publicznością, która dzieli naszą
-              miłość do harmonii.
+              {t("body2")}
             </p>
 
             <Link
-              href={createPageUrl("o-nas")}
+              href="/o-nas"
               className="inline-flex items-center gap-3 text-(--color-champagne-gold) font-montserrat font-semibold text-sm uppercase tracking-wider hover:gap-5 transition-all duration-300 group"
             >
-              Zobacz więcej
+              {t("cta")}
               <ArrowRight
                 size={18}
                 className="group-hover:translate-x-1 transition-transform"

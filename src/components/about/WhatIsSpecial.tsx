@@ -1,16 +1,19 @@
 import { MapPin, Music, Users } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import SectionWrapper from "../layout/SectionWrapper";
 import ListCard from "../ui/ListCard";
 import SectionHeader from "../ui/SectionHeader";
 
-function WhatIsSpecial() {
+async function WhatIsSpecial() {
+  const t = await getTranslations("aboutPage.whatIsSpecial");
+
   return (
     <SectionWrapper id="co-nas-wyroznia" background="dark">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16 animate-reveal fade-up">
           <SectionHeader
-            eyebrow="Nasze wyróżnienia"
-            title="Co nas wyróżnia"
+            eyebrow={t("eyebrow")}
+            title={t("title")}
           />
         </div>
 
@@ -23,22 +26,22 @@ function WhatIsSpecial() {
                   className="text-(--color-champagne-gold) mb-4"
                 />
               }
-              title="Tournée międzynarodowe"
-              description="Zespół odwiedził już kilkadziesiąt krajów świata, zdobywając uznanie międzynarodowej publiczności"
+              title={t("touring.title")}
+              description={t("touring.description")}
               items={[
-                "Japonia",
-                "Tajwan",
-                "Kanada",
-                "Ekwador",
-                "Włochy",
-                "Francja",
-                "Hiszpania",
-                "Turcja",
-                "Macedonia",
-                "Litwa",
-                "Malta",
-                "Irlandia",
-                "Rosja",
+                t("touring.items.japan"),
+                t("touring.items.taiwan"),
+                t("touring.items.canada"),
+                t("touring.items.ecuador"),
+                t("touring.items.italy"),
+                t("touring.items.france"),
+                t("touring.items.spain"),
+                t("touring.items.turkey"),
+                t("touring.items.macedonia"),
+                t("touring.items.lithuania"),
+                t("touring.items.malta"),
+                t("touring.items.ireland"),
+                t("touring.items.russia"),
               ]}
             />
           </div>
@@ -51,8 +54,8 @@ function WhatIsSpecial() {
               icon={
                 <Users size={32} className="text-(--color-champagne-gold)" />
               }
-              title="Współpraca z gwiazdami"
-              description="Grupa zapraszana jest do współpracy z wybitnymi artystami polskiej i zagranicznej sceny muzycznej"
+              title={t("collaboration.title")}
+              description={t("collaboration.description")}
               items={[
                 "Andrea Bocelli",
                 "Krzysztof Penderecki",
@@ -79,8 +82,8 @@ function WhatIsSpecial() {
               icon={
                 <Music size={32} className="text-(--color-champagne-gold)" />
               }
-              title="Prapremiery"
-              description="Chór dokonał kilkunastu prapremierowych wykonań dzieł uznanych kompozytorów polskich, w tym:"
+              title={t("premieres.title")}
+              description={t("premieres.description")}
               items={[
                 "Marek Jasiński",
                 "Janusz Stalmierski",

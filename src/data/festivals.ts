@@ -1,3 +1,8 @@
+import {
+  drupalLocalePathPrefix,
+  resolveDrupalLocale,
+} from "@/data/drupalLocale";
+
 export type FestivalItem = {
   id: string;
   title: string;
@@ -48,6 +53,7 @@ type FestivalApiResponse = {
 type FetchFestivalsOptions = {
   limit?: number;
   offset?: number;
+  locale?: string;
 };
 
 const getAppEnv = () =>
@@ -56,7 +62,7 @@ const getAppEnv = () =>
 export async function fetchFestivals(
   options: FetchFestivalsOptions = {},
 ): Promise<FestivalItem[]> {
-  const { limit, offset } = options;
+  const { limit, offset, locale } = options;
   const baseUrl = process.env.API_URL;
   if (!baseUrl) {
     console.warn("API_URL is not set.");
@@ -64,6 +70,7 @@ export async function fetchFestivals(
   }
 
   const isDevEnvironment = ["dev", "development"].includes(getAppEnv());
+  const drupalLocale = await resolveDrupalLocale(locale);
 
   try {
     const params = new URLSearchParams();
@@ -75,8 +82,10 @@ export async function fetchFestivals(
       params.set("page[offset]", String(offset));
     }
 
+    const localePrefix = drupalLocalePathPrefix(drupalLocale);
     const response = await fetch(
-      `${baseUrl}/jsonapi/node/festival?${params.toString()}`,
+      `${baseUrl}${localePrefix}/jsonapi/node/festival?${params.toString()}`,
+
       isDevEnvironment
         ? { cache: "no-store" }
         : {

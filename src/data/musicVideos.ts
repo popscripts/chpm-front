@@ -1,3 +1,8 @@
+import {
+  drupalLocalePathPrefix,
+  resolveDrupalLocale,
+} from "@/data/drupalLocale";
+
 export type MusicVideoItem = {
   id: string;
   title: string;
@@ -30,7 +35,7 @@ type MusicVideosApiResponse = {
 const getAppEnv = () =>
   (process.env.APP_ENV ?? process.env.NODE_ENV ?? "production").toLowerCase();
 
-export async function fetchMusicVideos(): Promise<MusicVideoItem[]> {
+export async function fetchMusicVideos(locale?: string): Promise<MusicVideoItem[]> {
   const baseUrl = process.env.API_URL;
   if (!baseUrl) {
     console.warn("API_URL is not set.");
@@ -39,13 +44,16 @@ export async function fetchMusicVideos(): Promise<MusicVideoItem[]> {
 
   const normalizedBaseUrl = baseUrl.replace(/\/$/, "");
   const isDevEnvironment = ["dev", "development"].includes(getAppEnv());
+  const drupalLocale = await resolveDrupalLocale(locale);
 
   try {
     const params = new URLSearchParams();
     params.set("sort", "-field_release_date");
 
+    const localePrefix = drupalLocalePathPrefix(drupalLocale);
     const response = await fetch(
-      `${normalizedBaseUrl}/jsonapi/node/music_video?${params.toString()}`,
+      `${normalizedBaseUrl}${localePrefix}/jsonapi/node/music_video?${params.toString()}`,
+
       isDevEnvironment
         ? { cache: "no-store" }
         : {

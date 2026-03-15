@@ -1,8 +1,10 @@
 import { STREAMING_PLATFORMS } from "@/utils/constants";
+import { getTranslations } from "next-intl/server";
 import SectionWrapper from "../layout/SectionWrapper";
 import SectionHeader from "../ui/SectionHeader";
 
-function Streamings() {
+async function Streamings() {
+  const t = await getTranslations("creativityPage.streamings");
 
   const otherPlatforms: Array<{
     name: string;
@@ -28,9 +30,9 @@ function Streamings() {
     <SectionWrapper id="streamingi" background="dark">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
-          eyebrow="Streamingi"
-          title="Posłuchaj nas online"
-          description="Znajdź naszą muzykę na swojej ulubionej platformie"
+          eyebrow={t("eyebrow")}
+          title={t("title")}
+          description={t("description")}
         />
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-8">
@@ -41,8 +43,6 @@ function Streamings() {
               <a
                 key={platform.name}
                 href={platform.url}
-                target="_blank"
-                rel="noopener noreferrer"
                 style={{ transitionDelay: `${index * 120}ms` }}
                 className="animate-reveal fade-up group p-6 border border-(--color-off-white)/20 hover:border-(--color-champagne-gold) bg-(--color-deep-teal)/10 backdrop-blur-sm hover:bg-(--color-deep-teal)/20 transition-all text-center shadow-lg"
               >
@@ -65,7 +65,7 @@ function Streamings() {
           className="mt-10"
         >
           <h3 className="w-full text-center font-montserrat text-sm uppercase tracking-wide text-(--color-off-white-medium) mb-4">
-            Inne platformy
+            {t("otherPlatforms")}
           </h3>
           <div className="flex-wrap gap-3 flex justify-center">
             {otherPlatforms.map((platform, i) => {
@@ -77,8 +77,6 @@ function Streamings() {
                   <a
                     key={platform.name}
                     href={platform.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className={`${sharedClassName} hover:border-(--color-champagne-gold) hover:text-(--color-champagne-gold)`}
                     style={{ transitionDelay: `${240 + i * 80}ms` }}
                   >

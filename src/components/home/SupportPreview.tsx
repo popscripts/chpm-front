@@ -1,9 +1,11 @@
-import { createPageUrl } from "@/utils/helpers";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight, Heart } from "lucide-react";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import SectionWrapper from "../layout/SectionWrapper";
 
-export default function SupportPreview() {
+export default async function SupportPreview() {
+  const t = await getTranslations("home.support");
+
   return (
     <SectionWrapper
       id="wesprzyj-nas"
@@ -24,17 +26,17 @@ export default function SupportPreview() {
           </div>
 
           <span className="text-(--color-champagne-gold) font-montserrat text-sm uppercase tracking-[0.3em] mb-4 block">
-            Wesprzyj nas
+            {t("eyebrow")}
           </span>
           <h2 className="font-playfair text-4xl md:text-5xl text-(--color-off-white) mb-6 leading-tight">
-            Zostań Patronem{" "}
-            <span className="text-(--color-champagne-gold)">Harmonii</span>
+            {t.rich("headingRich", {
+              highlight: (chunks) => (
+                <span className="text-(--color-champagne-gold)">{chunks}</span>
+              ),
+            })}
           </h2>
           <p className="text-[rgb(var(--color-off-white-rgb)/0.7)] font-montserrat leading-relaxed mb-10 max-w-2xl mx-auto">
-            Dzięki wsparciu naszych Patronów możemy rozwijać działalność
-            artystyczną, nagrywać nowe płyty i występować na międzynarodowych
-            scenach. Każda złotówka przybliża nas do kolejnych muzycznych
-            marzeń.
+            {t("body")}
           </p>
 
           {/* Stats */}
@@ -44,7 +46,7 @@ export default function SupportPreview() {
                 127
               </span>
               <span className="text-[rgb(var(--color-off-white-rgb)/0.5)] font-montserrat text-sm">
-                Patronów
+                {t("patronsLabel")}
               </span>
             </div>
             <div>
@@ -52,7 +54,7 @@ export default function SupportPreview() {
                 30+
               </span>
               <span className="text-[rgb(var(--color-off-white-rgb)/0.5)] font-montserrat text-sm">
-                Lat tradycji
+                {t("yearsLabel")}
               </span>
             </div>
             <div>
@@ -60,7 +62,7 @@ export default function SupportPreview() {
                 500+
               </span>
               <span className="text-[rgb(var(--color-off-white-rgb)/0.5)] font-montserrat text-sm">
-                Koncertów
+                {t("concertsLabel")}
               </span>
             </div>
           </div>
@@ -68,18 +70,16 @@ export default function SupportPreview() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="https://patronite.pl"
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 bg-(--color-champagne-gold) text-(--color-soft-charcoal) font-montserrat font-semibold text-sm uppercase tracking-wider hover:bg-[rgb(var(--color-champagne-gold-rgb)/0.9)] transition-all duration-300"
             >
               <Heart size={18} className="mr-2" />
-              Wesprzyj na Patronite
+              {t("ctaPatronite")}
             </a>
             <Link
-              href={createPageUrl("wsparcie")}
+              href="/wsparcie"
               className="inline-flex items-center justify-center px-8 py-4 border border-[rgb(var(--color-off-white-rgb)/0.3)] text-(--color-off-white) font-montserrat font-semibold text-sm uppercase tracking-wider hover:bg-[rgb(var(--color-off-white-rgb)/0.1)] transition-all duration-300"
             >
-              Ściana Wdzięczności
+              {t("ctaWall")}
               <ArrowRight size={18} className="ml-2" />
             </Link>
           </div>
