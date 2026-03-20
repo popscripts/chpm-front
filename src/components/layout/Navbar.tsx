@@ -80,7 +80,7 @@ export default function Navbar() {
             className="inline-flex h-10 items-center shrink-0 self-center"
           >
             <Image
-              src="/assets/logo/logo2-1-2.png"
+              src="/assets/logo/logo.PNG"
               alt={t("logoAlt")}
               width={220}
               height={48}

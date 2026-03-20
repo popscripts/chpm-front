@@ -419,7 +419,7 @@
     "notFound": "Nie znaleziono wydarzenia",
     "duration": "{minutes} min"
   },
-    "footer": {
+  "footer": {
     "brandName": "Chór Politechniki Morskiej w Szczecinie",
     "description": "Chór akademicki z tradycją sięgającą ponad 20 lat. Wykonujemy szeroki repertuar, od muzyki klasycznej po współczesną.",
     "contactHeading": "Kontakt",
@@ -427,7 +427,7 @@
     "followText": "Śledź nas, aby nie przegapić żadnego koncertu",
     "copyright": "Wszelkie prawa zastrzeżone."
   },
-   "metadata": {
+  "metadata": {
     "home": {
       "title": "Chór Politechniki Morskiej w Szczecinie",
       "description": "Oficjalna strona Chóru Politechniki Morskiej w Szczecinie - jednego z najbardziej renomowanych zespołów chóralnych w Polsce, znanego z wyjątkowej jakości artystycznej i szerokiego repertuaru. Odkryj naszą historię, osiągnięcia, nadchodzące wydarzenia i współpracę z wybitnymi artystami."
