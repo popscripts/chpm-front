@@ -9,6 +9,7 @@ import { getTranslations } from "next-intl/server";
 
 export default async function Footer() {
   const t = await getTranslations("footer");
+  const tContact = await getTranslations("contactPage");
 
   return (
     <footer className="relative z-10 bg-(--color-deep-teal) pt-20 pb-8 px-6">
@@ -40,27 +41,28 @@ export default async function Footer() {
                   className="text-(--color-champagne-gold) shrink-0 mt-0.5"
                 />
                 <span>
-                  Politechnika Morska w Szczecinie <br />
-ul. Wały Chrobrego 1-2<br />
-70-500 Szczecin
+                  {tContact("address.line1")} <br />
+                  {tContact("address.line2")}
+                  <br />
+                  {tContact("address.line3")}
                 </span>
               </li>
               <li className="flex items-center gap-3 text-[rgb(var(--color-off-white-rgb)/0.7)] font-montserrat text-sm">
                 <Phone size={18} className="text-(--color-champagne-gold)" />
                 <a
-                  href="tel:+48601774746"
+                  href={`tel:${tContact("contactDetails.phoneHref")}`}
                   className="hover:text-(--color-champagne-gold) transition-colors"
                 >
-                  +48 601 774 746
+                  {tContact("contactDetails.phoneDisplay")}
                 </a>
               </li>
               <li className="flex items-center gap-3 text-[rgb(var(--color-off-white-rgb)/0.7)] font-montserrat text-sm">
                 <Mail size={18} className="text-(--color-champagne-gold)" />
                 <a
-                  href="mailto:chor@pm.szczecin.pl"
+                  href={`mailto:${tContact("contactDetails.email")}`}
                   className="hover:text-(--color-champagne-gold) transition-colors"
                 >
-                  chor@pm.szczecin.pl
+                  {tContact("contactDetails.email")}
                 </a>
               </li>
             </ul>

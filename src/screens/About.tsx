@@ -2,7 +2,6 @@ import Achievements from "@/components/about/Achievements";
 import Awards from "@/components/about/Awards";
 import Hero from "@/components/about/Hero";
 import Project from "@/components/about/Project";
-import Stats from "@/components/about/Stats";
 import Story from "@/components/about/Story";
 import WhatIsSpecial from "@/components/about/WhatIsSpecial";
 import SectionScrollHeader, {
@@ -20,10 +19,10 @@ export default async function About({ festivals = [] }: AboutProps) {
 
   const sectionLinks: ScrollSectionLink[] = [
     { label: t("whoWeAre"), id: "kim-jestesmy" },
+    { label: t("sharedSounds"), id: "wspolne-brzmienia" },
     { label: t("awards"), id: "nagrody" },
     { label: t("whatMakesUsSpecial"), id: "co-nas-wyroznia" },
     { label: t("achievements"), id: "osiagniecia" },
-    { label: t("sharedSounds"), id: "wspolne-brzmienia" },
   ];
 
   return (
@@ -31,11 +30,10 @@ export default async function About({ festivals = [] }: AboutProps) {
       <Hero />
       <SectionScrollHeader items={sectionLinks} />
       <Story />
-      <Stats />
+      <Project />
       <Awards festivals={festivals} />
       <WhatIsSpecial />
       <Achievements />
-      <Project />
     </div>
   );
 }

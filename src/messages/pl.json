@@ -1,75 +1,4 @@
 {
-  "metadata": {
-    "home": {
-      "title": "Chór Politechniki Morskiej w Szczecinie",
-      "description": "Oficjalna strona Chóru Politechniki Morskiej w Szczecinie - jednego z najbardziej renomowanych zespołów chóralnych w Polsce, znanego z wyjątkowej jakości artystycznej i szerokiego repertuaru. Odkryj naszą historię, osiągnięcia, nadchodzące wydarzenia i współpracę z wybitnymi artystami."
-    },
-    "about": {
-      "title": "O nas – Chór Politechniki Morskiej w Szczecinie",
-      "description": "Poznaj historię, osiągnięcia i misję Chóru Politechniki Morskiej w Szczecinie."
-    },
-    "conductor": {
-      "title": "Dyrygent – prof. Sylwia Fabiańczyk-Makuch",
-      "description": "Poznaj prof. Sylwię Fabiańczyk-Makuch, dyrygentkę Chóru Politechniki Morskiej w Szczecinie."
-    },
-    "creativity": {
-      "title": "Twórczość – Chór Politechniki Morskiej w Szczecinie",
-      "description": "Odkryj dyskografię, teledyski i repertuar Chóru Politechniki Morskiej w Szczecinie."
-    },
-    "events": {
-      "title": "Wydarzenia i koncerty – Chór Politechniki Morskiej w Szczecinie",
-      "description": "Sprawdź nadchodzące koncerty i wydarzenia Chóru Politechniki Morskiej w Szczecinie."
-    },
-    "support": {
-      "title": "Wesprzyj nas – Chór Politechniki Morskiej w Szczecinie",
-      "description": "Zostań patronem Chóru Politechniki Morskiej w Szczecinie i wspieraj muzykę chóralną."
-    },
-    "joinus": {
-      "title": "Dołącz do nas – Chór Politechniki Morskiej w Szczecinie",
-      "description": "Dołącz do Chóru Politechniki Morskiej w Szczecinie. Dowiedz się o rekrutacji i próbach."
-    },
-    "contact": {
-      "title": "Kontakt – Chór Politechniki Morskiej w Szczecinie",
-      "description": "Skontaktuj się z Chórem Politechniki Morskiej w Szczecinie."
-    },
-    "awards": {
-      "title": "Nagrody – Chór Politechniki Morskiej w Szczecinie",
-      "description": "Nagrody i wyróżnienia Chóru Politechniki Morskiej w Szczecinie."
-    },
-    "repertoire": {
-      "title": "Repertuar – Chór Politechniki Morskiej w Szczecinie",
-      "description": "Repertuar Chóru Politechniki Morskiej w Szczecinie."
-    }
-  },
-  "nav": {
-    "about": "O nas",
-    "conductor": "Dyrygent",
-    "creativity": "Twórczość",
-    "events": "Wydarzenia",
-    "joinus": "Nabór",
-    "contact": "Kontakt",
-    "logoAlt": "Chór Politechniki Morskiej w Szczecinie",
-    "openMenu": "Otwórz menu",
-    "closeMenu": "Zamknij menu"
-  },
-  "langSwitch": {
-    "switchTo": "EN",
-    "ariaLabel": "Zmień język na angielski"
-  },
-  "footer": {
-    "brandName": "Chór Politechniki Morskiej w Szczecinie",
-    "description": "Chór akademicki z tradycją sięgającą ponad 20 lat. Wykonujemy szeroki repertuar, od muzyki klasycznej po współczesną.",
-    "contactHeading": "Kontakt",
-    "socialHeading": "Social Media",
-    "followText": "Śledź nas, aby nie przegapić żadnego koncertu",
-    "copyright": "Wszelkie prawa zastrzeżone."
-  },
-  "backToTop": {
-    "label": "Wróć na górę",
-    "supportLabel": "Wesprzyj nas",
-    "ariaSupport": "Przejdź do strony wsparcia",
-    "ariaTop": "Wróć na górę strony"
-  },
   "home": {
     "hero": {
       "titleLine1": "Chór Politechniki Morskiej",
@@ -81,7 +10,7 @@
     "about": {
       "eyebrow": "O nas",
       "headingRich": "Trzy dekady <highlight>doskonałości</highlight>",
-      "body1": "Od ponad 30 lat tworzymy przestrzeń, w której muzyka chóralna staje się niezapomnianym przeżyciem. Nasz zespół to połączenie pasji, profesjonalizmu i nieustannego dążenia do perfekcji.",
+      "body1": "Od ponad 20 lat tworzymy przestrzeń, w której muzyka chóralna staje się niezapomnianym przeżyciem. Nasz zespół to połączenie pasji, profesjonalizmu i nieustannego dążenia do perfekcji.",
       "body2": "Zdobyliśmy uznanie na scenach całej Europy, zdobywając nagrody na najbardziej prestiżowych festiwalach muzyki chóralnej. Każdy koncert to dla nas spotkanie z publicznością, która dzieli naszą miłość do harmonii.",
       "cta": "Zobacz więcej",
       "imageAlt": "Chór podczas próby"
@@ -251,6 +180,11 @@
       "line1": "Politechnika Morska w Szczecinie",
       "line2": "ul. Wały Chrobrego 1-2",
       "line3": "70-500 Szczecin"
+    },
+    "contactDetails": {
+      "phoneDisplay": "+48 601 774 746",
+      "phoneHref": "+48601774746",
+      "email": "chor@pm.szczecin.pl"
     },
     "board": {
       "title": "Zarząd chóru",
@@ -484,5 +418,77 @@
     "backToEvents": "Wszystkie wydarzenia",
     "notFound": "Nie znaleziono wydarzenia",
     "duration": "{minutes} min"
+  },
+    "footer": {
+    "brandName": "Chór Politechniki Morskiej w Szczecinie",
+    "description": "Chór akademicki z tradycją sięgającą ponad 20 lat. Wykonujemy szeroki repertuar, od muzyki klasycznej po współczesną.",
+    "contactHeading": "Kontakt",
+    "socialHeading": "Social Media",
+    "followText": "Śledź nas, aby nie przegapić żadnego koncertu",
+    "copyright": "Wszelkie prawa zastrzeżone."
+  },
+   "metadata": {
+    "home": {
+      "title": "Chór Politechniki Morskiej w Szczecinie",
+      "description": "Oficjalna strona Chóru Politechniki Morskiej w Szczecinie - jednego z najbardziej renomowanych zespołów chóralnych w Polsce, znanego z wyjątkowej jakości artystycznej i szerokiego repertuaru. Odkryj naszą historię, osiągnięcia, nadchodzące wydarzenia i współpracę z wybitnymi artystami."
+    },
+    "about": {
+      "title": "O nas – Chór Politechniki Morskiej w Szczecinie",
+      "description": "Poznaj historię, osiągnięcia i misję Chóru Politechniki Morskiej w Szczecinie."
+    },
+    "conductor": {
+      "title": "Dyrygent – prof. Sylwia Fabiańczyk-Makuch",
+      "description": "Poznaj prof. Sylwię Fabiańczyk-Makuch, dyrygentkę Chóru Politechniki Morskiej w Szczecinie."
+    },
+    "creativity": {
+      "title": "Twórczość – Chór Politechniki Morskiej w Szczecinie",
+      "description": "Odkryj dyskografię, teledyski i repertuar Chóru Politechniki Morskiej w Szczecinie."
+    },
+    "events": {
+      "title": "Wydarzenia i koncerty – Chór Politechniki Morskiej w Szczecinie",
+      "description": "Sprawdź nadchodzące koncerty i wydarzenia Chóru Politechniki Morskiej w Szczecinie."
+    },
+    "support": {
+      "title": "Wesprzyj nas – Chór Politechniki Morskiej w Szczecinie",
+      "description": "Zostań patronem Chóru Politechniki Morskiej w Szczecinie i wspieraj muzykę chóralną."
+    },
+    "joinus": {
+      "title": "Dołącz do nas – Chór Politechniki Morskiej w Szczecinie",
+      "description": "Dołącz do Chóru Politechniki Morskiej w Szczecinie. Dowiedz się o rekrutacji i próbach."
+    },
+    "contact": {
+      "title": "Kontakt – Chór Politechniki Morskiej w Szczecinie",
+      "description": "Skontaktuj się z Chórem Politechniki Morskiej w Szczecinie."
+    },
+    "awards": {
+      "title": "Nagrody – Chór Politechniki Morskiej w Szczecinie",
+      "description": "Nagrody i wyróżnienia Chóru Politechniki Morskiej w Szczecinie."
+    },
+    "repertoire": {
+      "title": "Repertuar – Chór Politechniki Morskiej w Szczecinie",
+      "description": "Repertuar Chóru Politechniki Morskiej w Szczecinie."
+    }
+  },
+  "nav": {
+    "home": "Strona główna",
+    "about": "O nas",
+    "conductor": "Dyrygent",
+    "creativity": "Twórczość",
+    "events": "Wydarzenia",
+    "joinus": "Nabór",
+    "contact": "Kontakt",
+    "logoAlt": "Chór Politechniki Morskiej w Szczecinie",
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu"
+  },
+  "langSwitch": {
+    "switchTo": "EN",
+    "ariaLabel": "Zmień język na angielski"
+  },
+  "backToTop": {
+    "label": "Wróć na górę",
+    "supportLabel": "Wesprzyj nas",
+    "ariaSupport": "Przejdź do strony wsparcia",
+    "ariaTop": "Wróć na górę strony"
   }
 }

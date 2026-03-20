@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import Stats from "./Stats";
 import SectionWrapper from "../layout/SectionWrapper";
 import SectionHeader from "../ui/SectionHeader";
 
@@ -55,6 +56,8 @@ async function Story() {
             />
           </div>
         </div>
+
+        <Stats embedded />
       </div>
     </SectionWrapper>
   );

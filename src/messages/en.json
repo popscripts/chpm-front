@@ -42,6 +42,7 @@
     }
   },
   "nav": {
+    "home": "Home",
     "about": "About Us",
     "conductor": "Conductor",
     "creativity": "Creativity",
@@ -251,6 +252,11 @@
       "line1": "Maritime University of Szczecin",
       "line2": "ul. Waly Chrobrego 1-2",
       "line3": "70-500 Szczecin"
+    },
+    "contactDetails": {
+      "phoneDisplay": "+48 601 774 746",
+      "phoneHref": "+48601774746",
+      "email": "chor@pm.szczecin.pl"
     },
     "board": {
       "title": "Choir board",

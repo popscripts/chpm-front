@@ -71,10 +71,10 @@ async function Contact() {
                         className="text-(--color-champagne-gold)"
                       />
                       <a
-                        href="tel:+48601774746"
+                        href={`tel:${t("contactDetails.phoneHref")}`}
                         className="transition-colors hover:text-(--color-champagne-gold)"
                       >
-                        +48 601 774 746
+                        {t("contactDetails.phoneDisplay")}
                       </a>
                     </div>
 
@@ -84,10 +84,10 @@ async function Contact() {
                         className="text-(--color-champagne-gold)"
                       />
                       <a
-                        href="mailto:chor@pm.szczecin.pl"
+                        href={`mailto:${t("contactDetails.email")}`}
                         className="transition-colors hover:text-(--color-champagne-gold)"
                       >
-                        chor@pm.szczecin.pl
+                        {t("contactDetails.email")}
                       </a>
                     </div>
                   </div>

@@ -8,8 +8,16 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 type NavLink = {
-  key: "about" | "conductor" | "creativity" | "events" | "joinus" | "contact";
+  key:
+    | "home"
+    | "about"
+    | "conductor"
+    | "creativity"
+    | "events"
+    | "joinus"
+    | "contact";
   href:
+    | "/"
     | "/o-nas"
     | "/dyrygent"
     | "/tworczosc"
@@ -19,6 +27,7 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
+  { key: "home", href: "/" },
   { key: "about", href: "/o-nas" },
   { key: "conductor", href: "/dyrygent" },
   { key: "creativity", href: "/tworczosc" },
@@ -26,10 +35,6 @@ const navLinks: NavLink[] = [
   { key: "joinus", href: "/nabor" },
   { key: "contact", href: "/kontakt" },
 ];
-
-const splitIndex = Math.ceil(navLinks.length / 2);
-const leftNavLinks = navLinks.slice(0, splitIndex);
-const rightNavLinks = navLinks.slice(splitIndex);
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,6 +49,10 @@ export default function Navbar() {
     !pathname || pathname === "/wydarzenia/[id]" ? "/wydarzenia" : pathname;
 
   const isLinkActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+
     return pathname === href || pathname?.startsWith(`${href}/`);
   };
 
@@ -64,26 +73,12 @@ export default function Navbar() {
             : "bg-transparent py-6 border-b border-(--color-off-white)/0"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between lg:justify-around ">
-          {/* Left desktop links */}
-          <div className="hidden lg:flex items-center gap-8">
-            {leftNavLinks.map((link) => (
-              <Link
-                key={link.key}
-                href={link.href}
-                className={`font-montserrat text-sm uppercase tracking-wider transition-colors ${
-                  isLinkActive(link.href)
-                    ? "text-(--color-champagne-gold)"
-                    : "text-[rgb(var(--color-off-white-rgb)/0.8)] hover:text-(--color-champagne-gold)"
-                }`}
-              >
-                {t(link.key)}
-              </Link>
-            ))}
-          </div>
-
-          {/* Logo */}
-          <Link href="/" className="inline-flex items-center">
+        <div className="flex max-w-7xl mx-auto items-center justify-between gap-8">
+          <Link
+            href="/"
+            aria-label={t("home")}
+            className="inline-flex h-10 items-center shrink-0 self-center"
+          >
             <Image
               src="/assets/logo/logo2-1-2.png"
               alt={t("logoAlt")}
@@ -94,13 +89,12 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Right desktop links + language switcher */}
-          <div className="hidden lg:flex items-center gap-8">
-            {rightNavLinks.map((link) => (
+          <div className="hidden lg:ml-auto lg:flex lg:items-center lg:justify-end lg:gap-8">
+            {navLinks.map((link) => (
               <Link
                 key={link.key}
                 href={link.href}
-                className={`font-montserrat text-sm uppercase tracking-wider transition-colors ${
+                className={`inline-flex h-10 items-center px-3 font-montserrat text-sm uppercase tracking-wider transition-colors ${
                   isLinkActive(link.href)
                     ? "text-(--color-champagne-gold)"
                     : "text-[rgb(var(--color-off-white-rgb)/0.8)] hover:text-(--color-champagne-gold)"
@@ -109,11 +103,12 @@ export default function Navbar() {
                 {t(link.key)}
               </Link>
             ))}
+
             <Link
               href={switchPathname}
               locale={otherLocale}
               aria-label={tLang("ariaLabel")}
-              className="font-montserrat text-sm uppercase tracking-wider border border-[rgb(var(--color-off-white-rgb)/0.3)] px-2 py-0.5 text-[rgb(var(--color-off-white-rgb)/0.8)] hover:text-(--color-champagne-gold) hover:border-(--color-champagne-gold) transition-colors"
+              className="ml-2 inline-flex h-10 items-center self-center border border-[rgb(var(--color-off-white-rgb)/0.3)] px-3 font-montserrat text-sm uppercase tracking-wider text-[rgb(var(--color-off-white-rgb)/0.8)] transition-colors hover:text-(--color-champagne-gold) hover:border-(--color-champagne-gold)"
             >
               {tLang("switchTo")}
             </Link>
@@ -121,7 +116,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-(--color-off-white) p-2"
+            className="inline-flex h-10 items-center justify-center self-center p-2 text-(--color-off-white) lg:hidden"
             aria-label={isMobileMenuOpen ? t("closeMenu") : t("openMenu")}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
