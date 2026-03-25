@@ -1,5 +1,6 @@
 import { SOCIAL_MEDIA } from "@/utils/constants";
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 import {
   Mail,
   MapPin,
@@ -18,6 +19,14 @@ export default async function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-1">
+          <div className="mb-4">
+              <Image
+                src="/assets/logo/logo.PNG"
+                alt="Logo"
+                width={80}
+                height={80}
+              />
+            </div>
             <Link
               href="/"
               className="font-playfair text-3xl text-(--color-off-white) mb-4 block"

@@ -1,0 +1,13 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: chpm-web
+    ports:
+      - "3000:3000"
+    environment:
+      API_URL: ${API_URL:-http://localhost:8080}
+      APP_ENV: ${APP_ENV:-prod}
+      NODE_ENV: production
+    restart: unless-stopped

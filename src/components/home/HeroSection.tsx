@@ -3,6 +3,7 @@
 import { Link } from "@/i18n/navigation";
 import { ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export default function HeroSection() {
   const t = useTranslations("home.hero");
@@ -33,8 +34,18 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-20 h-full flex flex-col items-center justify-center px-6 text-center">
-        <div className="max-w-4xl animate-reveal fade-up">
-          <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl text-(--color-off-white) mb-6 tracking-tight">
+        <div className="max-w-6xl animate-reveal fade-up">
+          <div className="mb-8">
+            <Image
+              src="/assets/logo/logo.PNG"
+              alt="Logo"
+              width={220}
+              height={220}
+              className="mx-auto"
+              priority
+            />
+          </div>
+          <h1 className="font-playfair text-3xl md:text-5xl lg:text-8xl text-(--color-off-white) mb-6 tracking-tight">
             {t("titleLine1")}
             <span className="block text-(--color-champagne-gold)">
               {t("titleLine2")}

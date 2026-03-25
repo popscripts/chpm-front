@@ -73,14 +73,14 @@ export default function Navbar() {
             : "bg-transparent py-6 border-b border-(--color-off-white)/0"
         }`}
       >
-        <div className="flex max-w-7xl mx-auto items-center justify-between gap-8">
+        <div className="flex px-4 items-center justify-between gap-8">
           <Link
             href="/"
             aria-label={t("home")}
             className="inline-flex h-10 items-center shrink-0 self-center"
           >
             <Image
-              src="/assets/logo/logo.PNG"
+              src="/assets/logo/logo2-1-2.png"
               alt={t("logoAlt")}
               width={220}
               height={48}
