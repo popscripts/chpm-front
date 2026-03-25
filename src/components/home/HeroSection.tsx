@@ -41,11 +41,11 @@ export default function HeroSection() {
               alt="Logo"
               width={220}
               height={220}
-              className="mx-auto"
+              className="mx-auto h-[25vw] md:h-[min(220px,25vh)] w-auto object-contain"
               priority
             />
           </div>
-          <h1 className="font-playfair text-3xl md:text-6xl lg:font-monserrat lg:text-[5rem] text-(--color-off-white) mb-6">
+          <h1 className="font-playfair text-3xl md:text-6xl lg:font-monserrat lg:text-[min(5rem,5vw)] text-(--color-off-white) mb-6">
             {t("titleLine1")}
             <span className="block text-(--color-champagne-gold)">
               {t("titleLine2")}

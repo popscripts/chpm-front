@@ -6,9 +6,10 @@ import { getLocale, getTranslations } from "next-intl/server";
 interface EventCardProps {
   event: EventItem;
   index: number;
+  isCompact: boolean;
 }
 
-async function EventCard({ event, index }: EventCardProps) {
+async function EventCard({ event, index, isCompact }: EventCardProps) {
   const locale = await getLocale();
   const t = await getTranslations("events");
   const localeStr = locale === "en" ? "en-GB" : "pl-PL";
@@ -37,7 +38,7 @@ async function EventCard({ event, index }: EventCardProps) {
   return (
     <div
       id={`event-${event.id}`}
-      className={`${index === 0 ? "border-t" : ""} group relative border-b border-[rgb(var(--color-off-white-rgb)/0.1)] py-8 hover:bg-[rgb(var(--color-deep-teal-rgb)/0.2)] [&:has(.ticket-link:hover)]:bg-transparent hover:[&:not(:has(.ticket-link:hover))_.event-title]:text-(--color-champagne-gold) hover:[&:not(:has(.ticket-link:hover))_.event-arrow]:text-(--color-champagne-gold) hover:[&:not(:has(.ticket-link:hover))_.event-arrow]:translate-x-1 hover:[&:not(:has(.ticket-link:hover))_.event-arrow]:-translate-y-1 transition-colors duration-300 cursor-pointer px-4 -mx-4 animate-reveal fade-up`}
+      className={`${index === 0 ? "border-t" : ""} ${isCompact ? "py-3" : "py-8"} group relative border-b border-[rgb(var(--color-off-white-rgb)/0.1)] hover:bg-[rgb(var(--color-deep-teal-rgb)/0.2)] [&:has(.ticket-link:hover)]:bg-transparent hover:[&:not(:has(.ticket-link:hover))_.event-title]:text-(--color-champagne-gold) hover:[&:not(:has(.ticket-link:hover))_.event-arrow]:text-(--color-champagne-gold) hover:[&:not(:has(.ticket-link:hover))_.event-arrow]:translate-x-1 hover:[&:not(:has(.ticket-link:hover))_.event-arrow]:-translate-y-1 transition-colors duration-300 cursor-pointer px-4 -mx-4 animate-reveal fade-up`}
       style={{ transitionDelay: `${index * 90}ms` }}
     >
       <Link
@@ -47,13 +48,13 @@ async function EventCard({ event, index }: EventCardProps) {
       />
 
       <ArrowRight
-        size={32}
+        size={isCompact ? 24 : 32}
         className="event-arrow absolute top-4 right-4 z-10 hidden md:block text-(--color-off-white-dark) -rotate-45 transition-all duration-300"
       />
       <div className="relative z-0 flex flex-col gap-4 md:flex-row md:items-center md:gap-6">
         <div className="flex items-center gap-4">
           <div className="text-center">
-            <span className="block font-playfair text-4xl text-(--color-champagne-gold)">
+            <span className={`block font-playfair  text-(--color-champagne-gold) ${isCompact ? "text-3xl" : "text-4xl"}`}>
               {dateInfo.day}
             </span>
             <span className="block font-montserrat text-sm text-[rgb(var(--color-off-white-rgb)/0.6)]">
@@ -62,13 +63,13 @@ async function EventCard({ event, index }: EventCardProps) {
           </div>
           <div className="h-16 w-px bg-[rgb(var(--color-off-white-rgb)/0.2)]" />
 
-          <h3 className="event-title md:hidden font-playfair text-2xl text-(--color-off-white) transition-colors">
+          <h3 className={`event-title md:hidden font-playfair ${isCompact ? "text-xl" : "text-2xl"} text-(--color-off-white) transition-colors`}>
             {event.title}
           </h3>
         </div>
 
         <div className="hidden md:block flex-1 md:pr-12">
-          <h3 className="event-title font-playfair text-2xl text-(--color-off-white) transition-colors mb-2">
+          <h3 className={`event-title font-playfair ${isCompact ? "text-xl" : "text-2xl"} text-(--color-off-white) transition-colors mb-2`}>
             {event.title}
           </h3>
           <div className="flex flex-wrap gap-4 text-[rgb(var(--color-off-white-rgb)/0.6)] font-montserrat text-sm">
