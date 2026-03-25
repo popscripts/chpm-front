@@ -6,8 +6,13 @@ services:
     container_name: chpm-web
     ports:
       - "3000:3000"
+    env_file:
+      - .env
     environment:
-      API_URL: ${API_URL:-http://localhost:8080}
-      APP_ENV: ${APP_ENV:-prod}
+      API_URL: ${API_URL}
+      APP_ENV: ${APP_ENV}
+      UAT_TARGET_URL: ${UAT_TARGET_URL:-}
+      UAT_SHARED_SECRET: ${UAT_SHARED_SECRET:-}
+      UAT_CLIENT_ID: ${UAT_CLIENT_ID:-}
       NODE_ENV: production
     restart: unless-stopped
