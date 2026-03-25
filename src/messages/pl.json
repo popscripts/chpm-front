@@ -400,7 +400,12 @@
     "title": "Repertuar",
     "subtitle": "Lista wszystkich utworów",
     "empty": "Brak utworów do wyświetlenia.",
-    "arrangerPrefix": "ar."
+    "arrangerPrefix": "ar.",
+    "filterLabel": "Filtruj po gatunku",
+    "clearFilters": "Wyczyść filtry",
+    "loading": "Ładowanie repertuaru...",
+    "filterError": "Nie udało się pobrać filtrowanego repertuaru.",
+    "noResults": "Brak utworów dla wybranych gatunków."
   },
   "events": {
     "hero": {
@@ -408,6 +413,10 @@
       "subtitle": "Dołącz do nas na niezapomnianym muzycznym przeżyciu",
       "imageAlt": "Koncert"
     },
+    "upcomingHeading": "Nadchodzące wydarzenia",
+    "pastHeading": "Minione wydarzenia",
+    "noUpcomingEvents": "Brak nadchodzących wydarzeń.",
+    "noPastEvents": "Brak minionych wydarzeń.",
     "noEvents": "Brak zaplanowanych koncertów.",
     "noDate": "Bez daty",
     "buyTicket": "Kup bilet",

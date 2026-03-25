@@ -472,7 +472,12 @@
     "title": "Repertoire",
     "subtitle": "List of all pieces",
     "empty": "No pieces to display.",
-    "arrangerPrefix": "arr."
+    "arrangerPrefix": "arr.",
+    "filterLabel": "Filter by genre",
+    "clearFilters": "Clear filters",
+    "loading": "Loading repertoire...",
+    "filterError": "Failed to load filtered repertoire.",
+    "noResults": "No pieces match selected genres."
   },
   "events": {
     "hero": {
@@ -480,6 +485,10 @@
       "subtitle": "Join us for an unforgettable musical experience",
       "imageAlt": "Concert"
     },
+    "upcomingHeading": "Upcoming events",
+    "pastHeading": "Past events",
+    "noUpcomingEvents": "No upcoming events.",
+    "noPastEvents": "No past events.",
     "noEvents": "No concerts scheduled.",
     "noDate": "No date",
     "buyTicket": "Buy ticket",

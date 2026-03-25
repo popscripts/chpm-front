@@ -274,3 +274,52 @@ export async function fetchEventById(
   const events = await fetchEvents(undefined, locale);
   return events.find((event) => event.id === id) ?? null;
 }
+
+const toEventTimestamp = (date: string): number | null => {
+  const timestamp = new Date(date).getTime();
+  return Number.isNaN(timestamp) ? null : timestamp;
+};
+
+export const isUpcomingEvent = (
+  event: EventItem,
+  now: Date = new Date(),
+): boolean => {
+  const eventTimestamp = toEventTimestamp(event.date);
+  if (eventTimestamp === null) {
+    return false;
+  }
+
+  return eventTimestamp >= now.getTime();
+};
+
+export const splitEventsByTimeline = (
+  events: EventItem[],
+  now: Date = new Date(),
+): {
+  upcoming: EventItem[];
+  past: EventItem[];
+} => {
+  const nowTimestamp = now.getTime();
+  const validEvents = events
+    .map((event) => ({ event, timestamp: toEventTimestamp(event.date) }))
+    .filter(
+      (
+        item,
+      ): item is {
+        event: EventItem;
+        timestamp: number;
+      } => item.timestamp !== null,
+    );
+
+  const upcoming = validEvents
+    .filter((item) => item.timestamp >= nowTimestamp)
+    .sort((a, b) => a.timestamp - b.timestamp)
+    .map((item) => item.event);
+
+  const past = validEvents
+    .filter((item) => item.timestamp < nowTimestamp)
+    .sort((a, b) => b.timestamp - a.timestamp)
+    .map((item) => item.event);
+
+  return { upcoming, past };
+};

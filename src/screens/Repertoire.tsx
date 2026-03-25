@@ -1,32 +1,15 @@
 import { fetchCompositions } from "@/data/compositions";
+import RepertoireContent from "@/components/creativity/RepertoireContent";
+import { fetchGenres } from "@/data/genres";
 import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function Repertoire() {
   const locale = await getLocale();
   const t = await getTranslations("repertoirePage");
-  const localeTag = locale === "en" ? "en-US" : "pl-PL";
-
-  const compositions = await fetchCompositions();
-  const compositionsByLetter = compositions.reduce<
-    Record<string, typeof compositions>
-  >((acc, composition) => {
-    const firstLetter = composition.title
-      .trim()
-      .charAt(0)
-      .toLocaleUpperCase(localeTag);
-    const key = firstLetter || "#";
-
-    if (!acc[key]) {
-      acc[key] = [];
-    }
-
-    acc[key].push(composition);
-    return acc;
-  }, {});
-
-  const groupedEntries = Object.entries(compositionsByLetter).sort(([a], [b]) =>
-    a.localeCompare(b, localeTag),
-  );
+  const [compositions, genres] = await Promise.all([
+    fetchCompositions(locale),
+    fetchGenres(locale),
+  ]);
 
   return (
     <div className="bg-radial from-(--color-deep-teal-dark) to-(--color-soft-charcoal) min-h-screen pt-32 pb-20 px-6">
@@ -43,68 +26,11 @@ export default async function Repertoire() {
           </p>
         </div>
 
-        {compositions.length === 0 ? (
-          <p className="text-center text-(--color-off-white)/70 font-montserrat">
-            {t("empty")}
-          </p>
-        ) : (
-          <div className="space-y-10">
-            {groupedEntries.map(([letter, letterCompositions]) => (
-              <section key={letter} className="mb-4">
-                <div className="flex items-center gap-4">
-                  <span className="font-playfair text-3xl text-[#D4AF37]">
-                    {letter}
-                  </span>
-                  <div className="flex-1 h-px bg-[#F5F5F5]/10" />
-                </div>
-                <ul className="space-y-3 ml-6 mt-2 grid grid-cols-1 md:grid-cols-2 md:auto-rows-fr gap-y-4">
-                  {letterCompositions.map((composition, index) => {
-                    const details: string[] = [];
-                    const hasLeftBorder = index % 2 === 1;
-                    const hasTopBorder = false;
-
-                    if (composition.composers.length > 0) {
-                      details.push(composition.composers.join(", "));
-                    }
-
-                    if (composition.arrangers.length > 0) {
-                      details.push(
-                        `${t("arrangerPrefix")} ${composition.arrangers.join(", ")}`,
-                      );
-                    }
-
-                    return (
-                      <li
-                        key={composition.id}
-                        className={`pl-4 p-2 m-0 h-full border-(--color-off-white)/10 ${hasLeftBorder ? "md:border-l" : ""} ${hasTopBorder ? "md:border-t" : ""} hover:bg-(--color-off-white-medium)/10 transition-colors`}
-                      >
-                        <p>
-                          <span className="font-playfair text-lg text-(--color-off-white)">
-                            {composition.title}
-                          </span>
-                          <span className="text-(--color-off-white-medium) text-sm text-montserrat">
-                            {details.length > 0
-                              ? ` - ${details.join(", ")}`
-                              : ""}
-                          </span>
-                        </p>
-                        {composition.genres.length > 0 &&
-                          composition.genres.map((genre) => (
-                            <span
-                              key={genre}
-                              className="mt-1 px-2 py-1 mr-1 text-[0.6rem] uppercase tracking-[0.1rem] font-montserrat text-(--color-off-white-medium) bg-(--color-off-white-medium)/10 rounded-full"
-                            >
-                              {genre}
-                            </span>
-                          ))}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </section>
-            ))}
-          </div>
-        )}
+        <RepertoireContent
+          initialCompositions={compositions}
+          availableGenres={genres}
+          locale={locale}
+        />
       </div>
     </div>
   );

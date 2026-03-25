@@ -73,11 +73,11 @@ async function EventCard({ event, index }: EventCardProps) {
           </h3>
           <div className="flex flex-wrap gap-4 text-[rgb(var(--color-off-white-rgb)/0.6)] font-montserrat text-sm">
             <span className="flex items-center gap-2">
-              <Clock size={14} />
+              <Clock size={14} className="shrink-0" />
               {dateInfo.time}
             </span>
             <span className="flex items-center gap-2">
-              <MapPin size={14} />
+              <MapPin size={14} className="shrink-0" />
               {event.location}
             </span>
           </div>
@@ -85,11 +85,11 @@ async function EventCard({ event, index }: EventCardProps) {
 
         <div className="md:hidden flex flex-col gap-2 text-[rgb(var(--color-off-white-rgb)/0.6)] font-montserrat text-sm">
           <span className="flex items-center gap-2">
-            <Clock size={14} />
+            <Clock size={14} className="shrink-0" />
             {dateInfo.time}
           </span>
           <span className="flex items-center gap-2">
-            <MapPin size={14} />
+            <MapPin size={14} className="shrink-0" />
             {event.location}
           </span>
         </div>

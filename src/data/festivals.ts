@@ -19,6 +19,7 @@ type FestivalApiResponse = {
           title?: string;
           field_year?: number | null;
           field_description?: string | null;
+          field_awards?: string[] | null;
         };
         relationships?: {
           field_awards?: {
@@ -32,6 +33,7 @@ type FestivalApiResponse = {
           title?: string;
           field_year?: number | null;
           field_description?: string | null;
+          field_awards?: string[] | null;
         };
         relationships?: {
           field_awards?: {
@@ -74,7 +76,6 @@ export async function fetchFestivals(
 
   try {
     const params = new URLSearchParams();
-    params.set("include", "field_awards");
     if (typeof limit === "number") {
       params.set("page[limit]", String(limit));
     }
@@ -113,18 +114,26 @@ export async function fetchFestivals(
         : [];
 
     const festivals = items.map((item) => {
-      const awardRefs = item.relationships?.field_awards?.data ?? [];
-      const awards = awardRefs
-        .map((ref) => includedAwards.get(ref.id))
-        .filter((award): award is NonNullable<typeof award> => Boolean(award))
-        .map((award) => ({
-          id: award.id,
-          title:
-            award.attributes?.field_award_title ??
-            award.attributes?.title ??
-            award.attributes?.field_name ??
-            "",
-        }));
+      const attributeAwards = item.attributes?.field_awards;
+
+      const awards = Array.isArray(attributeAwards)
+        ? attributeAwards
+            .filter((award): award is string => typeof award === "string")
+            .map((award, index) => ({
+              id: `${item.id}-award-${index}`,
+              title: award,
+            }))
+        : (item.relationships?.field_awards?.data ?? [])
+            .map((ref) => includedAwards.get(ref.id))
+            .filter((award): award is NonNullable<typeof award> => Boolean(award))
+            .map((award) => ({
+              id: award.id,
+              title:
+                award.attributes?.field_award_title ??
+                award.attributes?.title ??
+                award.attributes?.field_name ??
+                "",
+            }));
 
       return {
         id: item.id,

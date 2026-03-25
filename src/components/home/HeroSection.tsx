@@ -45,7 +45,7 @@ export default function HeroSection() {
               priority
             />
           </div>
-          <h1 className="font-playfair text-3xl md:text-5xl lg:text-8xl text-(--color-off-white) mb-6 tracking-tight">
+          <h1 className="font-playfair text-3xl md:text-6xl lg:font-monserrat lg:text-[5rem] text-(--color-off-white) mb-6">
             {t("titleLine1")}
             <span className="block text-(--color-champagne-gold)">
               {t("titleLine2")}

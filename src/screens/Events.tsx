@@ -1,15 +1,16 @@
 import HashScrollToCenter from "@/components/layout/HashScrollToCenter";
 import EventCard from "@/components/ui/EventCard";
 import type { EventItem } from "@/data/events";
-import { fetchEvents } from "@/data/events";
+import { fetchEvents, splitEventsByTimeline } from "@/data/events";
 import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 export default async function Events() {
-  const events: EventItem[] = await fetchEvents();
   const t = await getTranslations("events");
   const locale = await getLocale();
+  const events: EventItem[] = await fetchEvents(undefined, locale);
   const localeStr = locale === "en" ? "en-GB" : "pl-PL";
+  const { upcoming, past } = splitEventsByTimeline(events);
 
   const formatMonthYear = (dateStr: string) => {
     const date = new Date(dateStr);
@@ -25,18 +26,55 @@ export default async function Events() {
     return monthYear.charAt(0).toUpperCase() + monthYear.slice(1);
   };
 
-  const eventsByMonth = events.reduce<Record<string, EventItem[]>>(
-    (acc, event) => {
-      const monthKey = formatMonthYear(event.date);
-      if (!acc[monthKey]) {
-        acc[monthKey] = [];
-      }
+  const groupEventsByMonth = (items: EventItem[]) =>
+    items.reduce<Record<string, EventItem[]>>(
+      (acc, event) => {
+        const monthKey = formatMonthYear(event.date);
+        if (!acc[monthKey]) {
+          acc[monthKey] = [];
+        }
 
-      acc[monthKey].push(event);
-      return acc;
-    },
-    {},
-  );
+        acc[monthKey].push(event);
+        return acc;
+      },
+      {},
+    );
+
+  const upcomingByMonth = groupEventsByMonth(upcoming);
+  const pastByMonth = groupEventsByMonth(past);
+
+  const renderSection = (
+    sectionTitle: string,
+    sectionEvents: EventItem[],
+    groupedEvents: Record<string, EventItem[]>,
+    emptyMessage: string,
+  ) => {
+    if (sectionEvents.length === 0) {
+      return (
+        <p className="text-(--color-off-white)/70 font-montserrat text-center">
+          {emptyMessage}
+        </p>
+      );
+    }
+
+    return (
+      <div className="grid gap-12">
+        {Object.entries(groupedEvents).map(([monthLabel, monthEvents]) => (
+          <section key={`${sectionTitle}-${monthLabel}`}>
+            <h3 className="animate-reveal fade-left text-(--color-off-white-medium) font-montserrat text-sm uppercase tracking-[0.3em] mb-4 block">
+              {monthLabel}
+            </h3>
+
+            <div className="grid">
+              {monthEvents.map((event, index) => (
+                <EventCard key={event.id} event={event} index={index} />
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    );
+  };
 
   return (
     <div className="bg-(--color-soft-charcoal) min-h-screen">
@@ -73,31 +111,31 @@ export default async function Events() {
         </div>
       </section>
 
-      {/* Concert List */}
-      <section className="py-16 px-6 max-w-6xl mx-auto">
-        {events.length === 0 && (
-          <p className="text-(--color-off-white)/70 font-montserrat text-center">
-            {t("noEvents")}
-          </p>
-        )}
+      {/* Event Lists */}
+      <section className="px-6 max-w-6xl mx-auto space-y-14">
+        <section>
+          <h2 className="text-(--color-champagne-gold) font-playfair text-3xl md:text-4xl text-center mb-8 block">
+            {t("upcomingHeading")}
+          </h2>
+          {renderSection(
+            t("upcomingHeading"),
+            upcoming,
+            upcomingByMonth,
+            t("noUpcomingEvents"),
+          )}
+        </section>
 
-        {events.length > 0 && (
-          <div className="grid gap-12">
-            {Object.entries(eventsByMonth).map(([monthLabel, monthEvents]) => (
-              <section key={monthLabel}>
-                <h2 className="animate-reveal fade-left text-(--color-off-white-medium) font-montserrat text-sm uppercase tracking-[0.3em] mb-4 block">
-                  {monthLabel}
-                </h2>
-
-                <div className="grid">
-                  {monthEvents.map((event, index) => (
-                    <EventCard key={event.id} event={event} index={index} />
-                  ))}
-                </div>
-              </section>
-            ))}
-          </div>
-        )}
+        <section className="pt-8">
+          <h2 className="text-(--color-off-white-medium) font-playfair text-3xl md:text-4xl text-center mb-8 block">
+            {t("pastHeading")}
+          </h2>
+          {renderSection(
+            t("pastHeading"),
+            past,
+            pastByMonth,
+            t("noPastEvents"),
+          )}
+        </section>
       </section>
     </div>
   );
