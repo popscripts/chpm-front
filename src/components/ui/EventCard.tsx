@@ -6,9 +6,10 @@ import { getLocale, getTranslations } from "next-intl/server";
 interface EventCardProps {
   event: EventItem;
   index: number;
+  isCompact?: boolean;
 }
 
-async function EventCard({ event, index }: EventCardProps) {
+async function EventCard({ event, index, isCompact = false }: EventCardProps) {
   const locale = await getLocale();
   const t = await getTranslations("events");
   const localeStr = locale === "en" ? "en-GB" : "pl-PL";

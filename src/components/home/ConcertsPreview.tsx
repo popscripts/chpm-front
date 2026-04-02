@@ -41,7 +41,7 @@ export default async function ConcertsPreview() {
         {/* Concert List */}
         <div className="space-y-0">
           {upcomingConcerts.map((concert, index) => {
-            return <EventCard key={concert.id} event={concert} index={index} />;
+            return <EventCard key={concert.id} event={concert} index={index} isCompact={true} />;
           })}
         </div>
       </div>
