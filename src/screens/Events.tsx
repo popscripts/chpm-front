@@ -48,6 +48,7 @@ export default async function Events() {
     sectionEvents: EventItem[],
     groupedEvents: Record<string, EventItem[]>,
     emptyMessage: string,
+    isCompact = false,
   ) => {
     if (sectionEvents.length === 0) {
       return (
@@ -67,7 +68,7 @@ export default async function Events() {
 
             <div className="grid">
               {monthEvents.map((event, index) => (
-                <EventCard key={event.id} event={event} index={index} />
+                <EventCard key={event.id} event={event} index={index} isCompact={isCompact} />
               ))}
             </div>
           </section>
@@ -112,7 +113,7 @@ export default async function Events() {
       </section>
 
       {/* Event Lists */}
-      <section className="px-6 max-w-6xl mx-auto space-y-14">
+      <section className="py-16 px-6 max-w-6xl mx-auto space-y-14">
         <section>
           <h2 className="text-(--color-champagne-gold) font-playfair text-3xl md:text-4xl text-center mb-8 block">
             {t("upcomingHeading")}
@@ -126,7 +127,7 @@ export default async function Events() {
         </section>
 
         <section className="pt-8">
-          <h2 className="text-(--color-off-white-medium) font-playfair text-3xl md:text-4xl text-center mb-8 block">
+          <h2 className="text-(--color-off-white) font-playfair text-3xl md:text-4xl text-center mb-8 block">
             {t("pastHeading")}
           </h2>
           {renderSection(
@@ -134,6 +135,7 @@ export default async function Events() {
             past,
             pastByMonth,
             t("noPastEvents"),
+            true
           )}
         </section>
       </section>
