@@ -76,6 +76,7 @@ export async function fetchFestivals(
 
   try {
     const params = new URLSearchParams();
+    params.set("sort", "-field_year");
     if (typeof limit === "number") {
       params.set("page[limit]", String(limit));
     }

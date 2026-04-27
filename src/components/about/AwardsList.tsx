@@ -18,11 +18,10 @@ export default function AwardsList({ festivals }: AwardsListProps) {
     <div className="relative">
       <div className="absolute left-4 top-0 bottom-0 w-px bg-(--color-champagne-gold)/20" />
       <ul className="space-y-10">
-        {festivals.map((festival, index) => (
+        {festivals.map((festival) => (
           <li
             key={festival.id}
             className="relative pl-10 animate-reveal fade-up"
-            style={{ transitionDelay: `${index * 90}ms` }}
           >
             <div className="absolute left-4 top-2 h-3 w-3 -translate-x-1/2 rounded-full bg-(--color-champagne-gold) shadow-[0_0_12px_rgba(212,175,55,0.5)]" />
             <div className="flex flex-col gap-3">
