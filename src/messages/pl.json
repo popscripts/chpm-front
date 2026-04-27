@@ -336,7 +336,8 @@
     "videos": {
       "eyebrow": "Teledyski",
       "title": "Zobacz nasze teledyski",
-      "description": "Nasze nagrania są wspierane przez profesjonalne teledyski, które tworzymy we współpracy z utalentowanymi reżyserami i ekipami filmowymi"
+      "description": "Nasze nagrania są wspierane przez profesjonalne teledyski, które tworzymy we współpracy z utalentowanymi reżyserami i ekipami filmowymi",
+      "showMore": "Pokaż więcej"
     },
     "discography": {
       "eyebrow": "Dyskografia",

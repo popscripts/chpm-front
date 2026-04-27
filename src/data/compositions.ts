@@ -58,6 +58,12 @@ type CompositionsApiResponse = {
   included?: Array<GenreIncluded | PersonIncluded>;
 };
 
+type FetchCompositionsPageOptions = {
+  limit?: number;
+  offset?: number;
+  locale?: string;
+};
+
 const getRelationIds = (
   relation?:
     | { id: string; type: string }
@@ -79,7 +85,10 @@ const getIncludedLabel = (item?: GenreIncluded | PersonIncluded) =>
 const getAppEnv = () =>
   (process.env.APP_ENV ?? process.env.NODE_ENV ?? "production").toLowerCase();
 
-export async function fetchCompositions(locale?: string): Promise<CompositionItem[]> {
+const fetchCompositionsPage = async (
+  options: FetchCompositionsPageOptions = {},
+): Promise<CompositionItem[]> => {
+  const { limit, offset, locale } = options;
   const baseUrl = process.env.API_URL;
   if (!baseUrl) {
     console.warn("API_URL is not set.");
@@ -93,6 +102,12 @@ export async function fetchCompositions(locale?: string): Promise<CompositionIte
   try {
     const params = new URLSearchParams();
     params.set("include", "field_genres,field_composer,field_arranger");
+    if (typeof limit === "number") {
+      params.set("page[limit]", String(limit));
+    }
+    if (typeof offset === "number") {
+      params.set("page[offset]", String(offset));
+    }
 
     const localePrefix = drupalLocalePathPrefix(drupalLocale);
     const response = await fetch(
@@ -162,4 +177,31 @@ export async function fetchCompositions(locale?: string): Promise<CompositionIte
     console.warn("Compositions fetch error:", error);
     return [];
   }
+};
+
+const DEFAULT_COMPOSITIONS_PAGE_SIZE = 50;
+
+export async function fetchCompositions(locale?: string): Promise<CompositionItem[]> {
+  const allCompositions: CompositionItem[] = [];
+  let offset = 0;
+
+  while (true) {
+    const pageCompositions = await fetchCompositionsPage({
+      limit: DEFAULT_COMPOSITIONS_PAGE_SIZE,
+      offset,
+      locale,
+    });
+
+    allCompositions.push(...pageCompositions);
+
+    if (pageCompositions.length < DEFAULT_COMPOSITIONS_PAGE_SIZE) {
+      break;
+    }
+
+    offset += DEFAULT_COMPOSITIONS_PAGE_SIZE;
+  }
+
+  return allCompositions.sort((a, b) =>
+    a.title.localeCompare(b.title, locale === "en" ? "en" : "pl"),
+  );
 }

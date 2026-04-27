@@ -1,10 +1,12 @@
 import SectionWrapper from "../layout/SectionWrapper";
-import MusicVideosList from "../ui/MusicVideosList";
 import SectionHeader from "../ui/SectionHeader";
+import { fetchMusicVideos } from "@/data/musicVideos";
+import MusicVideosList from "@/components/ui/MusicVideosList";
 import { getTranslations } from "next-intl/server";
 
 async function Videos() {
   const t = await getTranslations("creativityPage.videos");
+  const videos = await fetchMusicVideos();
 
   return (
     <SectionWrapper
@@ -18,7 +20,7 @@ async function Videos() {
           description={t("description")}
           className="mb-8"
         />
-        <MusicVideosList />
+        <MusicVideosList videos={videos} />
       </div>
     </SectionWrapper>
   );

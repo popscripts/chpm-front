@@ -1,13 +1,15 @@
 import { Link } from "@/i18n/navigation";
+import { fetchMusicVideos } from "@/data/musicVideos";
 import { STREAMING_PLATFORMS } from "@/utils/constants";
 import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import SectionWrapper from "../layout/SectionWrapper";
-import MusicVideosList from "../ui/MusicVideosList";
 import SectionHeader from "../ui/SectionHeader";
+import MusicVideosList from "@/components/ui/MusicVideosList";
 
 export default async function CreativityPreview() {
   const t = await getTranslations("home.creativity");
+  const videos = await fetchMusicVideos();
 
   return (
     <SectionWrapper id="tworczosc" background="tealRadial">
@@ -19,10 +21,10 @@ export default async function CreativityPreview() {
           className="mb-8"
         />
 
-        <MusicVideosList />
+        <MusicVideosList videos={videos} canExpand={false} />
 
         {/* Streaming links */}
-        <div className="flex flex-row flex-wrap items-center justify-center gap-6 mb-12 animate-reveal fade-up">
+        <div className="flex flex-row flex-wrap items-center justify-center gap-6 mt-12 mb-12 animate-reveal fade-up">
           <span className="text-[rgb(var(--color-off-white-rgb)/0.5)] font-montserrat text-sm uppercase tracking-wider">
             {t("listenOn")}
           </span>

@@ -408,7 +408,8 @@
     "videos": {
       "eyebrow": "Music videos",
       "title": "Watch our music videos",
-      "description": "Our recordings are supported by professional music videos created in cooperation with talented directors and film crews"
+      "description": "Our recordings are supported by professional music videos created in cooperation with talented directors and film crews",
+      "showMore": "Show more"
     },
     "discography": {
       "eyebrow": "Discography",

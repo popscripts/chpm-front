@@ -121,11 +121,10 @@ async function Awards() {
         </div>
 
         <div className="divide-y divide-(--color-off-white)/12 border-y border-(--color-off-white)/12">
-          {conductorAwards.items.map((award, index) => (
+          {conductorAwards.items.map((award) => (
             <article
               key={`${award.title}-${award.date}`}
               className="animate-reveal fade-up py-4"
-              style={{ transitionDelay: `${index * 50}ms` }}
             >
               <div className="grid gap-2 md:grid-cols-[170px_1fr] md:items-start md:gap-4">
                 <span className="font-montserrat text-xs uppercase tracking-[0.2em] text-(--color-champagne-gold) md:pt-1">
